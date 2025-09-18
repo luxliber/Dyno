@@ -1,0 +1,173 @@
+.site-content a:not(.button) {
+	color: #f8b930;
+}
+h3.selected {
+	background-color: #f8b930 !important;
+}
+ul.lang-menu li.current-lang {
+	background-color: #f8b930 !important;
+}
+ul.lang-menu li.current-menu-ancestor {
+	background-color: #f8b930 !important;
+}
+.sub-menu li.current-menu-item {
+	background-color: #f8b930 !important;
+}
+.entry-header h1.entry-title {
+	color: #f8b930 !important;
+}
+.primary-menu li.current-menu-ancestor, .primary-menu li.current-menu-item {
+	background-color: #f8b930 !important;
+}
+#toc_container h1 > a, #toc_container h1 > ahover {
+	color: #f8b930 !important;
+}
+.lsow-purchase {
+	display: none;
+}
+.lsow-tagline {
+	font-size: 12px;
+}
+.lsow-pricing-table .lsow-top-header h3 {
+	font-size: 15px;
+}
+.lsow-pricing-table .lsow-pricing-plan.lsow-highlight {
+	background: #ddd;
+	margin-top: -30px;
+	margin-bottom: -60px;
+}
+ul.lang-menu {
+	float: right;
+	height: 60px;
+	margin-right: 60px;
+}
+ul.lang-menu li {
+	width: auto;
+	display: inline;
+	list-style: none;
+	font-family: "Proxima Nova Regular";
+	height: 100%;
+	display: inline-block;
+	line-height: 60px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+ul.lang-menu li a {
+	font-size: 14px !important;
+	text-transform: none !important;
+	color: black;
+}
+ul.lang-menu li ahover {
+	color: #f8b930;
+}
+ul.lang-menu li.current-lang {
+	background-color: #f8b930;
+}
+ul.lang-menu li.current-lang a {
+	color: white !important;
+}
+ul.lang-menu li.current-lang {
+	background-color: #f8b930 !important;
+}
+ul.lang-menu li.current-lang a:hover {
+	background-color: inherit !important;
+}
+ul.lang-menu li.current-lang: hover {
+	background: white !important;
+	color: black !important;
+}
+ul.lang-menu li.current-menu-ancestor {
+	background-color: #f8b930 !important;
+}
+.menu-container {
+	display: inline-block;
+}
+.primary-menu {
+	margin-right: 0px;
+	text-transform: none !important;
+	font-family: "Proxima Nova Regular" !important;
+}
+.primary-menu > li > a {
+	line-height: inherit !important;
+}
+.primary-menu li.current-menu-ancestor, .primary-menu li.current-menu-item {
+	background-color: #f8b930 !important;
+}
+.primary-menu li.menu-item > a:hover {
+	color: #f8b930;
+}
+.primary-menu > li.menu-item {
+	margin: 0 !important;
+	padding-left: 10px;
+	padding-right: 10px;
+	height: 60px;
+}
+.primary-menu li.menu-item > a {
+	color: black;
+}
+.primary-menu li.current-menu-item, .primary-menu li.current-menu-ancestor {
+	background-color: #f8b930 !important;
+}
+.primary-menu li.current-menu-ancestor > a {
+	color: white !important;
+}
+.primary-menu li.current-menu-item > a {
+	color: white !important;
+	background-color: transparent !important;
+}
+.primary-menu > li.menu-item > a {
+	padding: 18px 5px 0 5px;
+	height: 100%;
+	display: inline-block;
+}
+.primary-menu > li > a, .primary-menu > li > a:after {
+	content: "";
+}
+.primary-menu .sub-menu .menu-item-has-children > a {
+	position: relative;
+}
+.primary-menu .sub-menu .menu-item-has-children > a:after {
+	line-height: inherit;
+	top: 6px;
+}
+.primary-menu .sub-menu li a {
+	padding: 5px;
+	text-align: left;
+}
+.primary-menu .sub-menu .sub-menu {
+	position: absolute;
+	top: 0;
+}
+.sub-menu {
+	background-color: white !important;
+	color: white;
+	width: max-content !important;
+	border-width: 0 !important;
+	font-size: 14px !important;
+}
+.sub-menu li.menu-item {
+	position: relative;
+	background-color: transparent !important;
+	border: 0px !important;
+	padding: 10px;
+	display: block;
+}
+.sub-menu li.menu-item a {
+	margin: 0;
+}
+.sub-menu li.menu-item a:hover {
+	background-color: inherit !important;
+}
+.site-content a:not(.button) {
+	color: #f8b930;
+}
+.slogan-transparent {
+	background: #bb8800bb;
+	color: white !important;
+}
+.slogan-transparent h1 {
+	color: white !important;
+}
+.slogan-transparent h2 {
+	color: white !important;
+}

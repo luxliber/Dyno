@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)http://prorubim.com/ru/tools/dyno/manual/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru-RU" style="" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        
+    <meta name="google-site-verification" content="n_81ROYNehtvvl1z721x5yVEAqh34_2SflTKBJwIz3g">
+
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <link href="./Настройка Dyno_files/css" rel="stylesheet" type="text/css">
+
+    
+        <title>Настройка Dyno</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v12.7.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Это справочное руководство описывает тонкости использования функций Dyno. Установка и настройка программы, требования к Revit и Dynamo.">
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="http://prorubim.com/ru/tools/dyno/manual/">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Настройка Dyno">
+<meta property="og:description" content="Это справочное руководство описывает тонкости использования функций Dyno. Установка и настройка программы, требования к Revit и Dynamo.">
+<meta property="og:url" content="http://prorubim.com/ru/tools/dyno/manual/">
+<meta property="og:site_name" content="PRORUBIM - BIM технологии, внедрение, моделирование, проектирование, курсы">
+<meta property="article:publisher" content="http://www.facebook.com/pr0rubim">
+<meta property="og:image" content="http://prorubim.com/wp-content/uploads/m1.2.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="Это справочное руководство описывает тонкости использования функций Dyno. Установка и настройка программы, требования к Revit и Dynamo.">
+<meta name="twitter:title" content="Настройка Dyno">
+<meta name="twitter:image" content="http://prorubim.com/wp-content/uploads/m1.2.jpg">
+<script async="" src="./Настройка Dyno_files/loader_8.js.Без названия"></script><script type="text/javascript" async="" src="./Настройка Dyno_files/analytics.js.Без названия"></script><script async="" src="./Настройка Dyno_files/form_loader.js.Без названия"></script><script type="application/ld+json" class="yoast-schema-graph yoast-schema-graph--main">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"http://prorubim.com/ru/#organization","name":"PRORUBIM","url":"http://prorubim.com/ru/","sameAs":["http://www.facebook.com/pr0rubim","http://instagram.com/pr0rubim/","http://www.youtube.com/channel/UCdjd7d2BNCKuunX2fx-nBww?sub_confirmation=1"],"logo":{"@type":"ImageObject","@id":"http://prorubim.com/ru/#logo","url":"https://i2.wp.com/prorubim.com/wp-content/uploads/500_padding.png?fit=752%2C753","width":752,"height":753,"caption":"PRORUBIM"},"image":{"@id":"http://prorubim.com/ru/#logo"}},{"@type":"WebSite","@id":"http://prorubim.com/ru/#website","url":"http://prorubim.com/ru/","name":"PRORUBIM - BIM \u0442\u0435\u0445\u043d\u043e\u043b\u043e\u0433\u0438\u0438, \u0432\u043d\u0435\u0434\u0440\u0435\u043d\u0438\u0435, \u043c\u043e\u0434\u0435\u043b\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435, \u043f\u0440\u043e\u0435\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435, \u043a\u0443\u0440\u0441\u044b","description":"\u0422\u043e\u043b\u044c\u043a\u043e \u043d\u0430\u0447\u0438\u043d\u0430\u0435\u0442\u0435 \u0441\u0432\u043e\u0439 \u043f\u0443\u0442\u044c \u043a \u0442\u0435\u0445\u043d\u043e\u043b\u043e\u0433\u0438\u0438 BIM \u0438\u043b\u0438 \u0438\u0434\u0435\u0442\u0435 \u043f\u043e \u043d\u0435\u043c\u0443? \u0412\u043e\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u0439\u0442\u0435\u0441\u044c \u043a\u043e\u043c\u043f\u043b\u0435\u043a\u0441\u043e\u043c \u043d\u0430\u0448\u0438\u0445 \u0443\u0441\u043b\u0443\u0433!","publisher":{"@id":"http://prorubim.com/ru/#organization"},"potentialAction":{"@type":"SearchAction","target":"http://prorubim.com/ru/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"http://prorubim.com/ru/tools/dyno/manual/#primaryimage","url":"https://i2.wp.com/prorubim.com/wp-content/uploads/m1.2.jpg?fit=365%2C214","width":365,"height":214},{"@type":"WebPage","@id":"http://prorubim.com/ru/tools/dyno/manual/#webpage","url":"http://prorubim.com/ru/tools/dyno/manual/","inLanguage":"ru-RU","name":"\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0430 Dyno","isPartOf":{"@id":"http://prorubim.com/ru/#website"},"primaryImageOfPage":{"@id":"http://prorubim.com/ru/tools/dyno/manual/#primaryimage"},"datePublished":"2017-06-11T12:01:32+00:00","dateModified":"2018-05-02T18:48:14+00:00","description":"\u042d\u0442\u043e \u0441\u043f\u0440\u0430\u0432\u043e\u0447\u043d\u043e\u0435 \u0440\u0443\u043a\u043e\u0432\u043e\u0434\u0441\u0442\u0432\u043e \u043e\u043f\u0438\u0441\u044b\u0432\u0430\u0435\u0442 \u0442\u043e\u043d\u043a\u043e\u0441\u0442\u0438 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u044f \u0444\u0443\u043d\u043a\u0446\u0438\u0439 Dyno. \u0423\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0430 \u0438 \u043d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0430 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u044b, \u0442\u0440\u0435\u0431\u043e\u0432\u0430\u043d\u0438\u044f \u043a Revit \u0438 Dynamo."}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel="dns-prefetch" href="http://s0.wp.com/">
+<link rel="dns-prefetch" href="http://secure.gravatar.com/">
+<link rel="dns-prefetch" href="http://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="http://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="PRORUBIM - BIM технологии, внедрение, моделирование, проектирование, курсы » Лента" href="http://prorubim.com/ru/feed/">
+<link rel="alternate" type="application/rss+xml" title="PRORUBIM - BIM технологии, внедрение, моделирование, проектирование, курсы » Лента комментариев" href="http://prorubim.com/ru/comments/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/prorubim.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.3.18"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Настройка Dyno_files/wp-emoji-release.min.js.Без названия" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="hugeit-lightbox-css-css" href="./Настройка Dyno_files/lightbox.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="./Настройка Dyno_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="siteorigin-panels-front-css" href="./Настройка Dyno_files/front-flex.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="symple_shortcode_styles-css" href="./Настройка Dyno_files/symple_shortcodes_styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="dashicons-css" href="./Настройка Dyno_files/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="bento-theme-styles-css" href="./Настройка Dyno_files/style.css" type="text/css" media="all">
+<style id="bento-theme-styles-inline-css" type="text/css">
+
+		.logo {
+			padding: 0px 0;
+			padding: 0rem 0;
+		}
+	
+		@media screen and (min-width: 64em) {
+			.bnt-container {
+				max-width: 1140px;
+				max-width: 114rem;
+			}
+		}
+		@media screen and (min-width: 78.375em) {
+			.bnt-container {
+				padding: 0;
+			}
+		}
+		@media screen and (min-width: 120em) {
+			.bnt-container {
+				max-width: 1500px;
+				max-width: 150rem;
+			}
+		}
+	
+		body {
+			font-family: Open Sans, Arial, sans-serif;
+			font-size: 14px;
+			font-size: 1.4em;
+		}
+		.site-content h1, 
+		.site-content h2, 
+		.site-content h3, 
+		.site-content h4, 
+		.site-content h5, 
+		.site-content h6,
+		.post-header-title h1 {
+			font-family: Open Sans, Arial, sans-serif;
+		}
+		#nav-primary {
+			font-family: Montserrat, Arial, sans-serif;
+		}
+		.primary-menu > li > a,
+		.primary-menu > li > a:after {
+			font-size: 14px;
+			font-size: 1.4rem;
+		}
+	
+		.site-header,
+		.header-default .site-header.fixed-header,
+		.header-side .site-wrapper {
+			background: #ffffff;
+		}
+		.primary-menu > li > .sub-menu {
+			border-top-color: #ffffff;
+		}
+		.primary-menu > li > a,
+		#nav-mobile li a,
+		.mobile-menu-trigger,
+		.mobile-menu-close,
+		.ham-menu-close {
+			color: #333333;
+		}
+		.primary-menu > li > a:hover,
+		.primary-menu > li.current-menu-item > a,
+		.primary-menu > li.current-menu-ancestor > a {
+			color: #dd9933;
+		}
+		.primary-menu .sub-menu li,
+		#nav-mobile {
+			background-color: #dddddd;
+		}
+		.primary-menu .sub-menu li a:hover,
+		.primary-menu .sub-menu .current-menu-item:not(.current-menu-ancestor) > a,
+		#nav-mobile li a:hover,
+		#nav-mobile .current-menu-item:not(.current-menu-ancestor) > a {
+			background-color: #cccccc;
+		}
+		.primary-menu .sub-menu,
+		.primary-menu .sub-menu li,
+		#nav-mobile li a,
+		#nav-mobile .primary-mobile-menu > li:first-child > a {
+			border-color: #cccccc;
+		}
+		.primary-menu .sub-menu li a {
+			color: #333333; 
+		}
+		.primary-menu .sub-menu li:hover a {
+			color: #333333; 
+		}
+		#nav-mobile {
+			background-color: #dddddd;
+		}
+		#nav-mobile li a,
+		.mobile-menu-trigger,
+		.mobile-menu-close {
+			color: #333333;
+		}
+		#nav-mobile li a:hover,
+		#nav-mobile .current-menu-item:not(.current-menu-ancestor) > a {
+			background-color: #cccccc;
+		}
+		#nav-mobile li a,
+		#nav-mobile .primary-mobile-menu > li:first-child > a {
+			border-color: #cccccc;	
+		}
+		#nav-mobile li a:hover,
+		.mobile-menu-trigger-container:hover,
+		.mobile-menu-close:hover {
+			color: #333333;
+		}
+	
+		.site-content {
+			background-color: #ffffff;
+		}
+		.site-content h1, 
+		.site-content h2, 
+		.site-content h3, 
+		.site-content h4, 
+		.site-content h5, 
+		.site-content h6 {
+			color: #333333;
+		}
+		.products .product a h3,
+		.masonry-item-box a h2 {
+			color: inherit;	
+		}
+		.site-content {
+			color: #333333;
+		}
+		.site-content a:not(.masonry-item-link) {
+			color: #dd9933;
+		}
+		.site-content a:not(.page-numbers) {
+			color: #dd9933;
+		}
+		.site-content a:not(.ajax-load-more) {
+			color: #dd9933;
+		}
+		.site-content a:not(.remove) {
+			color: #dd9933;
+		}
+		.site-content a:not(.button) {
+			color: #dd9933;
+		}
+		.page-links a .page-link-text:not(:hover) {
+			color: #00B285;
+		}
+		label,
+		.wp-caption-text,
+		.post-date-blog,
+		.entry-footer, 
+		.archive-header .archive-description, 
+		.comment-meta,
+		.comment-notes,
+		.project-types,
+		.widget_archive li,
+		.widget_categories li,
+		.widget .post-date,
+		.widget_calendar table caption,
+		.widget_calendar table th,
+		.widget_recent_comments .recentcomments,
+		.product .price del,
+		.widget del,
+		.widget del .amount,
+		.product_list_widget a.remove,
+		.product_list_widget .quantity,
+		.product-categories .count,
+		.product_meta,
+		.shop_table td.product-remove a,
+		.woocommerce-checkout .payment_methods .wc_payment_method .payment_box {
+			color: #999999;
+		}
+		hr,
+		.entry-content table,
+		.entry-content td,
+		.entry-content th,
+		.separator-line,
+		.comment .comment .comment-nested,
+		.comment-respond,
+		.sidebar .widget_recent_entries ul li,
+		.sidebar .widget_recent_comments ul li,
+		.sidebar .widget_categories ul li,
+		.sidebar .widget_archive ul li,
+		.sidebar .widget_product_categories ul li,
+		.woocommerce .site-footer .widget-woo .product_list_widget li,
+		.woocommerce .site-footer .widget-woo .cart_list li:last-child,
+		.woocommerce-tabs .tabs,
+		.woocommerce-tabs .tabs li.active,
+		.cart_item,
+		.cart_totals .cart-subtotal,
+		.cart_totals .order-total,
+		.woocommerce-checkout-review-order table tfoot,
+		.woocommerce-checkout-review-order table tfoot .order-total,
+		.woocommerce-checkout-review-order table tfoot .shipping {
+			border-color: #dddddd;	
+		}
+		input[type="text"], 
+		input[type="password"], 
+		input[type="email"], 
+		input[type="number"], 
+		input[type="tel"], 
+		input[type="search"], 
+		textarea, 
+		select, 
+		.select2-container {
+			background-color: #e4e4e4;
+			color: #333333;
+		}
+		::-webkit-input-placeholder { 
+			color: #aaaaaa; 
+		}
+		::-moz-placeholder { 
+			color: #aaaaaa; 
+		}
+		:-ms-input-placeholder { 
+			color: #aaaaaa; 
+		}
+		input:-moz-placeholder { 
+			color: #aaaaaa; 
+		}
+		.pagination a.page-numbers:hover,
+		.woocommerce-pagination a.page-numbers:hover,
+		.site-content a.ajax-load-more:hover,
+		.page-links a .page-link-text:hover,
+		.widget_price_filter .ui-slider .ui-slider-range, 
+		.widget_price_filter .ui-slider .ui-slider-handle,
+		input[type="submit"],
+		.site-content .button,
+		.widget_price_filter .ui-slider .ui-slider-range, 
+		.widget_price_filter .ui-slider .ui-slider-handle {
+			background-color: #00b285;	
+		}
+		.pagination a.page-numbers:hover,
+		.woocommerce-pagination a.page-numbers:hover,
+		.site-content a.ajax-load-more:hover,
+		.page-links a .page-link-text:hover {
+			border-color: #00b285;
+		}
+		.page-links a .page-link-text:not(:hover),
+		.pagination a, 
+		.woocommerce-pagination a,
+		.site-content a.ajax-load-more {
+			color: #00b285;
+		}
+		input[type="submit"]:hover,
+		.site-content .button:hover {
+			background-color: #00906c;
+		}
+		input[type="submit"],
+		.site-content .button,
+		.site-content a.button,
+		.pagination a.page-numbers:hover,
+		.woocommerce-pagination a.page-numbers:hover,
+		.site-content a.ajax-load-more:hover,
+		.page-links a .page-link-text:hover {
+			color: #ffffff;	
+		}
+		input[type="submit"]:hover,
+		.site-content .button:hover {
+			color: #ffffff;
+		}
+		.shop_table .actions .button,
+		.shipping-calculator-form .button,
+		.checkout_coupon .button,
+		.widget_shopping_cart .button:first-child,
+		.price_slider_amount .button {
+			background-color: #999999;
+		}
+		.shop_table .actions .button:hover,
+		.shipping-calculator-form .button:hover,
+		.checkout_coupon .button:hover,
+		.widget_shopping_cart .button:first-child:hover,
+		.price_slider_amount .button:hover {
+			background-color: #777777;
+		}
+		.shop_table .actions .button,
+		.shipping-calculator-form .button,
+		.checkout_coupon .button,
+		.widget_shopping_cart .button:first-child,
+		.price_slider_amount .button {
+			color: #ffffff;
+		}
+		.shop_table .actions .button:hover,
+		.shipping-calculator-form .button:hover,
+		.checkout_coupon .button:hover,
+		.widget_shopping_cart .button:first-child:hover,
+		.price_slider_amount .button:hover {
+			color: #ffffff;
+		}
+	
+		.sidebar-footer {
+			background-color: #333333;
+		}
+		.site-footer {
+			color: #cccccc;
+		}
+		.site-footer a {
+			color: #ffffff;
+		}
+		.site-footer label, 
+		.site-footer .post-date-blog, 
+		.site-footer .entry-footer, 
+		.site-footer .comment-meta, 
+		.site-footer .comment-notes, 
+		.site-footer .widget_archive li, 
+		.site-footer .widget_categories li, 
+		.site-footer .widget .post-date, 
+		.site-footer .widget_calendar table caption, 
+		.site-footer .widget_calendar table th, 
+		.site-footer .widget_recent_comments .recentcomments {
+			color: #aaaaaa;
+		}
+		.sidebar-footer .widget_recent_entries ul li, 
+		.sidebar-footer .widget_recent_comments ul li, 
+		.sidebar-footer .widget_categories ul li, 
+		.sidebar-footer .widget_archive ul li {
+			border-color: #999999;
+		}
+		.bottom-footer {
+			background-color: #333333;
+			color: #cccccc;
+		}
+		.bottom-footer a {
+			color: #ffffff;
+		}
+	
+		.home.blog .post-header-title h1 {
+			color: #ffffff;
+		}
+		.home.blog .post-header-subtitle {
+			color: #cccccc;
+		}
+	
+
+			.post-header-title h1,
+			.entry-header h1 { 
+				color: ; 
+			}
+			.post-header-subtitle {
+				color: #999999;
+			}
+			.site-content {
+				background-color: ;
+			}
+		
+</style>
+<link rel="stylesheet" id="font-awesome-css" href="./Настройка Dyno_files/font-awesome.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="google-fonts-css" href="./Настройка Dyno_files/css(1)" type="text/css" media="all">
+<link rel="stylesheet" id="tablepress-default-css" href="./Настройка Dyno_files/default.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="msl-main-css" href="./Настройка Dyno_files/masterslider.main.css" type="text/css" media="all">
+<link rel="stylesheet" id="msl-custom-css" href="./Настройка Dyno_files/custom.css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack_css-css" href="./Настройка Dyno_files/jetpack.css" type="text/css" media="all">
+<script type="text/javascript" src="./Настройка Dyno_files/jquery.js.Без названия"></script>
+<script type="text/javascript" src="./Настройка Dyno_files/jquery-migrate.min.js.Без названия"></script>
+<script type="text/javascript" src="./Настройка Dyno_files/froogaloop2.min.js.Без названия"></script>
+<link rel="https://api.w.org/" href="http://prorubim.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://prorubim.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://prorubim.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.3.18">
+<link rel="shortlink" href="https://wp.me/P8P9Sj-6F">
+<link rel="alternate" type="application/json+oembed" href="http://prorubim.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fprorubim.com%2Fru%2Ftools%2Fdyno%2Fmanual%2F">
+<link rel="alternate" type="text/xml+oembed" href="http://prorubim.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fprorubim.com%2Fru%2Ftools%2Fdyno%2Fmanual%2F&amp;format=xml">
+<script type="text/javascript">var ajaxurl = "http://prorubim.com/wp-admin/admin-ajax.php";</script>        <script type="text/javascript">
+            (function () {
+                window.lsow_fs = {can_use_premium_code: false};
+            })();
+        </script>
+        <script>var ms_grabbing_curosr = 'http://prorubim.com/wp-content/plugins/master-slider/public/assets/css/common/grabbing.cur', ms_grab_curosr = 'http://prorubim.com/wp-content/plugins/master-slider/public/assets/css/common/grab.cur';</script>
+<meta name="generator" content="MasterSlider 3.5.3 - Responsive Touch Image Slider | avt.li/msf">
+<script type="text/javascript">
+/* <![CDATA[ */
+var VPData = {"__":{"couldnt_retrieve_vp":"Couldn&#039;t retrieve Visual Portfolio ID.","pswp_close":"Close (Esc)","pswp_share":"Share","pswp_fs":"Toggle fullscreen","pswp_zoom":"Zoom in\/out","pswp_prev":"Previous (arrow left)","pswp_next":"Next (arrow right)","pswp_share_fb":"Share on Facebook","pswp_share_tw":"Tweet","pswp_share_pin":"Pin it","fancybox_close":"Close","fancybox_next":"Next","fancybox_prev":"Previous","fancybox_error":"The requested content cannot be loaded. <br \/> Please try again later.","fancybox_play_start":"Start slideshow","fancybox_play_stop":"Pause slideshow","fancybox_full_screen":"Full screen","fancybox_thumbs":"Thumbnails","fancybox_download":"Download","fancybox_share":"Share","fancybox_zoom":"Zoom"},"settingsPopupGallery":{"vendor":"photoswipe","show_arrows":true,"show_counter":true,"show_zoom_button":true,"show_fullscreen_button":true,"show_share_button":true,"show_close_button":true,"show_download_button":false,"show_slideshow":false,"show_thumbs":true},"screenSizes":[320,576,768,992,1200]};
+/* ]]> */
+</script>
+<link rel="alternate" href="http://prorubim.com/ru/tools/dyno/manual/" hreflang="ru">
+<link rel="alternate" href="http://prorubim.com/en/tools/dyno/manual/" hreflang="en">
+
+<link rel="dns-prefetch" href="http://v0.wordpress.com/">
+<link rel="dns-prefetch" href="http://i0.wp.com/">
+<link rel="dns-prefetch" href="http://i1.wp.com/">
+<link rel="dns-prefetch" href="http://i2.wp.com/">
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #ffffff; }
+</style>
+	                <style type="text/css" media="all" id="siteorigin-panels-layouts-head">/* Layout 413 */ #pgc-413-0-0 { width:30%;width:calc(30% - ( 0.7 * 30px ) ) } #pl-413 #panel-413-0-0-0 , #pl-413 #panel-413-0-1-0 {  } #pgc-413-0-1 { width:70%;width:calc(70% - ( 0.3 * 30px ) ) } #pl-413 .so-panel { margin-bottom:30px } #pl-413 .so-panel:last-child { margin-bottom:0px } #pg-413-0.panel-no-style, #pg-413-0.panel-has-style > .panel-row-style { -webkit-align-items:flex-start;align-items:flex-start } #pgc-413-0-0 { align-self:auto } @media (max-width:780px){ #pg-413-0.panel-no-style, #pg-413-0.panel-has-style > .panel-row-style { -webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column } #pg-413-0 > .panel-grid-cell , #pg-413-0 > .panel-row-style > .panel-grid-cell { width:100%;margin-right:0 } #pgc-413-0-0 { margin-bottom:30px } #pl-413 .panel-grid-cell { padding:0 } #pl-413 .panel-grid .panel-grid-cell-empty { display:none } #pl-413 .panel-grid .panel-grid-cell-mobile-last { margin-bottom:0px }  } </style><link rel="icon" href="https://i0.wp.com/prorubim.com/wp-content/uploads/logo_main.png?fit=32%2C30" sizes="32x32">
+<link rel="icon" href="https://i0.wp.com/prorubim.com/wp-content/uploads/logo_main.png?fit=64%2C60" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://i0.wp.com/prorubim.com/wp-content/uploads/logo_main.png?fit=64%2C60">
+<meta name="msapplication-TileImage" content="https://i0.wp.com/prorubim.com/wp-content/uploads/logo_main.png?fit=64%2C60">
+<link href="./Настройка Dyno_files/css(2)" rel="stylesheet">
+
+<link rel="stylesheet" href="./Настройка Dyno_files/fonts.css" type="text/css">
+<script src="./Настройка Dyno_files/modernizr.min.js.Без названия" type="text/javascript">
+
+<script src="http://prorubim.com/wp-content/themes/bento-prorubim/smoothscroll.js"></script>
+<script src="./Настройка Dyno_files/toc.min.js.Без названия"></script>
+<link rel="stylesheet" href="./Настройка Dyno_files/style-prorubim.css" type="text/css"><link rel="stylesheet" href="./Настройка Dyno_files/style-navbar-media.css" type="text/css"><link rel="stylesheet" href="./Настройка Dyno_files/style-tools.css" type="text/css">
+<link rel="stylesheet" href="./Настройка Dyno_files/style(1).css" type="text/css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="./Настройка Dyno_files/js"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-116353697-1');
+    </script>
+
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "Organization",
+            "url": "http://prorubim.com",
+            "logo": "http://prorubim.com/wp-content/uploads/500_padding.png",
+            "name": "PRORUBIM",
+             "sameAs": [
+                "http://www.facebook.com/pr0rubim",
+                "http://instagram.com/pr0rubim",
+                "http://twitter.com/intent/follow?source=followbutton&variant=1.0&screen_name=PR0RUBIM",
+                "http://www.youtube.com/channel/UCdjd7d2BNCKuunX2fx-nBww",
+                "https://plus.google.com/+prorubimcom"
+              ],
+             "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+7-495-649-85-43",
+                "contactType": "customer support",
+                "areaServed": "Moscow",
+                "availableLanguage": "Russian"
+              }
+        }
+    </script>
+
+
+    <script src="./Настройка Dyno_files/navbar.js.Без названия"></script>
+    <link href="./Настройка Dyno_files/callme.css" rel="stylesheet" type="text/css">
+
+<style type="text/css"></style><script type="text/javascript">
+	(function(w,d,u){
+		var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+		var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+	})(window,document,'https://cdn-ru.bitrix24.ru/b8325367/crm/form/loader_8.js');
+</script><script type="text/javascript" async="" src="./Настройка Dyno_files/app.js.Без названия"></script><link type="text/css" rel="stylesheet" href="./Настройка Dyno_files/app.bundle.min.css"><script type="text/javascript" src="./Настройка Dyno_files/app.bundle.min.js.Без названия"></script><link rel="stylesheet" id="gravatar-card-css" href="./Настройка Dyno_files/hovercards.min.css"></head>
+
+
+
+<body class="page-template-default page page-id-413 page-child parent-pageid-252 custom-background _masterslider _ms_version_3.5.3 siteorigin-panels  symple-shortcodes  symple-shortcodes-responsive no-sidebar header-default">
+
+
+<div class="site-wrapper clear">
+
+    <header class="cd-auto-hide-header">
+        <div class="logo clear"><a href="http://prorubim.com/ru/" class="custom-logo-link" rel="home"><img class="logo-fullsize" src="./Настройка Dyno_files/logo_tools.png" alt="" scale="0"></a></div>
+        <a href="http://prorubim.com/ru/tools/dyno/manual/#cd-navigation" class="nav-trigger">
+			<span>
+				<em aria-hidden="true"></em>
+				Menu
+			</span>
+        </a> <!-- .nav-trigger -->
+
+        <ul class="lang-menu">	<li class="lang-item lang-item-2 lang-item-ru lang-item-first current-lang"><a lang="ru-RU" hreflang="ru-RU" href="http://prorubim.com/ru/tools/dyno/manual/">Русский</a></li>
+	<li class="lang-item lang-item-5 lang-item-en"><a lang="en-US" hreflang="en-US" href="http://prorubim.com/en/tools/dyno/manual/">English</a></li>
+</ul>
+        <nav class="cd-primary-nav">
+
+
+            <ul id="menu-top-ru" class="primary-menu"><li id="menu-item-550" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-550"><a href="http://prorubim.com/ru/course/">Обучение</a>
+<ul class="sub-menu">
+	<li id="menu-item-1472" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1472"><a href="http://prorubim.com/ru/course/shedule/">Календарь курсов и цены</a></li>
+	<li id="menu-item-6503" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6503"><a href="http://prorubim.com/ru/course/tutors/">Наши преподаватели</a></li>
+</ul>
+</li>
+<li id="menu-item-6178" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6178"><a href="https://content.prorubim.com/">Бесплатный BIM контент</a>
+<ul class="sub-menu">
+	<li id="menu-item-6502" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6502"><a href="https://content.prorubim.com/materials?category=&amp;sort=created_at">Самые свежие публикации!</a></li>
+	<li id="menu-item-6500" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6500"><a href="https://content.prorubim.com/materials?category=skripty">Скрипты Dynamo</a></li>
+	<li id="menu-item-6501" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6501"><a href="https://content.prorubim.com/materials?category=plaginy_revit">Плагины Revit</a></li>
+</ul>
+</li>
+<li id="menu-item-1193" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor menu-item-has-children menu-item-1193"><a href="http://prorubim.com/ru/tools/">Программные дополнения</a>
+<ul class="sub-menu" style="display: none;">
+	<li id="menu-item-392" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor menu-item-392"><a href="http://prorubim.com/ru/tools/dyno/">Dyno</a></li>
+	<li id="menu-item-1824" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1824"><a href="http://prorubim.com/ru/tools/dyno_studio/">Dyno Studio</a></li>
+	<li id="menu-item-6403" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6403"><a href="http://prorubim.com/ru/tools/printing/">Printing Nodes</a></li>
+	<li id="menu-item-4002" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4002"><a href="http://prorubim.com/ru/tools/rehau-windows/">REHAU Конфигуратор</a></li>
+	<li id="menu-item-1216" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1216"><a href="http://prorubim.com/ru/tools/rvi/">RVi BIM</a></li>
+</ul>
+</li>
+<li id="menu-item-506" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-506"><a href="http://prorubim.com/ru/helpdesk/">BIM Консалтинг</a>
+<ul class="sub-menu">
+	<li id="menu-item-521" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-521"><a href="http://prorubim.com/ru/helpdesk/price/">Цены на техподдержку</a></li>
+	<li id="menu-item-6121" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6121"><a href="http://prorubim.com/ru/helpdesk/bim-audit/">Аудит BIM моделей</a></li>
+</ul>
+</li>
+<li id="menu-item-6122" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6122"><a href="http://prorubim.com/ru/content/bimmodel-request/">BIM Моделирование зданий</a></li>
+<li id="menu-item-6177" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6177"><a href="http://prorubim.com/ru/info/contact/">Контакты</a></li>
+</ul>        </nav> <!-- .cd-primary-nav -->
+        <nav class="cd-secondary-nav">
+            <ul id="menu-tools-ru" class="primary-menu"><li id="menu-item-6109" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor current-menu-ancestor current-menu-parent current-page-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-6109"><a href="http://prorubim.com/ru/tools/dyno/"><span class="menu-item-inner">Dyno</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-6110" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-413 current_page_item menu-item-6110"><a href="http://prorubim.com/ru/tools/dyno/manual/" aria-current="page"><span class="menu-item-inner">Настройка Dyno</span></a></li>
+</ul>
+</li>
+<li id="menu-item-6111" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6111"><a href="http://prorubim.com/ru/tools/dyno_studio/"><span class="menu-item-inner">Dyno Studio</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-6112" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6112"><a href="http://prorubim.com/ru/tools/dyno_studio/eula/"><span class="menu-item-inner">Оферта Dyno Studio</span></a></li>
+</ul>
+</li>
+<li id="menu-item-6401" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6401"><a href="http://prorubim.com/ru/tools/printing/"><span class="menu-item-inner">Printing Nodes</span></a></li>
+<li id="menu-item-6115" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6115"><a href="http://prorubim.com/ru/tools/rvi/"><span class="menu-item-inner">RVi BIM</span></a></li>
+<li id="menu-item-6114" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6114"><a href="http://prorubim.com/ru/tools/rehau-windows/"><span class="menu-item-inner">REHAU Конфигуратор</span></a></li>
+<li id="menu-item-6113" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6113"><a href="http://prorubim.com/ru/?page_id=3463"><span class="menu-item-inner">R-one line diagrams</span></a></li>
+</ul>        </nav> <!-- .cd-secondary-nav -->
+    </header> <!-- .cd-auto-hide-header -->
+
+    
+    <div class="site-content">
+        
+        
+<div class="bnt-container">
+    
+    <div class="content content-page">
+        <main class="site-main">
+        
+            
+<article id="post-413" class="post-413 page type-page status-publish hentry no-thumb">
+
+	
+	
+	<header class="entry-header"><span id="toc--dyno"></span><h1 class="entry-title">Настройка Dyno</h1></header>    
+    <div class="entry-content clear">
+		
+		<div id="pl-413" class="panel-layout"><div id="pg-413-0" class="panel-grid panel-no-style"><div id="pgc-413-0-0" class="panel-grid-cell"><div id="panel-413-0-0-0" class="so-panel widget widget_sow-editor panel-first-child panel-last-child" data-index="0"><div id="toc_container" class="panel-widget-style panel-widget-style-for-413-0-0-0"><div class="so-widget-sow-editor so-widget-sow-editor-base">
+<div class="siteorigin-widget-tinymce textwidget">
+	<span id="toc-dyno"></span><h1><a href="http://prorubim.com/tools/dyno/">Dyno</a></h1>
+<hr>
+<div id="toc"><ul><li class="toc-h1 toc-active"><a href="http://prorubim.com/ru/tools/dyno/manual/#toc--dyno">Настройка Dyno</a></li><li class="toc-h1"><a href="http://prorubim.com/ru/tools/dyno/manual/#toc-dyno">Dyno</a></li><li class="toc-h1"><a href="http://prorubim.com/ru/tools/dyno/manual/#toc--">Обучающие видеоролики&nbsp;</a></li><li class="toc-h1"><a href="http://prorubim.com/ru/tools/dyno/manual/#toc---2">Установка и настройка</a></li><li class="toc-h3"><a href="http://prorubim.com/ru/tools/dyno/manual/#toc---2">&nbsp;Требования</a></li><li class="toc-h1"><a href="http://prorubim.com/ru/tools/dyno/manual/#toc---2">Хранилище и навигация</a></li><li class="toc-h3"><a href="http://prorubim.com/ru/tools/dyno/manual/#toc---2">Состав хранилища</a></li><li class="toc-h3"><a href="http://prorubim.com/ru/tools/dyno/manual/#toc---2">Фильтр скриптов</a></li><li class="toc-h1"><a href="http://prorubim.com/ru/tools/dyno/manual/#toc---2">Скрипты и данные</a></li><li class="toc-h3"><a href="http://prorubim.com/ru/tools/dyno/manual/#toc---2">Начальные значения скриптов</a></li><li class="toc-h3"><a href="http://prorubim.com/ru/tools/dyno/manual/#toc---2">Настроечные параметры скрипта</a></li><li class="toc-h1"><a href="http://prorubim.com/ru/tools/dyno/manual/#toc---2">Пресеты</a></li><li class="toc-h3"><a href="http://prorubim.com/ru/tools/dyno/manual/#toc---2">Расширенная настройка работы со скриптами и файлы пресетов</a></li><li class="toc-h3"><a href="http://prorubim.com/ru/tools/dyno/manual/#toc---2">Создание пресетов</a></li><li class="toc-h3"><a href="http://prorubim.com/ru/tools/dyno/manual/#toc---2">Структура файла пресетов</a></li><li class="toc-h1"><a href="http://prorubim.com/ru/tools/dyno/manual/#toc---2">Ноды</a></li><li class="toc-h3"><a href="http://prorubim.com/ru/tools/dyno/manual/#toc---2">Описание начальных значений нодов сокращенным способом</a></li><li class="toc-h3"><a href="http://prorubim.com/ru/tools/dyno/manual/#toc---2">Описание начальных значений нодов расширенным способом</a></li><li class="toc-h3"><a href="http://prorubim.com/ru/tools/dyno/manual/#toc---2">Параметры, используемые в расширенном описании нодов</a></li><li class="toc-h3"><a href="http://prorubim.com/ru/tools/dyno/manual/#toc---2">Поддерживаемые ноды</a></li><li class="toc-h1"><a href="http://prorubim.com/ru/tools/dyno/manual/#toc---2">Плейлисты</a></li><li class="toc-h3"><a href="http://prorubim.com/ru/tools/dyno/manual/#toc---2">Создание файла плейлиста</a></li><li class="toc-h1"><a href="http://prorubim.com/ru/tools/dyno/manual/#toc---2">Кнопки на лентах</a></li><li class="toc-h3"><a href="http://prorubim.com/ru/tools/dyno/manual/#toc---2">Конфигурирование&nbsp;вкладок и кнопок</a></li><li class="toc-h3"><a href="http://prorubim.com/ru/tools/dyno/manual/#toc---2">Контакт для связи:</a></li></ul></div>
+</div>
+</div></div></div></div><div id="pgc-413-0-1" class="panel-grid-cell"><div id="panel-413-0-1-0" class="so-panel widget widget_sow-editor panel-first-child panel-last-child" data-index="1"><div class="so-widget-sow-editor so-widget-sow-editor-base">
+<div class="siteorigin-widget-tinymce textwidget">
+	<span id="toc--"></span><h1><a href="https://www.youtube.com/embed/uTI7WjKUhaw" class="youtube responsive_lightbox">Обучающие видеоролики&nbsp;</a></h1>
+<p><strong>Это справочное руководство описывает тонкости использования функций программы. Для быстрого знакомства с программой, вначале посмотрите цикл обучающих видеороликов.</strong></p>
+<span id="toc---2"></span><h1>Установка и настройка</h1>
+<span id="toc---2"></span><h3>&nbsp;Требования</h3>
+<p>Dyno работает с <strong>Revit 2017, 2018 и 2019</strong>. Dyno протестирована с версией <strong>Dynamo 1.2, 1.3 и 2.0</strong>.</p>
+<p><strong>С другими версиями работа не гарантируется!</strong></p>
+<p><strong>Dyno может работать с несколькими ветками Dynamo (например, 1.3 и 2.0), одновременно установленными на компьютере, однако для активации нужной версии вам придется выбрать её вручную, нажав на кнопку Dynamo на вкладке "Управление".&nbsp;</strong></p>
+<p>Справа от строчки скрипта может отображаться версия файла Dynamo, в которой он создан (форматы файлов веток 1 и 2 несовместимы).</p>
+<p><img data-attachment-id="5445" data-permalink="http://prorubim.com/ru/tools/dyno/manual/m1-2/" data-orig-file="https://i2.wp.com/prorubim.com/wp-content/uploads/m1.2.jpg?fit=365%2C214" data-orig-size="365,214" data-comments-opened="0" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="m1.2" data-image-description="" data-medium-file="https://i2.wp.com/prorubim.com/wp-content/uploads/m1.2.jpg?fit=365%2C214" data-large-file="https://i2.wp.com/prorubim.com/wp-content/uploads/m1.2.jpg?fit=365%2C214" class="alignnone  wp-image-5445" src="./Настройка Dyno_files/m1.2.jpg" alt="" width="298" height="175" srcset="https://i2.wp.com/prorubim.com/wp-content/uploads/m1.2.jpg?zoom=1.75&amp;resize=298%2C175" src-orig="https://i2.wp.com/prorubim.com/wp-content/uploads/m1.2.jpg?resize=298%2C175" scale="1.75"></p>
+<p>Запустите инсталлятор. Он автоматически установит и интегрирует Dyno во все версии Revit.</p>
+<span id="toc---2"></span><h1>Хранилище и навигация</h1>
+<span id="toc---2"></span><h3>Состав хранилища</h3>
+<p>Скрипты&nbsp;в хранилище могут быть организованы в любую древовидную структуру любой степени вложенности. Например:</p>
+<pre>[SampleWorkspaces] //это папка-хранилище
+   workspace1.dyn //это файл скрипта
+   [Test]
+       workspace2.dyn
+       workspace3.dyn
+   [Grids Renumbering]
+       workspace4.dyn
+   [Rooms Calculating]
+       [Apartments]
+           workspace5.dyn
+   [Adaptive Components Generating]
+           workspace6.dyn</pre>
+<p>Вы можете организовать несколько хранилищ (например, для разных специалистов) и подключать их в любом составе в настройках программы.</p>
+<p><img data-attachment-id="1623" data-permalink="http://prorubim.com/ru/tools/dyno/manual/m1/" data-orig-file="https://i0.wp.com/prorubim.com/wp-content/uploads/m1.jpg?fit=590%2C370" data-orig-size="590,370" data-comments-opened="0" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="m1" data-image-description="" data-medium-file="https://i0.wp.com/prorubim.com/wp-content/uploads/m1.jpg?fit=590%2C370" data-large-file="https://i0.wp.com/prorubim.com/wp-content/uploads/m1.jpg?fit=590%2C370" class="alignnone wp-image-1623" src="./Настройка Dyno_files/m1.jpg" alt="" width="442" height="277" srcset="https://i0.wp.com/prorubim.com/wp-content/uploads/m1.jpg?zoom=1.75&amp;resize=442%2C277" src-orig="https://i0.wp.com/prorubim.com/wp-content/uploads/m1.jpg?resize=442%2C277" scale="1.75"></p>
+<p><strong>При подключении нескольких хранилищ в одно, их содержимое сливается в единое дерево браузера.</strong></p>
+<p>Вы можете включать и отключать хранилище без удаления его пути в списке путей. Это удобно в случае частого изменения состава хранилищ.</p>
+<p><img data-attachment-id="5443" data-permalink="http://prorubim.com/ru/tools/dyno/manual/m1-1/" data-orig-file="https://i1.wp.com/prorubim.com/wp-content/uploads/m1.1.jpg?fit=600%2C197" data-orig-size="600,197" data-comments-opened="0" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="m1.1" data-image-description="" data-medium-file="https://i1.wp.com/prorubim.com/wp-content/uploads/m1.1.jpg?fit=600%2C197" data-large-file="https://i1.wp.com/prorubim.com/wp-content/uploads/m1.1.jpg?fit=600%2C197" class="alignnone  wp-image-5443" src="./Настройка Dyno_files/m1.1.jpg" alt="" width="439" height="144" srcset="https://i1.wp.com/prorubim.com/wp-content/uploads/m1.1.jpg?zoom=1.75&amp;resize=439%2C144" src-orig="https://i1.wp.com/prorubim.com/wp-content/uploads/m1.1.jpg?resize=439%2C144" scale="1.75"></p>
+<span id="toc---2"></span><h3>Фильтр скриптов</h3>
+<p>В верхней части браузера есть фильтр скриптов. При наборе текста, остаются только те скрипты, пресеты и папки, которые его содержат.</p>
+<p>Если группа содержит поисковый текст то также отображаются все вложенные уровни этой группы.</p>
+<p><img data-attachment-id="1624" data-permalink="http://prorubim.com/ru/tools/dyno/manual/m2/" data-orig-file="https://i1.wp.com/prorubim.com/wp-content/uploads/m2.jpg?fit=423%2C152" data-orig-size="423,152" data-comments-opened="0" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="m2" data-image-description="" data-medium-file="https://i1.wp.com/prorubim.com/wp-content/uploads/m2.jpg?fit=423%2C152" data-large-file="https://i1.wp.com/prorubim.com/wp-content/uploads/m2.jpg?fit=423%2C152" class="alignnone size-full wp-image-1624" src="./Настройка Dyno_files/m2.jpg" alt="" width="423" height="152" srcset="https://i1.wp.com/prorubim.com/wp-content/uploads/m2.jpg?zoom=1.75&amp;resize=423%2C152" src-orig="https://i1.wp.com/prorubim.com/wp-content/uploads/m2.jpg?resize=423%2C152" scale="1.75"></p>
+<p>Можно быстро добавлять имена групп или пресетов в строку поиска с помощью сочетания<strong> Ctrl + клик мышью на строке</strong>.</p>
+<p>Поиск может быть множественным. В этом случае критерии поиска перечисляются через запятую, например: <strong>"Окна, Двери".&nbsp;</strong>В этом случае будут найдены и отобраны все позиции, содержащие, текст "Окна" или текст "Двери".</p>
+<p><img data-attachment-id="1625" data-permalink="http://prorubim.com/ru/tools/dyno/manual/m3/" data-orig-file="https://i0.wp.com/prorubim.com/wp-content/uploads/m3.jpg?fit=428%2C190" data-orig-size="428,190" data-comments-opened="0" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="m3" data-image-description="" data-medium-file="https://i0.wp.com/prorubim.com/wp-content/uploads/m3.jpg?fit=428%2C190" data-large-file="https://i0.wp.com/prorubim.com/wp-content/uploads/m3.jpg?fit=428%2C190" class="alignnone size-full wp-image-1625" src="./Настройка Dyno_files/m3.jpg" alt="" width="428" height="190" srcset="https://i0.wp.com/prorubim.com/wp-content/uploads/m3.jpg?zoom=1.75&amp;resize=428%2C190" src-orig="https://i0.wp.com/prorubim.com/wp-content/uploads/m3.jpg?resize=428%2C190" scale="1.75"></p>
+<span id="toc---2"></span><h1>Скрипты и данные</h1>
+<span id="toc---2"></span><h3>Начальные значения скриптов</h3>
+<p>Dyno сканирует файлы скриптов и отбирает ноды, которые служат для ввода начальных значений. Таким образом начальные значения можно редактировать еще перед запуском скрипта прямо в окне браузера.</p>
+<p><img data-attachment-id="1627" data-permalink="http://prorubim.com/ru/tools/dyno/manual/m5/" data-orig-file="https://i0.wp.com/prorubim.com/wp-content/uploads/m5.jpg?fit=287%2C315" data-orig-size="287,315" data-comments-opened="0" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="m5" data-image-description="" data-medium-file="https://i0.wp.com/prorubim.com/wp-content/uploads/m5.jpg?fit=287%2C315" data-large-file="https://i0.wp.com/prorubim.com/wp-content/uploads/m5.jpg?fit=287%2C315" class="alignnone size-full wp-image-1627" src="./Настройка Dyno_files/m5.jpg" alt="" width="287" height="315" srcset="https://i0.wp.com/prorubim.com/wp-content/uploads/m5.jpg?zoom=1.75&amp;resize=287%2C315" src-orig="https://i0.wp.com/prorubim.com/wp-content/uploads/m5.jpg?resize=287%2C315" scale="1.75"></p>
+<p>Для того, чтобы нод был помечен, как начальное значение, в Dynamo у него должен стоять атрибут в контекстном меню &nbsp; <strong>"Is Input"</strong>.&nbsp;Поддерживаемые типы нодов начальных значений:</p>
+<ul>
+<li>Boolean</li>
+<li>Number, Integer Slider, Number Slider</li>
+<li>String, File Path, Directory Path</li>
+<li>Select Model Element, Select Model Elements</li>
+<li>Select Face, Select Faces</li>
+<li>Select Edge, Select Edges</li>
+<li>Select Point on Face</li>
+<li>Все ноды с выпадающими списками (Categories, Element Types и т.д.)</li>
+</ul>
+<span id="toc---2"></span><h3>Настроечные параметры скрипта</h3>
+<p>В нодах начальных значений можно прописывать настроечные параметры поведения скрипта.</p>
+<p>Для задания настроечного параметра используется нод <strong>"String" или "Boolean".&nbsp;</strong>В этом случае нод должен иметь название в соответсвии с именем настроечного параметра.</p>
+<p><img data-attachment-id="1626" data-permalink="http://prorubim.com/ru/tools/dyno/manual/m4/" data-orig-file="https://i1.wp.com/prorubim.com/wp-content/uploads/m4.jpg?fit=188%2C154" data-orig-size="188,154" data-comments-opened="0" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="m4" data-image-description="" data-medium-file="https://i1.wp.com/prorubim.com/wp-content/uploads/m4.jpg?fit=188%2C154" data-large-file="https://i1.wp.com/prorubim.com/wp-content/uploads/m4.jpg?fit=188%2C154" class="alignnone size-full wp-image-1626" src="./Настройка Dyno_files/m4.jpg" alt="" width="188" height="154" srcset="https://i1.wp.com/prorubim.com/wp-content/uploads/m4.jpg?zoom=1.75&amp;resize=188%2C154" src-orig="https://i1.wp.com/prorubim.com/wp-content/uploads/m4.jpg?resize=188%2C154" scale="1.75"></p>
+<p>Список настроечых параметров:</p>
+<ul>
+<li><strong>useSelected</strong> <em>(имя нода)</em> - включает режим, при котором перед запуском скрипта, Dyno "подхватывает" текущие выбранные объекты на виде и отправляет их в ноды типа "Select Model Element" или "Select Model Elements" c указанным именем.</li>
+<li><strong>forceReopen</strong> <em>(true/false)</em> - включает или отключает режим при котором перед каждым запуском скрипта, он будет переоткрываться в Dynamo. Переоткрытие скрипта занимает время, но эта процедура бывает необходима для некоторых скриптов для их правильного исполнения.<b>&nbsp;</b>По умолчанию - <strong>false</strong>.</li>
+<li><b>desc </b><em>(текст) -&nbsp;</em>задает комментарий к скрипту, который отображается при наведении на строчку с крипта или его кнопку на панели инструментов.</li>
+<li><strong>formTabs&nbsp;</strong><em>(строка или массив строк) -&nbsp;</em>Используется совместно с <strong>Dyno Studio</strong>. задает имя вкладки или нескольких вкладок, которые будут показываться в главном окне скрипта, если таковое присутствует. Пример задания вкладок:</li>
+</ul>
+<pre>"formTabs":"Tab1" //одна вкладка
+"formTabs":["Tab1"] //снова одна вкладка
+"formTabs":["Tab1","Tab2","Tab3"] //несколько вкладок
+"formTabs":[] //окно показываться не будет, так как в нет вкладок</pre>
+<span id="toc---2"></span><h1>Пресеты</h1>
+<span id="toc---2"></span><h3>Расширенная настройка работы со скриптами и файлы пресетов</h3>
+<p>При необходимости использования разных наборов начальных значений в одном скрипте или разных условий поведения скрипта для разных задач, создаются, так называемые <strong>пресеты</strong>.</p>
+<p>Пресеты могут более гибко и детально описывать поведение скрипта, особенности запуска его интерфейса, сразу несколько групп начальных значений с дополнительными настройками и т. д.</p>
+<p><strong>Создавать пресеты необязательно, если ваши скрипты автоматически работают или их выполнение и работа с начальными значениями вас полностью устраивает.</strong></p>
+<p>Пресеты - это текстовые файлы&nbsp;с расширением <strong>.dpr</strong></p>
+<p>Каждый файл пресетов делается на отдельный скрипт&nbsp;Dynamo и <strong>должен иметь такое-же имя файла</strong>.</p>
+<p>Внутри файла пресетов может содержиться&nbsp;<strong>несколько</strong> пресетов на один скрипт.</p>
+<p>Каждый пресет задает некоторый набор начальных значений нодов скрипта, а также некоторые дополнительные настройки.</p>
+<p>Самый быстрый способ создания файла пресетов для скрипта - выбрать скрипт в браузере Dyno и воспользоваться опцией в контекстном меню <strong>"Open Presets File"</strong>.</p>
+<p>Если файл пресетов не существует, он будет создан с минимальным содержимым.</p>
+<p>При наличии одного или нескольких пресетов у скрипта активируется соответствующая иконка.</p>
+<p><img data-attachment-id="1628" data-permalink="http://prorubim.com/ru/tools/dyno/manual/m7/" data-orig-file="https://i1.wp.com/prorubim.com/wp-content/uploads/m7.jpg?fit=291%2C90" data-orig-size="291,90" data-comments-opened="0" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="m7" data-image-description="" data-medium-file="https://i1.wp.com/prorubim.com/wp-content/uploads/m7.jpg?fit=291%2C90" data-large-file="https://i1.wp.com/prorubim.com/wp-content/uploads/m7.jpg?fit=291%2C90" class="alignnone size-full wp-image-1628" src="./Настройка Dyno_files/m7.jpg" alt="" width="291" height="90" srcset="https://i1.wp.com/prorubim.com/wp-content/uploads/m7.jpg?zoom=1.75&amp;resize=291%2C90" src-orig="https://i1.wp.com/prorubim.com/wp-content/uploads/m7.jpg?resize=291%2C90" scale="1.75"></p>
+<span id="toc---2"></span><h3 class="clearfix">Создание пресетов</h3>
+<p>Файл пресетов - обычный текстовой файл с разметкой в формате <strong>JSON</strong>.</p>
+<p>Пример синтаксиса файла пресета со некоторыми видами начальных значений нодов:</p>
+<pre><code>{    
+    "presets" : {
+        "Test Preset 1":{
+            "useSelected":"Select Elements", //это настроечный параметр
+            "forceReopen":false, //и это тоже настроечный параметр
+            "Select":{"type":"element", "mode":"one"},
+            "Number":4.55,
+            "Integer Slider":15.5,
+            "String":"hello!",
+            "Boolean":false
+        }
+    }
+}
+</code></pre>
+<span id="toc---2"></span><h3>Структура файла пресетов</h3>
+<p>Файл представляет собой иерархию объектов.</p>
+<ul>
+<li><strong>Корневой уровень:</strong>
+<ul>
+<li><strong>presets</strong> <em>(группа)</em> - группа пресетов для конкретного скрипта Dynamo.</li>
+</ul>
+</li>
+<li><strong>Уровень группы пресетов:</strong>
+<ul>
+<li><strong>&lt;имя_пресета&gt;</strong> <em>(группа)</em> - группа свойств конкретного пресета.</li>
+</ul>
+</li>
+<li><strong>Уровень пресета:</strong>
+<ul>
+<li><b>&lt;настроечный параметр&gt;&nbsp;</b><em>(разные форматы данных)</em> - один или несколько настроечных параметров, определяющих поведение и работу скрипта.</li>
+<li><strong>&lt;имя_нода&gt;</strong> <em>(разные форматы данных)</em> - начальные настройки нода с этим именем в проекте Dynamo перед его выполнением.</li>
+</ul>
+</li>
+</ul>
+<span id="toc---2"></span><h1>Ноды</h1>
+<p>Ноды в пресете могут описываться сокращенным или расширенным способом.</p>
+<span id="toc---2"></span><h3 class="clearfix">Описание начальных значений нодов сокращенным способом</h3>
+<p>Сокращенный способ предполагает после имени нода сразу указывать его значение. Например:</p>
+<pre><code>"Some number node":4.55,
+"Some string node":"hello!",
+"Some boolean node":true
+</code></pre>
+<p>Dyno поддерживает задание не только одиночных значений для основных нодов, но и списков значений, из которых можно выбирать необходимое непосредственно в окне редактирования значения нода.</p>
+<p>Пример:</p>
+<pre><code>"Some node":["aa","bb","cc","dd"]</code></pre>
+<span id="toc---2"></span><h3 class="clearfix">Описание начальных значений нодов расширенным способом</h3>
+<p>Расширенный способ предполагает указание для нода сразу нескольких параметров:</p>
+<pre><code>"Select":{"type":"element", "mode":"one"},
+"Boolean Fast": {"fastMode":true, "value":true},
+"Number Extended": {"value":4.55, "desc":"some desc"}
+</code></pre>
+<p>Для задания списка значений нода в расширенном режиме необходимо использовать параметр <strong>values</strong>:</p>
+<p><strong>values</strong> <em>(массив значений)</em> - возможные значения для нода в квадратных скобках.</p>
+<pre><code>"AxisList" : { "value": "X-", "values": ["X+","X-","Y+","Y-","Z+","Z-"] }</code></pre>
+<p>В этом случае у вас есть возможность задать значение нода по умолчанию независимо от его списка возможных значений.</p>
+<p><strong>Если нод в пресете повторяет нод в самом скрипте, то его настройки берутся из пресета. То есть, они являются более приоритетными.</strong></p>
+<span id="toc---2"></span><h3>Параметры, используемые в расширенном описании нодов</h3>
+<p>Есть несколько параметров, существующих у любого нода:</p>
+<ul>
+<li><strong>type</strong> <em>(тип нода)</em> - указывает тип нода. <strong>Необязательный для основных нодов (строка, число, да/нет, выпадающие списки) и обязательный для остальных!</strong></li>
+<li><strong>value</strong> <em>(значение нода)</em> - указывает значение нода. <strong>Обязательный для основных нодов!</strong></li>
+<li><strong>desc</strong> <em>(строка)</em> - описание нода. Отображается в окне изменения значения нода и во всплывающей подсказке при наведении курсора в браузере Dyno.</li>
+<li><strong>hidden</strong> <em>(true/false)</em> - скрытый нод или нет. Если нод скрытый, то он не отображается в браузере Dyno.</li>
+</ul>
+<span id="toc---2"></span><h3>Поддерживаемые ноды</h3>
+<p>На данный момент поддерживаются следующие типы нодов:</p>
+<ul>
+<li><strong>Number, Integer Slider, Double Slider</strong> - число</li>
+</ul>
+<pre><span style="font-family: Consolas, Monaco, monospace; line-height: 1.5;">"Number": 5.81,
+"Number Extended": {"value":4}</span></pre>
+<ul>
+<li><strong>String</strong> - строка</li>
+</ul>
+<pre><span style="font-family: Consolas, Monaco, monospace; line-height: 1.5;">"String": "hello!",
+"String Extended":
+    {"value":"Hi!", "desc":"small desc"}</span></pre>
+<ul>
+<li><strong>Boolean</strong> - true/false
+<ul>
+<li><strong>fastMode</strong> <em>(true/false)</em> - включает или отключает режим быстрого переключания в один клик.</li>
+<li><strong>trueText</strong> <em>(строка)</em> - устанавливает собственный текст для положительного значения.</li>
+<li><strong style="line-height: 1.5;">falseText</strong> <em style="line-height: 1.5;">(строка)</em><span style="line-height: 1.5;"> - устанавливает собственный текст для отрицательного значения.</span></li>
+</ul>
+</li>
+</ul>
+<pre>"Boolean":false, "Boolean Fast":{"fastMode":true, "value":true}</pre>
+<ul>
+<li><strong>Select Model Element, Select Model Elements</strong> - выбор объектов
+<ul>
+<li><strong>mode</strong> <em>(тип выбора)</em> - способ выбора объектов: <strong>one</strong> - один объект, <strong>many</strong> - группа объектов, <strong>rectangle</strong> - группа объектов рамкой, <strong>order</strong> - группа объектов в определенной последовательности, выбранных один за другим.</li>
+</ul>
+</li>
+</ul>
+<pre><span style="font-family: Consolas, Monaco, monospace; line-height: 1.5;">"Select Element":{"type":"element", "mode":"one"}</span></pre>
+<ul>
+<li><strong>Select Face, Select Edge? Select Point On Face</strong> - выбор компонентов объекта
+<ul>
+<li><strong>type</strong> <em>(тип выбора)</em> - тип компонента объекта: <strong>face</strong>, <strong>edge</strong>, <strong>pointOnFace</strong>.</li>
+</ul>
+</li>
+</ul>
+<pre><span style="font-family: Consolas, Monaco, monospace; line-height: 1.5;">"Select Face":{"type":"face"}</span></pre>
+<ul>
+<li><strong>File Path, Directory Path</strong> - выбор файла или папки.
+<ul>
+<li><strong>mode</strong> <em>(тип выбора)</em> - папка или файл: <strong>file</strong> - файл, <strong>directory</strong> - папка.</li>
+<li><strong>value</strong> <em>(строка)</em> - начальный путь.</li>
+<li><strong>filter</strong> <em>(строка)</em> - фильтр описаний расширений файлов и их масок, разделенных ветикальными линиями (например, "txt files (<em>.txt) | *.txt | All files (</em>.<em>) | *.</em>").</li>
+<li><strong>filterIndex</strong> <em>(целое)</em> - выбранная маска фильтра по умолчанию, начиная с 1.</li>
+</ul>
+</li>
+</ul>
+<pre><span style="font-family: Consolas, Monaco, monospace; line-height: 1.5;">"File Path":{"type":"path", "mode":"file", "value":"c://", "filter":"txt files (*.txt) | *.txt | All files (*.*) | *.*", "filterIndex":2 }</span></pre>
+<span id="toc---2"></span><h1>Плейлисты</h1>
+<p class="clearfix">Вы можете запускать несколько скриптов пакетно одним кликом в нужном порядке один за другим. Для этого необходимо создать файл плейлиста с перечнем запускаемых скриптов и/или пресетов.</p>
+<p>Плейлист - это текстовый файл с расширением <strong>.dpl</strong></p>
+<span id="toc---2"></span><h3>Создание файла плейлиста</h3>
+<p>Вот пример содержимого файла плейлиста:</p>
+<pre><code>{    
+    "presets" : [
+        "Preset 1", "Preset 2", "Preset 3"
+     ]
+}</code></pre>
+<p>В группе "Presets" перечсляются имена скриптов и/или пресетов в том порядке, в котором они должны выполняться.</p>
+<p>Плейлисты в окне браузера видны, как группы, но с другой иконкой. При раскрытии плейлиста, будут показаны скрипты и пресеты, входящие в него.</p>
+<p><img data-attachment-id="5444" data-permalink="http://prorubim.com/ru/tools/dyno/manual/m6/" data-orig-file="https://i0.wp.com/prorubim.com/wp-content/uploads/m6.jpg?fit=297%2C214" data-orig-size="297,214" data-comments-opened="0" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="m6" data-image-description="" data-medium-file="https://i0.wp.com/prorubim.com/wp-content/uploads/m6.jpg?fit=297%2C214" data-large-file="https://i0.wp.com/prorubim.com/wp-content/uploads/m6.jpg?fit=297%2C214" class="alignnone size-full wp-image-5444" src="./Настройка Dyno_files/m6.jpg" alt="" width="297" height="214" srcset="https://i0.wp.com/prorubim.com/wp-content/uploads/m6.jpg?zoom=1.75&amp;resize=297%2C214" src-orig="https://i0.wp.com/prorubim.com/wp-content/uploads/m6.jpg?resize=297%2C214" scale="1.75"></p>
+<p>Двойной клик на строке плейлиста запускает всю цепочку списка скриптов.</p>
+<span id="toc---2"></span><h1>Кнопки на лентах</h1>
+<p>Dyno предоставляет возможность создания своих собственных вкладок на ленте инструментов и размещения на них кнопок, соответствующих скриптам, пресетам, плейлистам или группам скриптов и пресетов (кнопки с выпадающим меню).</p>
+<p>Это позволяет удобно структурировать скрипты и пресеты на ленте, организовать рабочее пространство и быстро запускать их.</p>
+<span id="toc---2"></span><h3>Конфигурирование&nbsp;вкладок и кнопок</h3>
+<p>Для настройки кнопок на ленте используется специальный файл <strong>buttons.txt</strong>, который должен быть расположен в корне папки-хранилища. Это позволяет привязывать набор кнопок к хранилищу и перемещать его вместе с ним.</p>
+<p>Если у вас подключено несколько хранилищ, то их файлы <strong>buttons.txt</strong> будут работать совместно.</p>
+<p>Если файл отсутствует, то создать его автоматически можно, выбрав в контекстном меню браузера опцию <strong>"Open Buttons File"</strong>.</p>
+<p>Файл представляет собой обычный текстовый документ с настройками в формате&nbsp;<strong>JSON</strong>.</p>
+<p>Пример синтаксиса файла конфигурации кнопок:</p>
+<pre><code>{
+    "Имя вкладки 1"  : ["Пресет 1", "Пресет 2"], //это одиночные кнопки скриптов или пресетов
+    "Имя вкладки 2"  : ["Группа 1", "Скрипт с пресетами 1"] //это кнопки с выпадающим списком скриптов или пресетов
+ }
+</code></pre>
+<p>В файле могут быть записаны имена в следующих форматах:</p>
+<ul>
+<li><strong>"Имя скрипта"</strong> - будет создана одиночная кнопка, если скрипт не имеет пресетов и выпадающий список, если скрипт имеет пресеты.</li>
+<li><strong>"Имя пресета"</strong> - будет создана одиночная кнопка, запускающая пресет.</li>
+<li><strong>"Имя скрипта:Имя пресета"</strong> -&nbsp;будет создана одиночная кнопка, запускающая пресет. Используется в том случае, когда у вас есть несколько пресетов с одинаковыми именами.</li>
+<li><strong>"Имя группы"</strong> -&nbsp;будет создан выпадающий список со скриптами и пресетами в данной группе.</li>
+</ul>
+<p>Каждая кнопка автоматически генерирует иконку для себя в виде символьного обозначения в круге.&nbsp;Цвет круга зависит от папки в которой лежит скрипт. Все кнопки из одной папки группируются в ленте.</p>
+<p><img data-attachment-id="1629" data-permalink="http://prorubim.com/ru/tools/dyno/manual/m8/" data-orig-file="https://i0.wp.com/prorubim.com/wp-content/uploads/m8.png?fit=1029%2C148" data-orig-size="1029,148" data-comments-opened="0" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="m8" data-image-description="" data-medium-file="https://i0.wp.com/prorubim.com/wp-content/uploads/m8.png?fit=1029%2C148" data-large-file="https://i0.wp.com/prorubim.com/wp-content/uploads/m8.png?fit=1024%2C147" class="alignnone size-full wp-image-1629" src="./Настройка Dyno_files/m8.png" alt="" width="789" height="113" srcset="https://i0.wp.com/prorubim.com/wp-content/uploads/m8.png?w=1029 1029w, https://i0.wp.com/prorubim.com/wp-content/uploads/m8.png?resize=1024%2C147 1024w" sizes="(max-width: 1029px) 100vw, 1029px"></p>
+<p>Для скрипта можно установить собственное изображение. Для этого необходимо в папке со скриптом разместить файл картинки с таким-же именем и расширением <strong>.jpg</strong> или <strong>.png.</strong></p>
+<p>Для установки собственного изображения на кнопку, связанную с группой скриптов в папке, необходимо разместить в данной папке изображение с таким-же именем.</p>
+</div>
+</div></div></div></div></div>		
+	</div>
+
+</article>    
+        </main>
+    </div>
+    
+        
+</div>
+
+
+</div><!-- .site-content -->
+
+<div class="after-content">
+</div>
+
+<footer class="site-footer">
+
+                <div class="widget-area sidebar-footer clear">
+            <div class="bnt-container">
+                <div id="text-2" class="column-1 widget widget-footer widget_text clear"><span id="toc---2"></span><h3 class="widget-title">Контакт для связи:</h3>			<div class="textwidget"><b>Москва<br></b>
+<b>тел.:</b> +7 (495) 649-85-43 <br>
+<b>email:</b> office@prorubim.com</div>
+		</div>            </div>
+        </div>
+    
+        <div class="bottom-footer clear">
+        <div class="bnt-container">
+           <div class="addthis_inline_follow_toolbox"></div>
+            		<div class="footer-menu">
+			<div id="nav-footer" class="nav">
+				<nav>
+					<div class="menu-container"><ul id="menu-bottom" class="menu-footer"><li id="menu-item-4332" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4332"><a href="https://t-do.ru/prorubim_bim_chat"><span class="menu-item-inner">Присоединяйтесь к нашему BIM чату</span></a></li>
+<li id="menu-item-205" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-205"><a href="http://prorubim.com/ru/user-agreements/"><span class="menu-item-inner">Политика обработки персональных данных</span></a></li>
+</ul></div>				</nav>
+			</div>
+		</div>
+		
+        </div>
+    </div>
+
+</footer><!-- .site-footer -->
+
+</div><!-- .site-wrapper -->
+
+	<div style="display:none">
+	</div>
+<script type="text/javascript" src="./Настройка Dyno_files/mousewheel.min.js.Без названия"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var hugeit_resp_lightbox_obj = {"hugeit_lightbox_lightboxView":"view4","hugeit_lightbox_speed_new":"600","hugeit_lightbox_overlayClose_new":"true","hugeit_lightbox_loop_new":"true","hugeit_lightbox_fullwidth_effect":"true","hugeit_lightbox_thumbs":"false","hugeit_lightbox_showTitle":"true","hugeit_lightbox_showDesc":"false","hugeit_lightbox_showBorder":"false","hugeit_lightbox_imageframe":"frame_0","hugeit_lightbox_fullscreen_effect":"true","hugeit_lightbox_rightclick_protection":"false","hugeit_lightbox_arrows_hover_effect":"0","lightbox_open_close_effect":"3","hugeit_lightbox_view_info":""};
+var hugeit_gen_resp_lightbox_obj = {"hugeit_lightbox_slideAnimationType":"effect_1","hugeit_lightbox_overlayDuration":"150","hugeit_lightbox_escKey_new":"false","hugeit_lightbox_keyPress_new":"false","hugeit_lightbox_arrows":"true","hugeit_lightbox_mouseWheel":"false","hugeit_lightbox_download":"false","hugeit_lightbox_showCounter":"false","hugeit_lightbox_nextHtml":"","hugeit_lightbox_prevHtml":"","hugeit_lightbox_sequence_info":"image","hugeit_lightbox_sequenceInfo":"of","hugeit_lightbox_width_new":"100","hugeit_lightbox_height_new":"100","hugeit_lightbox_videoMaxWidth":"790","hugeit_lightbox_slideshow_new":"false","hugeit_lightbox_slideshow_auto_new":"false","hugeit_lightbox_slideshow_speed_new":"2500","hugeit_lightbox_slideshow_start_new":"","hugeit_lightbox_slideshow_stop_new":"","hugeit_lightbox_watermark":"false","hugeit_lightbox_socialSharing":"false","hugeit_lightbox_facebookButton":"false","hugeit_lightbox_twitterButton":"false","hugeit_lightbox_googleplusButton":"false","hugeit_lightbox_pinterestButton":"false","hugeit_lightbox_linkedinButton":"false","hugeit_lightbox_tumblrButton":"false","hugeit_lightbox_redditButton":"false","hugeit_lightbox_bufferButton":"false","hugeit_lightbox_diggButton":"false","hugeit_lightbox_vkButton":"false","hugeit_lightbox_yummlyButton":"false","hugeit_lightbox_watermark_text":"WaterMark","hugeit_lightbox_watermark_textColor":"ffffff","hugeit_lightbox_watermark_textFontSize":"30","hugeit_lightbox_watermark_containerBackground":"000000","hugeit_lightbox_watermark_containerOpacity":"90","hugeit_lightbox_watermark_containerWidth":"300","hugeit_lightbox_watermark_position_new":"9","hugeit_lightbox_watermark_opacity":"70","hugeit_lightbox_watermark_margin":"10","hugeit_lightbox_watermark_img_src_new":"http:\/\/prorubim.com\/wp-content\/plugins\/lightbox\/images\/No-image-found.jpg","hugeit_lightbox_watermark_container_bg_color":"rgba(0,0,0,0.9)"};
+var hugeit_resp_lightbox_plugins_url = "http:\/\/prorubim.com\/wp-content\/plugins\/lightbox\/images\/image_frames\/";
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Настройка Dyno_files/lightbox.js.Без названия"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var lightbox_type = "new_type";
+var ajaxUrl = "http:\/\/prorubim.com\/wp-admin\/admin-ajax.php";
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Настройка Dyno_files/custom.js.Без названия"></script>
+<script type="text/javascript" src="./Настройка Dyno_files/photon.min.js.Без названия"></script>
+<script type="text/javascript" src="./Настройка Dyno_files/devicepx-jetpack.js.Без названия"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var lsow_settings = {"mobile_width":"780","custom_css":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Настройка Dyno_files/lsow-frontend.min.js.Без названия"></script>
+<script type="text/javascript" src="./Настройка Dyno_files/gprofiles.js.Без названия"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Настройка Dyno_files/wpgroho.js.Без названия"></script>
+<script type="text/javascript" src="./Настройка Dyno_files/jquery.fitvids.js.Без названия"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var bentoThemeVars = {"menu_config":"","fixed_menu":"0","ajaxurl":"http:\/\/prorubim.com\/wp-admin\/admin-ajax.php","query_vars":"{\"page\":\"\",\"pagename\":\"tools\\\/dyno\\\/manual\",\"lang\":\"ru\"}","paged":"0","max_pages":"0","grid_mode":"nogrid"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Настройка Dyno_files/theme-scripts.js.Без названия"></script>
+<script type="text/javascript" src="./Настройка Dyno_files/wp-embed.min.js.Без названия"></script>
+<script type="text/javascript" src="./Настройка Dyno_files/spin.min.js.Без названия"></script>
+<script type="text/javascript" src="./Настройка Dyno_files/jquery.spin.min.js.Без названия"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var jetpackCarouselStrings = {"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"","lang":"ru","ajaxurl":"http:\/\/prorubim.com\/wp-admin\/admin-ajax.php","nonce":"c9aae35723","display_exif":"0","display_geo":"1","single_image_gallery":"1","single_image_gallery_media_file":"","background_color":"black","comment":"\u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439","post_comment":"\u041e\u0442\u043f\u0440\u0430\u0432\u0438\u0442\u044c \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439","write_comment":"\u041e\u043f\u0443\u0431\u043b\u0438\u043a\u043e\u0432\u0430\u0442\u044c \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439...","loading_comments":"\u0417\u0430\u0433\u0440\u0443\u0436\u0430\u044e\u0442\u0441\u044f \u041a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0438... ","download_original":"\u041f\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0432 \u043f\u043e\u043b\u043d\u043e\u043c \u0440\u0430\u0437\u043c\u0435\u0440\u0435 <span class=\"photo-size\">{0}<span class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>","no_comment_text":"\u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u043d\u0430\u043f\u0438\u0448\u0438\u0442\u0435 \u0442\u0435\u043a\u0441\u0442 \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u044f.","no_comment_email":"\u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u0443\u043a\u0430\u0436\u0438\u0442\u0435 \u0430\u0434\u0440\u0435\u0441 \u044d\u043b. \u043f\u043e\u0447\u0442\u044b, \u0447\u0442\u043e\u0431\u044b \u043e\u0441\u0442\u0430\u0432\u0438\u0442\u044c \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439.","no_comment_author":"\u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u0443\u043a\u0430\u0436\u0438\u0442\u0435 \u0441\u0432\u043e\u0435 \u0438\u043c\u044f, \u0447\u0442\u043e\u0431\u044b \u043e\u0441\u0442\u0430\u0432\u0438\u0442\u044c \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439.","comment_post_error":"\u0421\u043e\u0436\u0430\u043b\u0435\u0435\u043c, \u043d\u043e \u0432\u043e \u0432\u0440\u0435\u043c\u044f \u043f\u0443\u0431\u043b\u0438\u043a\u0430\u0446\u0438\u0438 \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u044f \u0432\u043e\u0437\u043d\u0438\u043a\u043b\u0430 \u043e\u0448\u0438\u0431\u043a\u0430. \u041f\u043e\u043f\u0440\u043e\u0431\u0443\u0439\u0442\u0435 \u0435\u0449\u0435 \u0440\u0430\u0437.","comment_approved":"\u0412\u0430\u0448 \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439 \u0431\u044b\u043b \u043e\u0434\u043e\u0431\u0440\u0435\u043d.","comment_unapproved":"\u0412\u0430\u0448 \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439 \u043e\u0436\u0438\u0434\u0430\u0435\u0442 \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0438.","camera":"\u041a\u0430\u043c\u0435\u0440\u0430","aperture":"\u0410\u043f\u0435\u0440\u0442\u0443\u0440\u0430","shutter_speed":"\u0412\u044b\u0434\u0435\u0440\u0436\u043a\u0430","focal_length":"\u0414\u043b\u0438\u043d\u0430 \u0424\u043e\u043a\u0443\u0441\u0430","copyright":"\u0410\u0432\u0442\u043e\u0440\u0441\u043a\u0438\u0435 \u043f\u0440\u0430\u0432\u0430","comment_registration":"1","require_name_email":"1","login_url":"http:\/\/prorubim.com\/wp-login.php?redirect_to=http%3A%2F%2Fprorubim.com%2Fru%2Ftools%2Fdyno%2Fmanual%2F","blog_id":"1","meta_data":["camera","aperture","shutter_speed","focal_length","copyright"],"local_comments_commenting_as":"<p id=\"jp-carousel-commenting-as\">\u0414\u043b\u044f \u043e\u0442\u043f\u0440\u0430\u0432\u043a\u0438 \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u044f \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e <a href=\"#\" class=\"jp-carousel-comment-login\">\u0432\u043e\u0439\u0442\u0438 \u043d\u0430 \u0441\u0430\u0439\u0442<\/a>.<\/p>"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Настройка Dyno_files/jetpack-carousel.min.js.Без названия"></script>
+<script type="text/javascript">document.body.className = document.body.className.replace("siteorigin-panels-before-js","");</script><script type="text/javascript" src="./Настройка Dyno_files/e-202538.js.Без названия" async="async" defer="defer"></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:8.0',blog:'130403379',post:'413',tz:'3',srv:'prorubim.com'} ]);
+	_stq.push([ 'clickTrackerInit', '130403379', '413' ]);
+</script>
+
+<script>jQuery('#toc').toc();</script>
+
+<script id="bx24_form_button" data-skip-moving="true">
+    (function(w,d,u,b){w['Bitrix24FormObject']=b;w[b] = w[b] || function(){arguments[0].ref=u;
+        (w[b].forms=w[b].forms||[]).push(arguments[0])};
+        if(w[b]['forms']) return;
+        var s=d.createElement('script');s.async=1;s.src=u+'?'+(1*new Date());
+        var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+    })(window,document,'https://prorubim.bitrix24.ru/bitrix/js/crm/form_loader.js','b24form');
+
+    b24form({"id":"8","lang":"ru","sec":"aj31o3","type":"button","click":""});
+</script>
+
+<div id="callme">
+    <script data-b24-form="click/8/aj31o3" data-skip-moving="true" data-b24-id="407281583571504463693474249340244" data-b24-loaded="true">
+	(function(w,d,u){
+		var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+		var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+	})(window,document,'https://cdn-ru.bitrix24.ru/b8325367/crm/form/loader_8.js');
+</script><div id="callmeMain" class="b24-web-form-popup-btn-8"></div>
+</div>
+
+
+
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ab204c899b89d12"></script><img src="./Настройка Dyno_files/g.gif" alt="" width="6" height="5" id="wpstats">
+<script src="./Настройка Dyno_files/three.js.Без названия" type="text/javascript"></script>
+<script id="fragmentShader" src="./Настройка Dyno_files/fs.js.Без названия" type="text/javascript"></script>
+<script id="vertexShader" src="./Настройка Dyno_files/vs.js.Без названия" type="text/javascript"></script>
+
+
+<script src="./Настройка Dyno_files/triclouds.js.Без названия" type="text/javascript"></script>
+
+
+</body></html>
