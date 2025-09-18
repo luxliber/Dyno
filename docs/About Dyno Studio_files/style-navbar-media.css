@@ -1,0 +1,265 @@
+/* --------------------------------
+1. Auto-Hiding Navigation - Simple
+-------------------------------- */
+.cd-auto-hide-header {
+	position: fixed;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-height: 60px;
+	box-shadow: 0 14px 20px rgba(0, 0, 0, 0.4);
+	font-size: 14px !important;
+	background-color: #ffffff;
+	/* Force Hardware Acceleration */
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+	will-change: transform;
+	-webkit-transition: -webkit-transform .5s;
+	transition: -webkit-transform .5s;
+	transition: transform .5s;
+	transition: transform .5s, -webkit-transform .5s;
+}
+.cd-auto-hide-header::after {
+	clear: both;
+	content: "";
+	display: block;
+}
+.cd-auto-hide-header.is-hidden {
+	-webkit-transform: translateY(-100%);
+	-ms-transform: translateY(-100%);
+	transform: translateY(-100%);
+}
+
+.cd-auto-hide-header .logo {
+	position: absolute;
+	top: 50%;
+	bottom: auto;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.cd-auto-hide-header .logo {
+	left: 5%;
+}
+.cd-auto-hide-header .logo a, .cd-auto-hide-header .logo img {
+	display: block;
+}
+
+.cd-auto-hide-header .nav-trigger {
+	/* vertically align its content */
+	position: absolute;
+	display: table;
+	height: 100%;
+	padding: 0 1em;
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	margin-top: 35px;
+	font-weight: bold;
+	right: 0;
+
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+.cd-auto-hide-header .nav-trigger span {
+	/* vertically align inside parent element */
+	display: table-cell;
+	vertical-align: middle;
+}
+.cd-auto-hide-header .nav-trigger em, .cd-auto-hide-header .nav-trigger em::after, .cd-auto-hide-header .nav-trigger em::before {
+	/* this is the menu icon */
+	display: block;
+	position: relative;
+	height: 2px;
+	width: 22px;
+	background-color: #25283D;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+.cd-auto-hide-header .nav-trigger em {
+	/* this is the menu central line */
+	margin: 6px auto 14px;
+	-webkit-transition: background-color .2s;
+	transition: background-color .2s;
+}
+.cd-auto-hide-header .nav-trigger em::before, .cd-auto-hide-header .nav-trigger em::after {
+	position: absolute;
+	content: '';
+	left: 0;
+	-webkit-transition: -webkit-transform .2s;
+	transition: -webkit-transform .2s;
+	transition: transform .2s;
+	transition: transform .2s, -webkit-transform .2s;
+}
+.cd-auto-hide-header .nav-trigger em::before {
+	/* this is the menu icon top line */
+	-webkit-transform: translateY(-6px);
+	-ms-transform: translateY(-6px);
+	transform: translateY(-6px);
+}
+.cd-auto-hide-header .nav-trigger em::after {
+	/* this is the menu icon bottom line */
+	-webkit-transform: translateY(6px);
+	-ms-transform: translateY(6px);
+	transform: translateY(6px);
+}
+
+.cd-auto-hide-header.nav-open .nav-trigger em {
+	/* transform menu icon into a 'X' icon */
+	background-color: rgba(255, 255, 255, 0);
+}
+.cd-auto-hide-header.nav-open .nav-trigger em::before {
+	/* rotate top line */
+	-webkit-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+.cd-auto-hide-header.nav-open .nav-trigger em::after {
+	/* rotate bottom line */
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+
+@media only screen and (min-width: 1024px) {
+	.cd-auto-hide-header {
+		height: 60px;
+	}
+
+	.cd-auto-hide-header .nav-trigger {
+		display: none;
+	}
+}
+
+/*************************************************/
+.cd-auto-hide-header > nav
+{
+	display: none;
+}
+
+.cd-primary-nav {
+font-size: 14px;
+}
+
+.cd-secondary-nav {
+	font-size: 14px;
+}
+
+.nav-open > .cd-primary-nav, .nav-open > .cd-secondary-nav {
+	display: table;
+	width:100%
+}
+
+.nav-open .sub-menu {
+	display: none !important;
+}
+
+.nav-open > .cd-primary-nav, .nav-open > .cd-secondary-nav {
+	display: table;
+	width:100%
+}
+
+.nav-open > .cd-primary-nav {
+	border-bottom: #aaa 1px solid;
+}
+
+.nav-open .cd-primary-nav > ul, .nav-open .cd-secondary-nav > ul {
+	display: grid;
+	text-align: center;
+}
+
+@media only screen and (min-width: 1024px) {
+	.cd-auto-hide-header > nav
+	{
+		display: table;
+	}
+
+	.cd-primary-nav {
+		/* vertically align its content */
+	float: right;
+	}
+	.cd-primary-nav > ul {
+		/* vertically align inside parent element */
+		display: table-cell;
+		vertical-align: middle;
+		/* reset mobile style */
+		position: relative;
+		width: auto;
+		top: 0;
+		padding: 0;
+		background-color: transparent;
+
+	}
+	.cd-primary-nav > ul::after {
+		clear: both;
+		content: "";
+		display: block;
+	}
+	.cd-primary-nav > ul > li {
+		display: inline-block;
+
+		margin-top: 10px;
+		margin-right: 1.5em;
+	}
+	.cd-primary-nav > ul li:last-of-type {
+		margin-right: 0;
+	}
+	.cd-primary-nav > ul a {
+		/* reset mobile style */
+		height: auto;
+		line-height: normal;
+		padding: 5px;
+		border: none;
+	}
+
+
+	.menu-item-has-children > a:after {
+		content: "\f347";
+		font-family: dashicons;
+		position: absolute;
+		margin-left: 5px;
+	}
+
+	.menu-item-has-children > a {
+		margin-right: 15px;
+	}
+
+
+
+
+	.cd-secondary-nav {
+		background-color: #ffffff;
+		opacity: 0.9;
+		width: 100%;
+		height: 60px;
+		box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+		overflow: visible;
+		font-size: 14px;
+		/* Force Hardware Acceleration */
+		-webkit-transform: translateZ(0);
+		transform: translateZ(0);
+		will-change: transform;
+		-webkit-transition: -webkit-transform .5s;
+		transition: -webkit-transform .5s;
+		transition: transform .5s;
+		transition: transform .5s, -webkit-transform .5s;
+	}
+	.cd-secondary-nav ul {
+		/* reset mobile style */
+		display: block;
+		text-align: center;
+	}
+	.cd-secondary-nav li {
+		/* reset mobile style */
+		float: none;
+		-webkit-flex-shrink: 1;
+		-ms-flex-negative: 1;
+		flex-shrink: 1;
+		font-size: 14px;
+	}
+
+
+}
