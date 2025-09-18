@@ -1,0 +1,100 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:workspaces="clr-namespace:Dyno.Models.Workspaces;assembly=DynoCore">
+
+    <Style x:Key="StorageTreeViewItemStyle" TargetType="{x:Type TreeViewItem}">
+        <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+        <Setter Property="Foreground" Value="{DynamicResource LightGray}" />
+
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Foreground" Value="White"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <Style x:Key="StorageTreeViewStyle" TargetType="{x:Type TreeView}">
+        <Style.Resources>
+            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"
+                      Color="#FF509DD3" />
+            <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}"
+                      Color="#7F509DD3" />
+            <Style TargetType="{x:Type TreeViewItem}">
+
+            </Style>
+        </Style.Resources>
+       
+        <Setter Property="ItemsSource" Value="{Binding Root.ChildsMinimal}"/>
+        <Setter Property="ItemContainerStyle" Value="{StaticResource StorageTreeViewItemStyle}"/>
+        <Setter Property="Background" Value="{DynamicResource DarkBackground}"/>
+        <Setter Property="Foreground" Value="{DynamicResource LightGray}"/>
+        <Setter Property="Margin" Value="0"/>
+
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="ItemTemplate">
+            <Setter.Value>
+                <HierarchicalDataTemplate ItemsSource="{Binding ChildsMinimal}" DataType="workspaces:WorkspaceGroup">
+                    <StackPanel>
+                        <Button x:Name="group" Style="{DynamicResource InvButonStyle}" Background="Transparent" Visibility="Collapsed" CommandParameter="{Binding}" Command="{Binding DataContext.SelectGroupCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TreeView}}}">
+                            <StackPanel  Orientation="Horizontal">
+                                <TextBlock Padding="5,0,5,2" Text="{Binding Name}" FontWeight="Bold" FontSize="{StaticResource H3FontSize}" Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TreeViewItem}}}" />
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="workspace" Style="{DynamicResource InvButonStyle}" Background="Transparent" Visibility="Collapsed" CommandParameter="{Binding}" Command="{Binding DataContext.SelectWorkspaceCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TreeView}}}">
+                            <StackPanel  Orientation="Horizontal">
+
+                                <Path x:Name="IsFormExists" Margin="4,2,2,2" Width="10" Height="10" Stretch="Fill"
+                                      Fill="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TreeViewItem}}}"
+                                      Data="M0,0 L0,100 L100,100 L100,0 M10,20 L10,90 L90,90 L90,20 Z" />
+                                <Path x:Name="IsPresetExists" Margin="4,2,2,2" Width="10" Height="10" Stretch="Fill"
+                                      Fill="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TreeViewItem}}}"
+                                      Data="M0,0 L0,20 L100,20 L100,0 M0,40 L0,60 L100,60 L100,40 M0,80 L0,100 L100,100 L100,80 Z" />
+                                <Path x:Name="IsButtonExists" Margin="4,2,2,2" Width="12" Height="12"
+                                      Fill="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TreeViewItem}}}" Stretch="Fill" Visibility="Collapsed"
+                                      Data="M 50,50 l 15,0 l 5,-15 l 5,15 l 15,0 l -10,10 l 4,15 l -15,-9 l -15,9 l 7,-15 Z" />
+                                <TextBlock x:Name="WorkspaceNameTexBox" Padding="5,0,5,2" Text="{Binding Name}"
+                                           FontWeight="Light" FontSize="{StaticResource H3FontSize}"
+                                           Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TreeViewItem}}}" />
+                                <TextBlock x:Name="WorkspaceChangedTexBox" Padding="0,0,5,0" Text="*" FontWeight="Bold"
+                                           FontSize="{StaticResource H3FontSize}" 
+                                           Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TreeViewItem}}}" />
+                                <TextBlock x:Name="version" Foreground="Gray" Margin="5,0,5,0" FontSize="9">
+                                    D<Run Text="{Binding DynamoVersion}"/>
+                                </TextBlock>
+                            </StackPanel>
+
+                        </Button>
+
+                    </StackPanel>
+                    <HierarchicalDataTemplate.Triggers>
+                        <DataTrigger Binding="{Binding Tag}" Value="group">
+                            <Setter TargetName="group" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="workspace" Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding Tag}" Value="workspace">
+                            <Setter TargetName="workspace" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="group" Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                        
+                        <DataTrigger Binding="{Binding WorkspaceForm, Mode=OneWay}" Value="{x:Null}">
+                            <Setter TargetName="IsFormExists" Property="Fill" Value="#30ffffff"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsChanged, Mode=OneWay}" Value="False">
+                            <Setter TargetName="WorkspaceChangedTexBox" Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsNoPresets, Mode=OneWay}" Value="true">
+                            <Setter TargetName="IsPresetExists" Property="Fill" Value="#30ffffff"/>
+                        </DataTrigger>
+                    </HierarchicalDataTemplate.Triggers>
+                </HierarchicalDataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+   
+
+    
+</ResourceDictionary>

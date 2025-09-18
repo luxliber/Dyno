@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F637B272-D9F6-4E52-9F3A-1402861407C6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Prorubim.DynoRevitCore</RootNamespace>
+    <AssemblyName>DynoRevitCore</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\..\..\..\Dyno\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;ENABLE_DYNAMO_SCHEDULER</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug2019|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\..\..\..\..\..\Dyno\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;ENABLE_DYNAMO_SCHEDULER</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug 2020|AnyCPU'">
+    <OutputPath>..\..\..\..\..\Dyno\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AdWindows">
+      <HintPath>..\..\..\..\..\Program Files\Autodesk\Revit 2020\AdWindows.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="CoreNodeModels">
+      <HintPath>..\..\..\..\..\Program Files\Autodesk\Revit 2020\AddIns\DynamoForRevit\nodes\CoreNodeModels.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DSRevitNodesUI">
+      <HintPath>..\..\..\..\..\Program Files\Autodesk\Revit 2020\AddIns\DynamoForRevit\Revit\nodes\DSRevitNodesUI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DynamoCore">
+      <HintPath>..\..\..\..\..\Program Files\Autodesk\Revit 2021\AddIns\DynamoForRevit\DynamoCore.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DynamoRevitDS">
+      <HintPath>..\..\..\..\..\Program Files\Autodesk\Revit 2020\AddIns\DynamoForRevit\Revit\DynamoRevitDS.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RevitAPI">
+      <HintPath>..\..\..\..\..\Program Files\Autodesk\Revit 2020\RevitAPI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RevitAPIUI">
+      <HintPath>..\..\..\..\..\Program Files\Autodesk\Revit 2020\RevitAPIUI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RevitServices">
+      <HintPath>..\..\..\..\..\Program Files\Autodesk\Revit 2020\AddIns\DynamoForRevit\Revit\RevitServices.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="WpfAnimatedGif">
+      <HintPath>..\..\packages\WpfAnimatedGif.2.0.0\lib\net40\WpfAnimatedGif.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\AssemblySharedInfoGenerator\AssemblyDynoInfo.cs">
+      <Link>Properties\AssemblyDynoInfo.cs</Link>
+    </Compile>
+    <Compile Include="DynamoProductsManager.cs" />
+    <Compile Include="Views\InitProgressWindow.xaml.cs">
+      <DependentUpon>InitProgressWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\DynoRevitManagerBase.RunExternalIvent.cs" />
+    <Compile Include="ViewModels\DynoRevitManagerBase.PrepareExternalIvent.cs" />
+    <Compile Include="ViewModels\DynoRevitManagerBase.Evaluation.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="WorkspaceCommandsManager.cs" />
+    <Compile Include="ViewModels\DynoRevitManagerBase.cs" />
+    <Compile Include="DynoAppBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\InitProgressWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\progress1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\progress10.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\progress11.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\progress12.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\progress13.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\progress14.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\progress15.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\progress16.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\progress17.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\progress18.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\progress19.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\progress2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\progress20.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\progress3.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\progress4.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\progress5.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\progress6.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\progress7.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\progress8.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\progress9.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DynoCore\DynoCore.csproj">
+      <Project>{528db1db-1a35-45b1-b2f2-4861fcbb6c77}</Project>
+      <Name>DynoCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

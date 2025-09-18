@@ -1,0 +1,37 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" x:Class="Dyno.Views.WorkspaceDialogWindow"
+        Title ="Test script" WindowStartupLocation="CenterScreen"
+    d:DesignWidth="300" d:DesignHeight="200" ResizeMode="CanMinimize"  MinHeight="200" MinWidth="200"
+
+    
+    Style="{DynamicResource WorkspaceDialogWindowStyle}"
+    >
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Themes/MetroLight/Metro.MSControls.Core.Implicit.xaml" />
+                <ResourceDictionary Source="../Themes/MetroLight/Metro.MSControls.Toolkit.Implicit.xaml" />
+                <ResourceDictionary Source="/DynoCore;component/Themes/WorkspaceDialogStyle.xaml" />
+                <ResourceDictionary Source="/DynoCore;component/Themes/WorkspaceDialogWindowStyle.xaml" />
+                <ResourceDictionary Source="/DynoCore;component/Themes/FlatComboBoxStyle.xaml" />
+               <!-- <ResourceDictionary Source="/DynoCore;component/Themes/WorkspaceFormControlsEditor.xaml" /> -->
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="55"/>
+        </Grid.RowDefinitions>
+        <TabControl Grid.Row="0" x:Name="FormTabControl" Style="{DynamicResource WorkspaceFormTabControlStyle}" ItemsSource="{Binding ShownTabItems}" SelectionChanged="FormTabControl_OnSelectionChanged" />
+        <Border Padding="10" Grid.Row="1"  SnapsToDevicePixels="True">
+            <DockPanel Background="LightGray" HorizontalAlignment="Right">
+                <Button Style="{DynamicResource RunButtonStyle}" FontSize="13" Padding="10,0,10,0" BorderThickness="0,0,0,0" Margin="0" DockPanel.Dock="Right" HorizontalAlignment="Right" Content="{Binding ContinueText}" IsEnabled="{Binding Path=IsNoError, Mode=OneWay}" IsCancel="True" x:Name="CancelButton"/>
+
+            </DockPanel> </Border>
+    </Grid>
+</Window>

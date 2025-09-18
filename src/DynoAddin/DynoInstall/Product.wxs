@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+
+  <!-- 1ecd2e39-444b-4dc2-8de3-149dc30b0555 -->
+  <Product Id="*" Name="Dyno !(bind.fileVersion.dynoAssembly)" Language="1033" Version="!(bind.fileVersion.dynoAssembly)" Manufacturer="Alexey Lobanov" UpgradeCode="2ecd2e39-444b-4dc2-8de3-149dc30b0559">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" Platform="x64"/>
+
+
+    <!--
+    <MajorUpgrade Schedule="afterInstallInitialize"  DowngradeErrorMessage="A later version of [ProductName] is already installed. Setup will now exit."/>
+    -->
+    <Property Id="OLDVERSION" Secure="yes" />
+    <Upgrade Id="2ecd2e39-444b-4dc2-8de3-149dc30b0559">
+      <UpgradeVersion
+             Minimum="0.0.1" Maximum="99.0.0"
+             Property="OLDVERSION"
+             IncludeMinimum="yes" IncludeMaximum="yes" />
+    </Upgrade>
+
+    <MediaTemplate EmbedCab="yes"/>
+
+    <Binary Id="DynoInstall.CA.dll"
+        SourceFile="..\DynoInstallCA\bin\Release\DynoInstall.CA.dll" />
+
+    <CustomAction Id="TuneConfig"
+                Return="check"
+                Execute="immediate"
+                BinaryKey="DynoInstall.CA.dll"
+                DllEntry="TuneConfig" >
+    </CustomAction>
+
+
+
+    <util:CloseApplication Id="AppRunning" Target="revit.exe" Property="RUNNINGAPP" RebootPrompt="no"/>
+    <Condition Message="Please close Revit before starting install">NOT RUNNINGAPP</Condition>
+
+
+    <InstallUISequence>
+      <Custom Action="WixCloseApplications" Before="LaunchConditions" />
+    </InstallUISequence>
+
+    <InstallExecuteSequence>
+
+      <Custom Action="WixCloseApplications" Before="LaunchConditions" />
+      <RemoveExistingProducts Before="InstallInitialize" />
+      <Custom Action="TuneConfig" After="InstallFinalize">NOT Installed</Custom>
+    </InstallExecuteSequence>
+
+
+    <!-- <Property Id='DYNAMOREVIT_INSTALLDIR'></Property>
+    <SetProperty Id="DYNAMOREVIT_INSTALLDIR" Value="c:\\Dyno\\" After="LaunchConditions"></SetProperty> -->
+
+
+    <Feature Id="DynoCore" Title="DynoCore" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+      <ComponentGroupRef Id="DynoNodesDll" />
+      <ComponentGroupRef Id="DynoNodesPkg" />
+
+
+      <ComponentGroupRef Id="AddinComponents2021" />
+      <ComponentGroupRef Id="AddinComponents2022" />
+      <ComponentGroupRef Id="AddinComponents2020" />
+      <ComponentGroupRef Id="Settings" />
+    </Feature>
+
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION" />
+    <Property Id="ARPNOREPAIR" Value="yes" Secure="yes" />
+    <WixVariable Id="WixUIDialogBmp" Value="banner.png" />
+    <WixVariable Id="WixUIBannerBmp" Value="top.png" />
+
+    <UI>
+      <UIRef Id="WixUI_InstallDir"/>
+      <DialogRef Id="FilesInUse" />
+      <DialogRef Id="MsiRMFilesInUse" />
+      <Publish Dialog="WelcomeDlg"
+               Control="Next"
+               Event="NewDialog"
+               Value="PrepareDlg"
+               Order="2">1</Publish>
+
+    </UI>
+
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFiles64Folder">
+        <Directory Id="INSTALLLOCATION" Name="Dyno" />
+
+        <Directory Id="NODES" Name="Prorubim Nodes" >
+          <Directory Id="NODE" Name="Prorubim Dyno">
+            <Directory Id="NODEBIN" Name="bin"/>
+          </Directory>
+        </Directory>
+
+      </Directory>
+
+
+
+      <Directory Id="AppDataFolder">
+        <Directory Id="APPDATALOCATION" Name="Dyno" >
+
+        </Directory>
+      </Directory>
+      <Directory Id="CommonAppDataFolder">
+
+
+        <Directory Id="ADESK_DATA" Name="Autodesk">
+          <Directory Id="REVIT_DATA" Name="Revit">
+            <Directory Id="ADDIN_DATA" Name="Addins">
+
+              <Directory Id="ADDINS_2021" Name="2021"/>
+              <Directory Id="ADDINS_2022" Name="2022"/>
+              <Directory Id="ADDINS_2020" Name="2020"/>
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLLOCATION">
+      <Component Id="Main" Win64="yes" Guid="976a5fd6-0a53-4530-b9c8-1004fc7a6200">
+        <File Id="dynoAssembly"  Source="..\..\..\..\..\Dyno\Dyno.dll" />
+        <File Source="..\..\..\..\..\Dyno\DynoCore.dll" />
+        <File Source="..\..\..\..\..\Dyno\DynoRevitCore.dll" />
+        <File Source="..\..\..\..\..\Dyno\DynoUI.dll" />
+        <File Source="..\..\..\..\..\Dyno\protobuf-net.dll" />
+        <File Source="..\..\..\..\..\Dyno\WpfAnimatedGif.dll" />
+        <File Source="..\..\..\..\..\Dyno\CookComputing.XmlRpcV2.dll" />
+      </Component>
+
+    </ComponentGroup>
+
+    <ComponentGroup Id="DynoNodesDll" Directory="NODEBIN">
+      <!--
+      <Component Id="NodesDll" Win64="yes" Guid="976a5fd6-0a53-4530-b968-10045c7a6200">
+        <File Source="..\..\..\..\..\Dyno\DynoNodes\bin\DynoNodes.dll" />
+        <File Source="..\..\..\..\..\Dyno\DynoNodes\bin\DynoNodes.xml" />
+        <File Source="..\..\..\..\..\Dyno\DynoNodes\bin\DynoNodes_DynamoCustomization.xml" />
+      </Component>
+      -->
+    </ComponentGroup>
+
+    <ComponentGroup Id="DynoNodesPkg" Directory="NODE">
+      <!--
+      <Component Id="NodesPkg" Win64="yes" Guid="976a5fd6-0a53-0530-b968-10045c7a6000">
+        <File Source="..\..\..\..\..\Dyno\DynoNodes\pkg.json" />
+      </Component>
+      -->
+    </ComponentGroup>
+
+    <ComponentGroup Id="Settings" Directory="APPDATALOCATION">
+      <Component Id="Cfg" Win64="yes" Guid="976a5fd6-0a53-4530-b9c8-1004fc7a6201" Permanent="yes" NeverOverwrite="no">
+        <RegistryKey Root="HKCU" Key="Software\Dyno">
+          <RegistryValue Name="MainExe" Value="1" KeyPath="yes" Type="integer" />
+        </RegistryKey>
+        <RemoveFolder Id="APPDATALOCATION" On="uninstall" />
+        <File Source="Dyno.cfg"/>
+      </Component>
+    </ComponentGroup>
+
+
+
+   
+
+    <ComponentGroup Id="AddinComponents2021" Directory="ADDINS_2021">
+      <Component Id="DynoAddin2021" Win64="yes" Guid="976a5fd6-0a53-4530-b9c8-1104fc7a6212">
+        <File Name="Dyno2021.addin" Source="Dyno.addin"></File>
+        <RemoveFile Id="ADDINS_2021" Name="Dyno2021.addin" On='uninstall' />
+      </Component>
+    </ComponentGroup>
+
+    <ComponentGroup Id="AddinComponents2022" Directory="ADDINS_2022">
+      <Component Id="DynoAddin2022" Win64="yes" Guid="79a2aaac-4c51-4aa8-859b-3f9e87d3d459">
+        <File Name="Dyno2022.addin" Source="Dyno.addin"></File>
+        <RemoveFile Id="ADDINS_2022" Name="Dyno2022.addin" On='uninstall' />
+      </Component>
+    </ComponentGroup>
+
+
+    <ComponentGroup Id="AddinComponents2020" Directory="ADDINS_2020">
+      <Component Id="DynoAddin2020" Win64="yes" Permanent="no" Guid="976a5fd6-0a53-4530-b3c8-21043c7a6214">
+        <File Name="Dyno2020.addin" Source="Dyno.addin"></File>
+        <RemoveFile Id="ADDINS_2020" Name="Dyno2020.addin" On='uninstall' />
+      </Component>
+    </ComponentGroup>
+
+
+
+  </Fragment>
+</Wix>

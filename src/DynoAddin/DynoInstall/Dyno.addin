@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+  <Name>DynoApp</Name>
+    <Assembly>"C:\Program Files\Dyno\Dyno.dll"</Assembly>
+    <AddInId>a7cc11aa-02eb-4a3a-9847-fc0183916b1d</AddInId>
+    <FullClassName>Dyno.DynoApp</FullClassName>
+    <VendorId>Alexey Lobanov</VendorId>
+    <VendorDescription>PRORUBIM, Alexey Lobanov</VendorDescription>
+  </AddIn>
+</RevitAddIns>

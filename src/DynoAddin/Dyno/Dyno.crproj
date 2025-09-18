@@ -1,0 +1,27 @@
+<project outputDir="c:\Dyno\" baseDir="c:\Dyno\Confuser" xmlns="http://confuser.codeplex.com">
+  <rule pattern="true" inherit="false">
+    <protection id="anti ildasm" action="remove" />
+    <protection id="anti tamper" action="remove" />
+    <protection id="constants" action="remove" />
+    <protection id="ctrl flow" action="remove" />
+    <protection id="anti dump" action="remove" />
+    <protection id="anti debug" action="remove" />
+    <protection id="invalid metadata" action="remove" />
+    <protection id="ref proxy" action="remove" />
+    <protection id="resources" action="remove" />
+    <protection id="rename" action="remove" />
+  </rule>
+  <module path="Dyno.dll" />
+  <module path="DynoCore.dll" />
+  <module path="DynoRevitCore.dll" />
+  <module path="DynoUI.dll">
+    <rule pattern="true" inherit="false" />
+  </module>
+  <module path="DynoNodes\bin\DynoNodes.dll" />
+  <probePath>c:\Dyno\Confuser</probePath>
+  <probePath>c:\Program Files\Autodesk\Revit 2021</probePath>
+  <probePath>c:\Program Files\Autodesk\Revit 2021\AddIns\DynamoForRevit\</probePath>
+  <probePath>c:\Program Files\Autodesk\Revit 2021\AddIns\DynamoForRevit\nodes\</probePath>
+  <probePath>c:\Program Files\Autodesk\Revit 2021\AddIns\DynamoForRevit\Revit\</probePath>
+  <probePath>c:\Program Files\Autodesk\Revit 2021\AddIns\DynamoForRevit\Revit\nodes</probePath>
+</project>

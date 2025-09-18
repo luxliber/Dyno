@@ -1,0 +1,37 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid x:Key="PackageEditorTabContent">
+        <StackPanel x:Name="CreatePackage" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical" >
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource LightGray}" Text="Coming soon..." FontSize="48" FontWeight="Light"/>
+
+            <Button Name="CreatePackageButton" Focusable="False" FontSize="20" BorderBrush="Transparent" HorizontalAlignment="Center" Command="{Binding CreatePackageCommand}">Create</Button>
+            <StackPanel.Style>
+                <Style TargetType="{x:Type FrameworkElement}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsPackageSelected}" Value="True">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </StackPanel.Style>
+        </StackPanel>
+
+        <StackPanel x:Name="ViewPackage" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical" >
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource LightGray}" Text="Coming soon..." FontSize="48" FontWeight="Light"/>
+            <StackPanel.Style>
+                <Style TargetType="{x:Type FrameworkElement}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsPackageSelected}" Value="False">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </StackPanel.Style>
+        </StackPanel>
+
+
+    </Grid>
+
+</ResourceDictionary>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Bundle Name="PackageBootstrapper" Version="1.0.0.0" Manufacturer="PRORUBIM LLC" UpgradeCode="258b6836-5360-4cfb-9851-94c96cee2d83">
+		<BootstrapperApplicationRef Id="ManagedBootstrapperApplicationHost">
+		  <Payload SourceFile="..\PackageBootstrapperUI\BootstrapperCore.config"/>
+		  <Payload SourceFile="..\PackageBootstrapperUI\bin\Release\PackageBootstrapperUI.dll"/>
+		  <Payload SourceFile="C:\Program Files (x86)\WiX Toolset v3.11\SDK\Microsoft.Deployment.WindowsInstaller.dll"/>
+		</BootstrapperApplicationRef>
+	  <WixVariable Id="WixMbaPrereqPackageId" Value="Netfx4Full" />
+	  <WixVariable Id="WixMbaPrereqLicenseUrl" Value="NetfxLicense.rtf" />
+	  <Chain>
+	 
+	    <MsiPackage SourceFile="..\PackageInstall\bin\Release\PackageInstall.msi" Id="InstallationPackageId" Cache="yes" Visible="no"/>
+		</Chain>
+	</Bundle>
+</Wix>

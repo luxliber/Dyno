@@ -1,0 +1,130 @@
+﻿<Window x:Class="Prorubim.DynoStudio.Props.ColorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+
+
+        mc:Ignorable="d"
+        Title="Color Picker" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="{DynamicResource DarkBackground}" Icon="../../Images/favicon.ico">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Themes/MetroDark/MetroDark.MSControls.Core.Implicit.xaml" />
+                <ResourceDictionary Source="/WPG;component/Themes/ExpressionBlend.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0">BASIC COLORS</Label>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="0" Background="#000000"/>
+            <Button Style="{StaticResource ColorSelectorButton}"  Grid.Column="1" Background="#d63e15"/>
+            <Button Style="{StaticResource ColorSelectorButton}"  Grid.Column="2" Background="#ed7d31"/>
+            <Button Style="{StaticResource ColorSelectorButton}"  Grid.Column="3" Background="#ffc000"/>
+            <Button Style="{StaticResource ColorSelectorButton}"  Grid.Column="4" Background="#70ad47"/>
+            <Button Style="{StaticResource ColorSelectorButton}"  Grid.Column="5" Background="#5b9bd5"/>
+            <Button Style="{StaticResource ColorSelectorButton}"  Grid.Column="6" Background="#4472c4"/>
+        </Grid>
+
+        <Label Grid.Row="2" Margin="0,10,0,0">OTHER COLORS</Label>
+        <Grid Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <!--gray colors-->
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="0" Grid.Row="0" Background="#ffffff"/>
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="0" Grid.Row="1" Background="#dddddd"/>
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="0" Grid.Row="2" Background="#666666"/>
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="0" Grid.Row="3" Background="#333333"/>
+
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="1" Grid.Row="0" Background="#ffcfa5"/>
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="1" Grid.Row="1" Background="#ff916e"/>
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="1" Grid.Row="2" Background="#aa0000"/>
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="1" Grid.Row="3" Background="#860000"/>
+
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="2" Grid.Row="0" Background="#fbe5d5"/>
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="2" Grid.Row="1" Background="#f7cbac"/>
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="2" Grid.Row="2" Background="#c55a11"/>
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="2" Grid.Row="3" Background="#833c0b"/>
+
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="3" Grid.Row="0" Background="#fff2cc"/>
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="3" Grid.Row="1" Background="#fee599"/>
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="3" Grid.Row="2" Background="#bf9000"/>
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="3" Grid.Row="3" Background="#7f6000"/>
+
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="4" Grid.Row="0" Background="#e2efd9"/>
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="4" Grid.Row="1" Background="#c5e0b3"/>
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="4" Grid.Row="2" Background="#538135"/>
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="4" Grid.Row="3" Background="#375623"/>
+
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="5" Grid.Row="0" Background="#deebf6"/>
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="5" Grid.Row="1" Background="#bdd7ee"/>
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="5" Grid.Row="2" Background="#2e75b5"/>
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="5" Grid.Row="3" Background="#1e4e79"/>
+
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="6" Grid.Row="0" Background="#d9e2f3"/>
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="6" Grid.Row="1" Background="#b4c6e7"/>
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="6" Grid.Row="2" Background="#2f5496"/>
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="6" Grid.Row="3" Background="#1f3864"/>
+
+        </Grid>
+
+        <Label Grid.Row="4" Margin="0,10,0,0">GENERAL COLORS</Label>
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!--general colors-->
+            <Button Style="{StaticResource ColorSelectorButton}" Grid.Column="0" Background="#ff0000"/>
+            <Button Style="{StaticResource ColorSelectorButton}"  Grid.Column="1" Background="#ffc000"/>
+            <Button Style="{StaticResource ColorSelectorButton}"  Grid.Column="2" Background="#ffff00"/>
+            <Button Style="{StaticResource ColorSelectorButton}"  Grid.Column="3" Background="#92d050"/>
+            <Button Style="{StaticResource ColorSelectorButton}"  Grid.Column="4" Background="#00b050"/>
+            <Button Style="{StaticResource ColorSelectorButton}"  Grid.Column="5" Background="#0070c0"/>
+            <Button Style="{StaticResource ColorSelectorButton}"  Grid.Column="6" Background="#7030a0"/>
+        </Grid>
+
+    </Grid>
+</Window>

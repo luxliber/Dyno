@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+
+  <!-- 1ecd2e39-444b-4dc2-8de3-149dc30b0555 -->
+  <Product Id="*" Name="Dyno Studio !(bind.fileVersion.dynoAssembly)" Language="1033" Version="!(bind.fileVersion.dynoAssembly)" Manufacturer="Alexey Lobanov" UpgradeCode="2ecd2e39-444b-4dc2-8de3-149dc30b0449">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" Platform="x64"/>
+
+    
+    <!--
+    <MajorUpgrade Schedule="afterInstallInitialize"  DowngradeErrorMessage="A later version of [ProductName] is already installed. Setup will now exit."/>
+    -->
+    <Property Id="OLDVERSION" Secure="yes" />
+    <Upgrade Id="2ecd2e39-444b-4dc2-8de3-149dc30b0449">
+      <UpgradeVersion
+             Minimum="0.0.1" Maximum="99.0.0"
+             Property="OLDVERSION"
+             IncludeMinimum="yes" IncludeMaximum="yes" />
+    </Upgrade>
+
+    <MediaTemplate EmbedCab="yes"/>
+
+    <Binary Id="DynoStudioInstall.CA.dll"
+        src="..\DynoStudioInstallCA\bin\Debug\DynoStudioInstall.CA.dll" />
+
+    <CustomAction Id="TuneConfig"
+                Return="check"
+                Execute="immediate"
+                BinaryKey="DynoStudioInstall.CA.dll"
+                DllEntry="TuneConfig" >
+    </CustomAction>
+
+
+
+
+    <InstallExecuteSequence>
+
+
+      <RemoveExistingProducts Before="InstallInitialize" />
+      <Custom Action="TuneConfig" After="InstallFinalize">NOT Installed</Custom>
+    </InstallExecuteSequence>
+
+    <Feature Id="DynoCore" Title="DynoCore" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+      <ComponentGroupRef Id="Settings" />
+     
+      <ComponentGroupRef Id="Shortcut" />
+    </Feature>
+
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION" />
+    <Property Id="ARPNOREPAIR" Value="yes" Secure="yes" />
+    <WixVariable Id="WixUIDialogBmp" Value="banner.png" />
+    <WixVariable Id="WixUIBannerBmp" Value="top.png" />
+
+    <UI>
+      <UIRef Id="WixUI_InstallDir"/>
+      <DialogRef Id="FilesInUse" />
+      <DialogRef Id="MsiRMFilesInUse" />
+      <Publish Dialog="WelcomeDlg"
+               Control="Next"
+               Event="NewDialog"
+               Value="PrepareDlg"
+               Order="2">1</Publish>
+
+    </UI>
+
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="APPPROGRAMMENU" Name="Dyno Studio"/>
+      </Directory>
+      <Directory Id="ProgramFiles64Folder">
+        <Directory Id="INSTALLLOCATION" Name="DynoStudio" />
+      </Directory>
+      <Directory Id="AppDataFolder">
+        <Directory Id="APPDATALOCATION" Name="DynoStudio" >
+        </Directory>
+      </Directory>
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLLOCATION">
+      <Component Id="Main" Win64="yes" Guid="976a5fd6-0a53-4530-b9c8-1004fc7a6210" Permanent="no" NeverOverwrite="no">
+
+        <File Id="dynoAssembly" Source="C:\\DynoStudio\\DynoStudio.exe" />
+        <File Source="C:\\DynoStudio\\WPG.dll" />
+        <File  Source="C:\\DynoStudio\\DynoCore.dll" />
+        <File Source="C:\\DynoStudio\\protobuf-net.dll" />
+        <File Source="C:\\DynoStudio\\CookComputing.XmlRpcV2.dll" />
+   
+        
+        <RemoveFolder Id="INSTALLLOCATION" On="uninstall" />
+      </Component>
+
+    </ComponentGroup>
+
+    <ComponentGroup Id="Settings" Directory="APPDATALOCATION">
+      <Component Id="Cfg" Win64="yes" Guid="976a5fd6-0a53-4530-b9c8-1004fc7a6201" Permanent="yes" NeverOverwrite="yes">
+        <RegistryKey Root="HKCU" Key="Software\DynoStudio">
+          <RegistryValue Name="MainExe" Value="1" KeyPath="yes" Type="integer" />
+        </RegistryKey>
+        <RemoveFolder Id="APPDATALOCATION" On="uninstall" />
+      
+      </Component>
+      
+    </ComponentGroup>
+
+    <ComponentGroup Id="Shortcut" Directory="APPPROGRAMMENU">
+      <Component Id="ApplicationShortcut" Guid="976a5fd6-0a53-4530-b9c8-1004fc7a5208">
+        <RegistryKey Root="HKCU" Key="Software\DynoStudio">
+          <RegistryValue Name="MainExe" Value="1" KeyPath="yes" Type="integer" />
+        </RegistryKey>
+        <RemoveFolder Id="APPPROGRAMMENU" On='uninstall' />
+
+        <Shortcut Id="ApplicationStartMenuShortcut"
+                 Name="Dyno Studio"
+                 Description="Dyno Studio"
+                 Target="[#dynoAssembly]"
+                 WorkingDirectory="INSTALLLOCATION"/>
+
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

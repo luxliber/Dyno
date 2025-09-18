@@ -1,0 +1,473 @@
+﻿<Window x:Class="Prorubim.DynoStudio.Main.MainWindow" Icon="../Images/favicon.ico"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+
+        xmlns:wpg="clr-namespace:WPG;assembly=WPG"
+
+        xmlns:mainWindow="clr-namespace:Prorubim.DynoStudio.Main"
+        xmlns:editor="clr-namespace:Prorubim.DynoStudio.Editor"
+        xmlns:converters="clr-namespace:Prorubim.DynoStudio.Utils.Converters"
+        xmlns:viewModels="clr-namespace:Prorubim.DynoStudio.ViewModels"
+
+        MouseLeave="MainWindow_OnMouseLeave"
+        MouseMove="MainWindow_OnMouseMove"
+        PreviewMouseLeftButtonDown="MainWindow_OnPreviewMouseLeftButtonDown"
+        PreviewMouseLeftButtonUp="MainWindow_OnPreviewMouseLeftButtonUp"
+
+        Closing="MainWindow_OnClosing"
+
+        Height="710" Width="1220" WindowStartupLocation="CenterScreen" WindowState="Maximized"
+        Background="{DynamicResource DarkBackground}" Title="{Binding Title}">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Themes/MetroDark/MetroDark.MSControls.Core.Implicit.xaml" />
+                <ResourceDictionary Source="/WPG;component/Themes/ExpressionBlend.xaml" />
+                <ResourceDictionary Source="../Themes/Generic.xaml" />
+                <ResourceDictionary Source="../Themes/FormEditorTabContent.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Window.InputBindings>
+        <KeyBinding Key="R" Modifiers="Control" Command="{Binding RefreshCommand}" />
+        <KeyBinding Key="S" Modifiers="Control" Command="{Binding SaveCommand}" />
+        <KeyBinding Key="L" Modifiers="Control" Command="{Binding LoadCommand}" />
+
+        <KeyBinding Key="F5" Command="{Binding TestCommand}" />
+        <KeyBinding Key="T" Modifiers="Control" Command="{Binding TestCommand}" />
+
+        <KeyBinding Key="Z" Modifiers="Control" Command="{Binding UndoCommand}" />
+        <KeyBinding Key="Y" Modifiers="Control" Command="{Binding RedoCommand}" />
+    </Window.InputBindings>
+
+    <Window.DataContext>
+        <viewModels:MainViewModel />
+    </Window.DataContext>
+
+
+    <Grid Margin="5" Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{Binding Settings.TreeSplitterWidth}" />
+            <ColumnDefinition Width="Auto" />
+
+            <ColumnDefinition />
+
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="{Binding Settings.UserPropSplitterWidth}" />
+
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="{Binding Settings.PropSplitterWidth}" />
+        </Grid.ColumnDefinitions>
+
+
+        <Grid Margin="0,5,0,15" Grid.ColumnSpan="7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Height="90">
+                <Image Source="../Images/about_single.png" Stretch="UniformToFill" HorizontalAlignment="Left"
+                       VerticalAlignment="Top" Margin="0,6,0,0" Width="190" />
+                <StackPanel Margin="5,7,5,7" Orientation="Horizontal" VerticalAlignment="Top"
+                            HorizontalAlignment="Left">
+                    <Button Name="Rescan" Style="{StaticResource ToolButton}" Command="{Binding RefreshCommand}"
+                            ToolTip="Rescan Storage"
+                            mainWindow:ToolButtonProps.Image="../Images/forms_control_refresh.png" />
+                    <Button Name="Save" Style="{StaticResource ToolButton}" Command="{Binding SaveCommand}"
+                            ToolTip="Save Form" mainWindow:ToolButtonProps.Image="../Images/forms_control_save.png" />
+                    <Button Name="Load" Style="{StaticResource ToolButton}" Command="{Binding LoadCommand}"
+                            ToolTip="Load Form" mainWindow:ToolButtonProps.Image="../Images/forms_control_load.png" />
+
+
+                    <Button Name="Settings" Style="{StaticResource ToolButton}" Command="{Binding SettingsCommand}"
+                            ToolTip="Settings And Program Info"
+                            mainWindow:ToolButtonProps.Image="../Images/forms_control_settings.png" />
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Name="FormEditorTools">
+                <StackPanel.Style>
+                    <Style TargetType="StackPanel">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsFormSelected}" Value="false">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </StackPanel.Style>
+
+                <WrapPanel>
+
+                    <Border Margin="5,0,5,0" Padding="5,5,5,5" BorderThickness="1,0,0,0"
+                            BorderBrush="{StaticResource TransBlueColor}">
+                        <StackPanel Orientation="Horizontal">
+                            <Button Name="Test" Style="{StaticResource ToolButton}" Command="{Binding TestCommand}"
+                                    Content="Run Form" ToolTip="Run Form (F5, Ctrl+T)"
+                                    mainWindow:ToolButtonProps.Image="../Images/forms_control_test.png" />
+                            <Button Name="Undo" Style="{StaticResource ToolButton}" Command="{Binding UndoCommand}"
+                                    ToolTip="Undo (Ctrl+Z)"
+                                    mainWindow:ToolButtonProps.Image="../Images/forms_control_undo.png" />
+                            <Button Name="Redo" Style="{StaticResource ToolButton}" Command="{Binding RedoCommand}"
+                                    ToolTip="Redo (Ctrl+Y)"
+                                    mainWindow:ToolButtonProps.Image="../Images/forms_control_redo.png" />
+                        </StackPanel>
+                    </Border>
+
+                    <Border Margin="5,0,5,0" Padding="5,5,5,5" BorderThickness="1,0,0,0"
+                            BorderBrush="{StaticResource TransBlueColor}">
+                        <StackPanel Orientation="Horizontal">
+                            <Button Name="Delete" Style="{StaticResource ToolButton}"
+                                    Command="{Binding EditorManager.DeleteCommand}" ToolTip="Delete Control (Del)"
+                                    mainWindow:ToolButtonProps.Image="../Images/forms_control_delete.png" />
+                            <Button Name="Copy" Style="{StaticResource ToolButton}"
+                                    Command="{Binding EditorManager.CopyCommand}" ToolTip="Copy (Ctrl+C)"
+                                    mainWindow:ToolButtonProps.Image="../Images/forms_control_copy.png" />
+                            <Button Name="Cut" Style="{StaticResource ToolButton}"
+                                    Command="{Binding EditorManager.CutCommand}" ToolTip="Cut (Ctrl+X)"
+                                    mainWindow:ToolButtonProps.Image="../Images/forms_control_cut.png" />
+                            <Button Name="Paste" Style="{StaticResource ToolButton}"
+                                    Command="{Binding EditorManager.PasteCommand}" ToolTip="Paste (Ctrl+V)"
+                                    mainWindow:ToolButtonProps.Image="../Images/forms_control_paste.png" />
+                        </StackPanel>
+                    </Border>
+
+                    <Border Margin="5,0,5,0" Padding="5,5,5,5" BorderThickness="1,0,0,0"
+                            BorderBrush="{StaticResource TransBlueColor}">
+                        <StackPanel Orientation="Horizontal">
+                            <Button Name="Front" Style="{StaticResource ToolButton}"
+                                    Command="{Binding EditorManager.FrontCommand}" ToolTip="Bring To Front"
+                                    mainWindow:ToolButtonProps.Image="../Images/forms_control_front.png" />
+                            <Button Name="Back" Style="{StaticResource ToolButton}"
+                                    Command="{Binding EditorManager.BackCommand}" ToolTip="Send To Back"
+                                    mainWindow:ToolButtonProps.Image="../Images/forms_control_back.png" />
+                            <ComboBox Height="35" Width="80" VerticalContentAlignment="Center" IsEditable="True"
+                                      DataContext="{Binding EditorManager}">
+                                <ComboBox.Text>
+                                    <Binding Path="WorkspaceForm.Zoom">
+                                        <Binding.Converter>
+                                            <converters:ZoomConverter />
+                                        </Binding.Converter>
+                                    </Binding>
+                                </ComboBox.Text>
+                                <ComboBoxItem>160%</ComboBoxItem>
+                                <ComboBoxItem>140%</ComboBoxItem>
+                                <ComboBoxItem>120%</ComboBoxItem>
+                                <ComboBoxItem FontWeight="Bold">100%</ComboBoxItem>
+                                <ComboBoxItem>80%</ComboBoxItem>
+                                <ComboBoxItem>60%</ComboBoxItem>
+                                <ComboBoxItem>40%</ComboBoxItem>
+                            </ComboBox>
+                        </StackPanel>
+                    </Border>
+                </WrapPanel>
+
+                <Border Margin="5,0,5,0" Background="{StaticResource DarkGray}" Padding="5,5,5,5" BorderThickness="1"
+                        BorderBrush="{StaticResource TransBlueColor}" HorizontalAlignment="Left">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+                        <ScrollViewer.Template>
+                            <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                                <Grid x:Name="Grid" Background="{TemplateBinding Background}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <ScrollContentPresenter x:Name="PART_ScrollContentPresenter"
+                                                            CanContentScroll="{TemplateBinding CanContentScroll}"
+                                                            CanHorizontallyScroll="False" CanVerticallyScroll="False"
+                                                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                            Content="{TemplateBinding Content}" Grid.RowSpan="1"
+                                                            Margin="{TemplateBinding Padding}" Grid.ColumnSpan="2" />
+                                    <ScrollBar x:Name="PART_HorizontalScrollBar"
+                                               AutomationProperties.AutomationId="HorizontalScrollBar" Cursor="Arrow"
+                                               Grid.Column="0" Maximum="{TemplateBinding ScrollableWidth}" Minimum="0"
+                                               Orientation="Horizontal" Grid.Row="1"
+                                               Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+                                               Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                               ViewportSize="{TemplateBinding ViewportWidth}" Height="5" MinHeight="5"
+                                               MaxHeight="5" />
+                                </Grid>
+                            </ControlTemplate>
+                        </ScrollViewer.Template>
+                        <StackPanel Orientation="Horizontal">
+
+                            <Button Tag="tool" Cursor="SizeAll" Name="tSelect" Style="{StaticResource ToolButton}"
+                                    PreviewMouseLeftButtonDown="ToolButton_PreviewMouseLeftButtonDown" AllowDrop="True"
+                                    Content="Select Button"
+                                    mainWindow:ToolButtonProps.Image="../Images/forms_control_button.png" />
+                            <Button Tag="tool" Cursor="SizeAll" Name="tTextBox" Style="{StaticResource ToolButton}"
+                                    PreviewMouseLeftButtonDown="ToolButton_PreviewMouseLeftButtonDown" AllowDrop="True"
+                                    Content="TextBox"
+                                    mainWindow:ToolButtonProps.Image="../Images/forms_control_button.png" />
+                            <Button Tag="tool" Cursor="SizeAll" Name="tNumberBox" Style="{StaticResource ToolButton}"
+                                    PreviewMouseLeftButtonDown="ToolButton_PreviewMouseLeftButtonDown" AllowDrop="True"
+                                    Content="NumberBox"
+                                    mainWindow:ToolButtonProps.Image="../Images/forms_control_button.png" />
+
+                            <Button Tag="tool" Cursor="SizeAll" Name="tCheckBox" Style="{StaticResource ToolButton}"
+                                    PreviewMouseLeftButtonDown="ToolButton_PreviewMouseLeftButtonDown" AllowDrop="True"
+                                    Content="CheckBox"
+                                    mainWindow:ToolButtonProps.Image="../Images/forms_control_checkbox.png" />
+                            <Button Tag="tool" Cursor="SizeAll" Name="tRadioButton" Style="{StaticResource ToolButton}"
+                                    PreviewMouseLeftButtonDown="ToolButton_PreviewMouseLeftButtonDown" AllowDrop="True"
+                                    Content="RadioButton"
+                                    mainWindow:ToolButtonProps.Image="../Images/forms_control_radiobox.png" />
+                            <Button Tag="tool" Cursor="SizeAll" Name="tComboBox" Style="{StaticResource ToolButton}"
+                                    PreviewMouseLeftButtonDown="ToolButton_PreviewMouseLeftButtonDown" AllowDrop="True"
+                                    Content="ComboBox"
+                                    mainWindow:ToolButtonProps.Image="../Images/forms_control_combobox.png" />
+                            <Button Tag="tool" Cursor="SizeAll" Name="tListBox" Style="{StaticResource ToolButton}"
+                                    PreviewMouseLeftButtonDown="ToolButton_PreviewMouseLeftButtonDown" AllowDrop="True"
+                                    Content="ListBox"
+                                    mainWindow:ToolButtonProps.Image="../Images/forms_control_listbox.png" />
+                            <Button Tag="tool" Cursor="SizeAll" Name="tLabel" Style="{StaticResource ToolButton}"
+                                    PreviewMouseLeftButtonDown="ToolButton_PreviewMouseLeftButtonDown" AllowDrop="True"
+                                    Content="Label"
+                                    mainWindow:ToolButtonProps.Image="../Images/forms_control_label.png" />
+                            <Button Tag="tool" Cursor="SizeAll" Name="tImage" Style="{StaticResource ToolButton}"
+                                    PreviewMouseLeftButtonDown="ToolButton_PreviewMouseLeftButtonDown" AllowDrop="True"
+                                    Content="Image"
+                                    mainWindow:ToolButtonProps.Image="../Images/forms_control_image.png" />
+
+                        </StackPanel>
+                    </ScrollViewer>
+                </Border>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Foreground="{StaticResource BlueColor}" FontWeight="Light"
+                       FontSize="{StaticResource H2FontSize}" DockPanel.Dock="Top" Text="Storage Tree" Width="Auto"
+                       Height="Auto" Margin="8" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TreeView Grid.Row="1" Name="StorageTreeView" Style="{StaticResource StorageTreeViewStyle}" />
+        </Grid>
+
+
+        <GridSplitter Name="LeftSplitter" MouseDoubleClick="LeftSplitter_OnMouseDoubleClick" Focusable="False"
+                      ResizeDirection="Columns" Width="6" HorizontalAlignment="Stretch" BorderThickness="0"
+                      Grid.Row="1" Grid.Column="1" />
+
+
+        <TabControl Name="MainTabControl" Grid.Column="2" Grid.Row="1" BorderThickness="0,1,0,0" Padding="0,10,0,0"
+                    Background="Transparent" SelectionChanged="MainTabControl_OnSelectionChanged">
+          <TabControl.Style>
+                <Style TargetType="TabControl" BasedOn="{StaticResource MainTabControlStyle}">
+             <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsWorkspaceSelected}" Value="false">
+                            <Setter Property="Visibility" Value="Hidden" />
+                        </DataTrigger>
+                        </Style.Triggers>
+                </Style>
+            </TabControl.Style>
+
+            <TabItem Name="FormTab" Header="Form Designer">
+                 <TabItem.Style>
+                   <Style TargetType="TabItem" BasedOn="{StaticResource MainTabItemStyle}">
+                 <!--       <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsWorkspaceSelected}" Value="false">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                            </DataTrigger>
+                        </Style.Triggers>-->
+                    </Style>
+                </TabItem.Style>
+                <Grid>
+                    <StackPanel Name="CreateFormPanel" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Label Style="{DynamicResource H1Label}">Form is not created yet</Label>
+                        <Button Name="CreateFormButton" Focusable="False" FontSize="{StaticResource H2FontSize}" BorderBrush="Transparent"
+                                HorizontalAlignment="Center" Command="{Binding CreateCommand}">
+                            Create
+                        </Button>
+
+                        <StackPanel.Style>
+                            <Style TargetType="StackPanel">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsFormSelected}" Value="true">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+
+                    </StackPanel>
+
+                    <Border>
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsFormSelected}" Value="false">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                        <ScrollViewer x:Name="BackScrollViewer" DataContext="{Binding EditorManager}"
+                                      VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                                      PreviewMouseWheel="BackScrollViewer_OnPreviewMouseWheel" Background="Transparent">
+
+
+                            <ScrollViewer.InputBindings>
+                                <KeyBinding Key="C" Modifiers="Control" Command="{Binding CopyCommand}" />
+                                <KeyBinding Key="V" Modifiers="Control" Command="{Binding PasteCommand}" />
+                                <KeyBinding Key="X" Modifiers="Control" Command="{Binding CutCommand}" />
+                                <KeyBinding Key="Delete" Command="{Binding DeleteCommand}" />
+
+                                <KeyBinding Key="Left" Command="{Binding TranslateXCommand}" CommandParameter="-5" />
+                                <KeyBinding Key="Right" Command="{Binding TranslateXCommand}" CommandParameter="5" />
+                                <KeyBinding Key="Up" Command="{Binding TranslateYCommand}" CommandParameter="-5" />
+                                <KeyBinding Key="Down" Command="{Binding TranslateYCommand}" CommandParameter="5" />
+
+                                <KeyBinding Key="Left" Modifiers="Shift" Command="{Binding TranslateXCommand}"
+                                            CommandParameter="-20" />
+                                <KeyBinding Key="Right" Modifiers="Shift" Command="{Binding TranslateXCommand}"
+                                            CommandParameter="20" />
+                                <KeyBinding Key="Up" Modifiers="Shift" Command="{Binding TranslateYCommand}"
+                                            CommandParameter="-20" />
+                                <KeyBinding Key="Down" Modifiers="Shift" Command="{Binding TranslateYCommand}"
+                                            CommandParameter="20" />
+                            </ScrollViewer.InputBindings>
+
+                            <editor:EditorCanvas x:Name="EditorCanvas">
+                                <editor:EditorCanvas.LayoutTransform>
+                                    <ScaleTransform ScaleY="{Binding Path=WorkspaceForm.Zoom, Mode=OneWay }"
+                                                    ScaleX="{Binding Path=WorkspaceForm.Zoom }" />
+                                </editor:EditorCanvas.LayoutTransform>
+
+                                <Border MinWidth="100" MinHeight="100" x:Name="FormBorder" BorderThickness="12"
+                                        BorderBrush="{DynamicResource DarkBackground}" Canvas.Left="30" Canvas.Top="30">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="24" />
+                                            <RowDefinition />
+                                            <RowDefinition Height="35" />
+                                        </Grid.RowDefinitions>
+
+                                        <Border Grid.Row="0" x:Name="HeaderBorder"
+                                                Background="{DynamicResource DarkGray}">
+                                            <DockPanel>
+                                                <Label FontSize="{StaticResource H3FontSize}" Foreground="{DynamicResource LightGray}"
+                                                       Content="Workspace Name" VerticalContentAlignment="Center" />
+                                                <StackPanel DockPanel.Dock="Right" HorizontalAlignment="Right"
+                                                            Orientation="Horizontal" Margin="2">
+                                                    <Border Width="14" Background="{DynamicResource Gray}" Margin="3" />
+                                                    <Border Width="14" Background="{DynamicResource Gray}" Margin="3" />
+                                                </StackPanel>
+                                            </DockPanel>
+                                        </Border>
+
+                                        <TabControl AllowDrop="True" Grid.Row="1" x:Name="FormTabControl"
+                                                    Style="{DynamicResource EditorTabControlStyle}"
+                                                    ItemsSource="{Binding WorkspaceForm.TabItems}"
+                                                    SelectedIndex="{Binding WorkspaceForm.SelectedIndex}"
+                                                    SelectionChanged="FormTabControl_OnSelectionChanged">
+                                            <TabControl.Resources>
+                                                <ResourceDictionary>
+                                                    <ResourceDictionary.MergedDictionaries>
+                                                        <ResourceDictionary
+                                                            Source="../Themes/MetroLight/Metro.MSControls.Core.Implicit.xaml" />
+                                                        <ResourceDictionary
+                                                            Source="../Themes/MetroLight/Metro.MSControls.Toolkit.Implicit.xaml" />
+                                                    </ResourceDictionary.MergedDictionaries>
+                                                </ResourceDictionary>
+                                            </TabControl.Resources>
+
+
+                                        </TabControl>
+
+                                        <DockPanel Grid.Row="2">
+                                            <Button Background="Transparent" BorderThickness="0" BorderBrush="Black"
+                                                    FontSize="{StaticResource H3FontSize}" DockPanel.Dock="Right" IsEnabled="False">
+                                                Run And Close
+                                            </Button>
+                                            <Button Background="Transparent" BorderThickness="0" BorderBrush="Black"
+                                                    FontSize="{StaticResource H3FontSize}" DockPanel.Dock="Right" IsEnabled="False">
+                                                Run
+                                            </Button>
+                                            <ComboBox BorderThickness="0" FontSize="{StaticResource H3FontSize}" Name="PresetCombobox"
+                                                      SelectionChanged="PresetComboBox_OnSelectionChanged"
+                                                      ItemsSource="{Binding WorkspaceForm.Workspace.WorkspacePresets}"
+                                                      Focusable="False" SelectedIndex="0">
+                                                <ComboBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <ContentPresenter Content="{Binding Name}" />
+                                                    </DataTemplate>
+                                                </ComboBox.ItemTemplate>
+                                            </ComboBox>
+                                        </DockPanel>
+                                    </Grid>
+
+                                </Border>
+                            </editor:EditorCanvas>
+                        </ScrollViewer>
+                    </Border>
+                </Grid>
+            </TabItem>
+
+         <!--   <TabItem Name="BootstrapTab" Header="Bootstrap Creator" Content="{StaticResource PackageEditorTabContent}">
+                <TabItem.Style>
+                    <Style TargetType="TabItem" BasedOn="{StaticResource MainTabItemStyle}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsGroupSelected}" Value="false">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TabItem.Style>
+            </TabItem>-->
+
+
+        </TabControl>
+
+
+        <GridSplitter MouseDoubleClick="CenterSplitter_OnMouseDoubleClick" Focusable="False" ResizeDirection="Columns"
+                      Width="6" HorizontalAlignment="Stretch" BorderThickness="0" Grid.Row="1" Grid.Column="3" />
+
+
+        <Border Grid.Column="4" BorderBrush="{DynamicResource BorderBrush}" Grid.Row="1"
+                DataContext="{Binding EditorManager}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Foreground="{StaticResource BlueColor}" FontWeight="Light"
+                           FontSize="{StaticResource H2FontSize}" DockPanel.Dock="Top" Text="User Parameters"
+                           Width="Auto" Height="Auto" Margin="8" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                <DataGrid x:Name="BindingsDataGrid" Grid.Row="1" AutoGenerateColumns="False" CanUserDeleteRows="True"
+                          CanUserAddRows="True" ItemsSource="{Binding WorkspaceForm.UserPars}"
+                          CurrentCellChanged="BindingsDataGrid_OnCurrentCellChanged">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name }" />
+                        <DataGridTextColumn Header="Value" Width="*" Binding="{Binding Value}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Border>
+
+
+        <GridSplitter MouseDoubleClick="RightSplitter_OnMouseDoubleClick" Focusable="False" ResizeDirection="Columns"
+                      Width="6" HorizontalAlignment="Stretch" BorderThickness="0" Grid.Row="1" Grid.Column="5" />
+
+
+        <Border Grid.Column="6" BorderBrush="{DynamicResource BorderBrush}" Grid.Row="1">
+            <wpg:PropertyGrid Name="PropertyGrid" OverridesDefaultStyle="True" ShowDescription="True"
+                              ShowPreview="True" DataContext="{Binding EditorManager}"
+                              Instance="{Binding Path=PropertyGridItem, Mode=OneWay}" />
+        </Border>
+    </Grid>
+</Window>

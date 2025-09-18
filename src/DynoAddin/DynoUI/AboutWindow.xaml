@@ -1,0 +1,35 @@
+﻿<Window x:Name="window" x:Class="DynoUI.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="About Dyno" Height="430" Width="318" Background="#FF212121" Foreground="LightGray" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+
+    <StackPanel Orientation="Vertical">
+        <Image HorizontalAlignment="Center" VerticalAlignment="Top" Source="Images/about.png" StretchDirection="DownOnly" Stretch="Uniform" Height="70" Margin="0,20,0,0"/>
+        <Label Padding="0,0,0,20" Content="{Binding Version, ElementName=window, Mode=OneWay}" Foreground="OrangeRed" HorizontalAlignment="Center"/>
+
+        <TextBlock Foreground="LightGray" Background="Transparent"  AllowDrop="False" TextAlignment="Center" TextWrapping="Wrap" Height="56" Margin="10">
+            <Run Text="Dyno by PRORUBIM and Alexey Lobanov is licensed under a "/>
+            <Hyperlink Foreground="DeepSkyBlue" NavigateUri="http://creativecommons.org/licenses/by-nd/4.0/" RequestNavigate="Hyperlink_OnRequestNavigate">
+                <Run Text="Creative Commons Attribution-NoDerivatives 4.0 International License"/>
+            </Hyperlink>
+            <Run Text="."/>
+        </TextBlock>
+
+        <Label HorizontalContentAlignment="Center" Padding="0,20,0,20" Content="© PRORUBIM, Alexey Lobanov 2018" Foreground="LightGray" HorizontalAlignment="Center" Margin="10,0" Width="290"/>
+        <Image HorizontalAlignment="Center" VerticalAlignment="Top" Source="Images/prorubim.png" Stretch="Fill" Width="41" Height="37" Margin="29,0"/>
+        <TextBlock TextAlignment="Center" Margin="0,10,0,0">
+            
+            PRORUBIM site - 
+            <Hyperlink Foreground="DeepSkyBlue" NavigateUri="http://prorubim.com/en/" TargetName="_top" RequestNavigate="Hyperlink_OnRequestNavigate">prorubim.com</Hyperlink>
+        </TextBlock>
+        <TextBlock TextAlignment="Center">
+            App site - 
+            <Hyperlink Foreground="DeepSkyBlue" NavigateUri="http://prorubim.com/en/tools/dyno/" TargetName="_top" RequestNavigate="Hyperlink_OnRequestNavigate">prorubim.com/en/tools/dyno</Hyperlink>
+        </TextBlock>
+
+        <Label Padding="0,0,0,0" Content="lobanov.a@prorubim.com" Foreground="LightGray" HorizontalAlignment="Center" Margin="86,0"/>
+
+    </StackPanel>
+
+
+</Window>

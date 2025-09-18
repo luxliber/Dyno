@@ -1,0 +1,202 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:Class="Dyno.Themes.WorkspaceFormWindowStyle">
+
+
+
+    <SolidColorBrush x:Key="WorkspaceFormWindowBorderBrush" Color="DodgerBlue"/>
+
+    <Style x:Key="WorkspaceFormWindowStyleTitleBarButton" TargetType="{x:Type Button}">
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid >
+                        <Border x:Name="border" Background="Transparent" />
+                        <ContentPresenter/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#FFF" />
+                            <Setter TargetName="border" Property="Opacity" Value="0.5" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background"
+                            Value="{Binding HeaderBrush}"/>
+                            <Setter TargetName="border" Property="Opacity" Value="1" />
+                            <Setter Property="Foreground" Value="#FFF"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+    <Style x:Key="WorkspaceFormWindowStyle"  TargetType="{x:Type Window}">
+
+        <Setter Property="AllowsTransparency" Value="True"/>
+        <Setter Property="WindowStyle" Value="None"/>
+
+        <Setter Property="ResizeMode" Value="CanResizeWithGrip" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Window}">
+                    <Grid  Margin="7">
+
+                        <Border x:Name="PART_Border" Background="{Binding Path=HeaderBrush, Mode=OneWay}">
+                            <Border.Effect>
+                                <DropShadowEffect Color="black" Opacity="0.4" BlurRadius="7" ShadowDepth="2" Direction="-90"/>
+                            </Border.Effect>
+                        </Border>
+                        <Grid>
+
+                            <Path Data="M279,544.6c7,6.5,14,12.9,21.7,20.1c3.6-9.8,6.9-18.7,10.2-27.8c8.2,4.7,16.4,9.4,25.8,14.7c1.3-10.6,2.5-20,3.7-29.4
+	c8.8,2.7,17.7,5.4,28.2,8.6c-1-10.7-2-20.1-2.9-29.6c9.1,0.7,18.4,1.3,29.2,2.1c-3.4-10.1-6.3-19-9.4-28.2c9.1-1.6,18.6-3.2,29.1-5
+	c-5.6-8.8-10.7-16.7-15.9-24.7c8.4-3.7,17-7.5,26.8-11.8c-4.5-4.1-8-7.4-11.6-10.5c-3.5-3-7.2-5.9-10.6-8.7
+	c7.3-6.2,14.6-12.4,22.7-19.2c-9.6-4.3-18.1-8.2-26.8-12.1c5-7.6,10.2-15.3,16.3-24.5c-10.7-1.6-20-3-29.2-4.4
+	c2.7-8.8,5.5-17.7,8.6-28.1c-10.6,1.6-20,3-29.4,4.4c0-9.3,0-18.7,0-29.3c-9.1,4.3-17.5,8.2-26.3,12.2c-2.6-8.7-5.2-17.8-8.3-28.4
+	c-7.8,7.5-14.4,13.8-21,20.1c-5.1-7.2-10.5-14.8-17-23.8c-4.7,9.7-8.7,18.2-12.7,26.5c-7.5-5-15.4-10.2-24.5-16.3
+	c-0.9,11-1.6,20.3-2.3,29.4c-8.7-2.1-17.7-4.3-28.5-6.9c2.8,10.3,5.2,19.2,7.6,28.2c-8.8,1.2-18,2.5-28.9,4c6.5,8.6,12,15.9,17.3,23
+	c-7.3,4.2-15.3,8.8-23.2,13.4c-0.1,0.6-0.2,1.3-0.2,1.9c8.2,4.2,16.4,8.4,24.4,12.4c-4.8,7.1-9.9,14.6-15,22.1
+	c0.3,0.6,0.6,1.1,1,1.7c8.9,0,17.8,0,27,0c-1.4,9.4-2.7,18.5-4,27.6c0.6,0.3,1.1,0.6,1.7,0.9c4.2-1.6,8.6-3.1,12.7-5
+	c4.2-1.9,8.1-4.3,11.7-6.3c2.7,8.7,5.3,17.3,7.9,25.8c0.8,0.2,1.6,0.3,2.4,0.5c5.2-7.3,10.3-14.5,15.2-21.3
+	c6.2,5.3,12.9,11.2,20.5,17.7c3.2-10.5,3.9-19.3,1.9-27.8c9.1,1.3,17.9,2.6,26.7,3.8c0.5-0.7,0.9-1.4,1.4-2.1
+	c-4.3-7.6-8.6-15.3-12.6-22.3c7.2-3.2,15.2-6.8,24.2-10.8c-8.3-7.5-16.9-9.5-25.1-10.9c3.8-7.8,7.6-15.7,12-24.7
+	c-10.9,0-19,3.6-27.1,8.7c-0.6-9.4-1.8-18.1-7.4-26.2c-6,7.1-10.2,14.5-10,24.6c-7.2-6.2-14.3-11.1-24-11.6c0.2,9,4.6,15.9,9.9,22.9
+	c-6.7-2.4-13.7-4-19.8-7.4c-2.7-1.5-4.5-6.2-5.3-9.7c-1.7-7.5-2.4-15.1-3.6-23.1c12.7-1.5,23.4,0.4,33.8,6.1
+	c3.9-9.4,9.5-17.1,17.1-23.3c2.9-2.4,4.7-2.7,7.3,0.3c6.4,7.4,10.5,16,12.7,24.7c8.7-1.2,17.1-2.7,25.6-3.3c7.8-0.5,8.7,0.9,7.1,8.7
+	c-1.7,7.9-3.9,15.6-6,23.9c3.9,2,8.9,4.2,13.4,7.1c4.6,3,8.6,6.7,13.2,10.4c-7,9.6-16.1,15.4-26.3,20.1c2.1,4.9,4.3,9.6,6.3,14.4
+	c0.6,1.5,1.3,3.1,1.7,4.6c3.6,14.3,3.8,11.6-10.2,13.5c-6.3,0.8-12.8,0.1-18.8,0.1c-2.2,9.5-4.5,19.6-6.8,30.1
+	c-11.7-3.1-20.3-9.3-28.1-15.8c-7.6,7.6-15.1,15.1-22.6,22.6c-0.8-0.1-1.5-0.2-2.3-0.4c-4.8-9.4-9.6-18.9-14.1-27.9
+	c-9.4,2.9-19.1,5.8-29.5,9c-2.7-11.4-1.5-21.9-0.7-31.8c-9.3-1.7-18.2-3.4-27.1-4.9c-3.4-0.6-4.5-2-2.9-5.4
+	c4-8.1,7.8-16.3,11.6-24.4c-8.1-5.6-16.7-11.5-26.7-18.5c9.5-7.4,17.6-13.8,25.7-20.1c-4.8-8.4-10-17.3-15.9-27.6
+	c11.2-2.9,21.1-5.4,31.1-7.9c-1.6-9.6-3.3-19.6-5.3-31.2c11.4,1.3,21.8,2.4,31.8,3.5c2-9.9,4-20,6.3-31.3
+	c10.4,5.4,19.5,10.1,28.4,14.7c5.3-8.6,10.7-17.3,16.8-27.2c7.7,8.4,14.6,16.1,21.5,23.6c7.7-5.9,15.9-12.2,25.3-19.4
+	c4.2,10.6,8,20.1,11.8,29.7c9.4-3.4,19-6.9,29.7-10.7c0.9,11.5,1.8,21.7,2.6,31.6c9.9-0.6,20-1.3,31.5-2
+	c-2.3,11.2-4.4,21.1-6.5,31.1c9.4,2.2,19.3,4.5,30.7,7.1c-5.3,9.9-10,18.8-14.8,27.9c8.5,4.8,17.5,9.9,27.9,15.8
+	c-8.2,8-15.6,15.1-22.8,22.1c6.9,7.1,14,14.5,22.1,22.9c-10.1,5.6-19.1,10.5-27.8,15.4c4.7,8.8,9.6,17.7,14.9,27.7
+	c-10.9,2.6-20.7,4.9-30.5,7.3c2.6,9.5,5.3,19.3,8.3,29.9c-10.8,0-20.8,0-31,0c0,10.9,0,21,0,32c-10.1-2.3-20-4.6-29.9-6.9
+	c-1.9,9.7-3.9,19.8-6,30.9c-10-4.8-19-9.1-28.4-13.7c-2.3,5.4-4.4,11-7,16.4c-6.9,14.1-3.6,13.2-16.6,3.7
+	c-4.6-3.4-8.8-7.5-13.3-11.3c-6.5,8.3-12.7,16.4-19.4,25c-6.8-8.8-12.9-16.7-19.2-24.9c-7.6,6.3-15.5,12.8-24.5,20.2
+	c-4.4-10.2-8.4-19.4-12.1-28.6c-0.5-1.3,0.3-3.2,0.8-4.7c1.9-5.8,4-11.5,6.4-18.2c3.6,9.5,6.9,18,10.6,27.6
+	c7.5-7.1,14.4-13.6,21.5-20.3c5.2,7.8,10.5,15.7,16.5,24.7C268.6,560.4,273.8,552.5,279,544.6z"
+                		Stretch="Fill" Fill="White" Height="100" Width="90" Opacity="0.18" Margin="10 10 10 0" HorizontalAlignment="Right" VerticalAlignment="Top" />
+
+                            <DockPanel HorizontalAlignment="Stretch" Background="Transparent" VerticalAlignment="Stretch">
+                                <Border x:Name="TitleBar" DockPanel.Dock="Top" BorderThickness="0" MouseMove="TitleBarMouseMove" MouseLeftButtonDown="TitleBarMouseLeftButtonDown" Background="Transparent">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Orientation="Horizontal" Margin="12 2 12 6" Height="22">
+                                            <TextBlock TextOptions.TextFormattingMode="Ideal" Text="{Binding WorkspaceTitle}" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Bottom" Foreground="White"/>
+                                            <TextBlock TextOptions.TextFormattingMode="Ideal" Text="{Binding PresetTitle}" FontSize="11" Padding="0"  Margin="10 0 0 1" VerticalAlignment="Bottom"  Foreground="White"/>
+                                        </StackPanel>
+
+                                        <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                            <Button x:Name="MinButton" Width="30" Foreground="White"
+                                                    Style="{StaticResource WorkspaceFormWindowStyleTitleBarButton}" Click="MinButtonClick">
+                                                <Path Stroke="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}"
+                                                        StrokeThickness="1" Stretch="None" RenderOptions.EdgeMode="Aliased" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                        Data="M0,11  H11" />
+                                            </Button>
+                                            <Button x:Name="MaxButton" Width="30" Foreground="White"
+                                            Style="{StaticResource WorkspaceFormWindowStyleTitleBarButton}" Click="MaxButtonClick">
+                                                <Path x:Name="PART_MaxButton_Path" Stroke="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}"
+                                                    StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                    Stretch="None"
+                                                    RenderOptions.EdgeMode="Aliased"
+                                                    Data="M0,0 H11 V11 H0 Z"/>
+                                            </Button>
+                                            <Button x:Name="CloseButton" Width="30" Foreground="White" 
+                                            Style="{StaticResource WorkspaceFormWindowStyleTitleBarButton}" Click="CloseButtonClick">
+                                                <Path Stroke="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}"
+                                                    StrokeThickness="2" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                    Stretch="None"
+                                                    RenderOptions.EdgeMode="Aliased"
+                                                    Data="M0,0 L11,11 M0,11 L11,0"/>
+                                            </Button>
+                                        </StackPanel>
+
+                                    </Grid>
+                                </Border>
+                                <Border BorderBrush="{Binding HeaderBrush}" BorderThickness="1 0 1 1">
+                                    <!--       <Border.Effect>
+                                            <DropShadowEffect Color="black" Opacity="0.2" BlurRadius="10" ShadowDepth="1" Direction="90"/>
+                                        </Border.Effect>-->
+                                    <ContentPresenter />
+                                </Border>
+                            </DockPanel>
+                        </Grid>
+                        <Grid Name="ControlsGrid">
+                            <Line
+                                MouseDown="OnSizeNorth"
+                                x:Name="lnSizeNorth"
+                                Stroke="Transparent"
+                                Cursor="SizeNS"
+                                X1="1" X2="{TemplateBinding ActualWidth}" Y1="1" Y2="1"
+                                StrokeThickness="3" />
+                            <Line
+                                MouseDown="OnSizeSouth"
+                                x:Name="lnSizeSouth"
+                                Stroke="Transparent"
+                                VerticalAlignment="Bottom"
+                                Cursor="SizeNS"
+                                X1="1" X2="{TemplateBinding ActualWidth}" Y1="{TemplateBinding ActualHeight}"
+                                Y2="{TemplateBinding ActualHeight}"
+                                StrokeThickness="3" />
+                            <Line
+                                MouseDown="OnSizeWest"
+                                x:Name="lnSizeWest"
+                                Stroke="Transparent"
+                                Cursor="SizeWE"
+                                X1="1" X2="1" Y1="1" Y2="{TemplateBinding ActualHeight}"
+                                StrokeThickness="3" />
+                            <Line
+                                MouseDown="OnSizeEast"
+                                x:Name="lnSizeEast"
+                                Stroke="Transparent"
+                                HorizontalAlignment="Right"
+                                Cursor="SizeWE"
+                                X1="{TemplateBinding ActualWidth}" X2="{TemplateBinding ActualWidth}" Y1="1"
+                                Y2="{TemplateBinding ActualHeight}"
+                                StrokeThickness="3" />
+                            <Rectangle MouseDown="OnSizeNorthWest" x:Name="rectSizeNorthWest" Cursor="SizeNWSE"
+                                       Fill="Transparent" Width="5" Height="5" VerticalAlignment="Top"
+                                       HorizontalAlignment="Left" />
+                            <Rectangle MouseDown="OnSizeNorthEast" x:Name="rectSizeNorthEast" Cursor="SizeNESW"
+                                       Fill="Transparent" Width="5" Height="5" VerticalAlignment="Top"
+                                       HorizontalAlignment="Right" />
+                            <Rectangle MouseDown="OnSizeSouthWest" x:Name="rectSizeSouthWest" Cursor="SizeNESW"
+                                       Fill="Transparent" Width="5" Height="5" VerticalAlignment="Bottom"
+                                       HorizontalAlignment="Left" />
+                            <Rectangle MouseDown="OnSizeSouthEast" x:Name="rectSizeSouthEast" Cursor="SizeNWSE"
+                                       Fill="Transparent" Width="5" Height="5" VerticalAlignment="Bottom"
+                                       HorizontalAlignment="Right" />
+                        </Grid>
+                    </Grid>
+                           <ControlTemplate.Triggers>
+                        <Trigger Property="WindowState" Value="Maximized">
+                            <Setter TargetName="PART_MaxButton_Path" Property="Data" Value="M0,3 H8 V11 H0 Z M11,8 V0 H3"/>
+                        </Trigger>
+                        <DataTrigger Binding="{Binding Path=WorkspaceForm.EditorIsResizable}" Value="false">
+                            <Setter TargetName="MaxButton" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="ControlsGrid" Property="Visibility" Value="Collapsed"/>
+                            <!--<Setter Property="ResizeMode" Value="CanMinimize"/>-->
+                            
+                        </DataTrigger>
+                    </ControlTemplate.Triggers> 
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+</ResourceDictionary>

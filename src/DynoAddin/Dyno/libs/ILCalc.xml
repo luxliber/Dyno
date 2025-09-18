@@ -1,0 +1,1188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>ILCalc</name>
+  </assembly>
+  <members>
+    <member name="T:ILCalc.ArgumentCollection">
+      <summary>
+            Manages the unique arguments names available to an expression.<br />
+            This class cannot be inherited.
+            </summary>
+    </member>
+    <member name="M:ILCalc.ArgumentCollection.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:ILCalc.ArgumentCollection" />
+            class that is empty and has the default initial capacity.
+            </summary>
+    </member>
+    <member name="M:ILCalc.ArgumentCollection.#ctor(ILCalc.ArgumentCollection)">
+      <summary>
+            Initializes a new instance of the <see cref="T:ILCalc.ArgumentCollection" />
+            class from the other <see cref="T:ILCalc.ArgumentCollection" /> instance.
+            </summary>
+      <param name="list">ArgumentCollection instance.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="list" /> is null.</exception>
+    </member>
+    <member name="M:ILCalc.ArgumentCollection.#ctor(System.Collections.Generic.IEnumerable{System.String})">
+      <summary>
+            Initializes a new instance of the <see cref="T:ILCalc.ArgumentCollection" />
+            class that has specified arguments names inside.
+            </summary>
+      <param name="names">Enumerable with arguments names.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="names" /> is null.</exception>
+      <exception cref="T:System.ArgumentException">
+            Some item of <paramref name="names" /> is not valid identifier name.<br />-or-<br />
+            Some item of <paramref name="names" /> is already exist in the list.
+            </exception>
+    </member>
+    <member name="M:ILCalc.ArgumentCollection.#ctor(System.String)">
+      <summary>
+            Initializes a new instance of the <see cref="T:ILCalc.ArgumentCollection" />
+            class that has one specific argument name inside.
+            </summary>
+      <param name="name">Argument name.</param>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="name" /> is not valid identifier name.
+            </exception>
+    </member>
+    <member name="M:ILCalc.ArgumentCollection.#ctor(System.String[])">
+      <summary>
+            Initializes a new instance of the <see cref="T:ILCalc.ArgumentCollection" />
+            class that has specified arguments names inside.
+            </summary>
+      <param name="names">Arguments names.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="names" /> is null.</exception>
+      <exception cref="T:System.ArgumentException">
+            Some item of <paramref name="names" /> is not valid identifier name.<br />-or-<br />
+            Some item of <paramref name="names" /> is already exist in the list.
+            </exception>
+    </member>
+    <member name="M:ILCalc.ArgumentCollection.Add(System.String)">
+      <summary>
+            Adds name to the end of the <see cref="T:ILCalc.ArgumentCollection" />.
+            </summary>
+      <param name="item">Argument name to add.</param>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="item" /> is not valid identifier name.<br />-or-<br /><paramref name="item" /> name is already exist in the list.
+            </exception>
+    </member>
+    <member name="M:ILCalc.ArgumentCollection.Clear">
+      <summary>
+            Removes all names from the <see cref="T:ILCalc.ArgumentCollection" />.
+            </summary>
+    </member>
+    <member name="M:ILCalc.ArgumentCollection.Contains(System.String)">
+      <summary>
+            Determines whether an name is in the <see cref="T:ILCalc.ArgumentCollection" />.
+            </summary>
+      <param name="item">
+            Argument name to locate in <see cref="T:ILCalc.ArgumentCollection" />.
+            </param>
+      <returns>
+        <b>true</b> if name is found in the list; otherwise, <b>false</b>.
+            </returns>
+    </member>
+    <member name="M:ILCalc.ArgumentCollection.CopyTo(System.String[],System.Int32)">
+      <summary>
+            Copies the entire list of arguments names to a one-dimensional array
+            of strings, starting at the specified index of the target array.
+            </summary>
+      <param name="array">
+            The one-dimensional <see cref="T:System.Array" /> of strings that is the
+            destination of the names copied from <see cref="T:ILCalc.ArgumentCollection" />.
+            The <see cref="T:System.Array" /> must have zero-based indexing.
+            </param>
+      <param name="arrayIndex">
+            The zero-based index in array at which copying begins.
+            </param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="array" /> is null.
+            </exception>
+      <exception cref="T:System.ArgumentOutOfRangeException">
+        <paramref name="arrayIndex" /> is less than zero.</exception>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="arrayIndex" /> is equal to or greater
+            than the length of array.<br />-or-<br />
+            Number of names in the source <see cref="T:ILCalc.ArgumentCollection" />
+            is greater than the available space from <paramref name="arrayIndex" />
+            to the end of the destination <paramref name="array" />.
+            </exception>
+    </member>
+    <member name="P:ILCalc.ArgumentCollection.Count">
+      <summary>
+            Gets the number of names actually contained in the <see cref="T:ILCalc.ArgumentCollection" />.
+            </summary>
+    </member>
+    <member name="M:ILCalc.ArgumentCollection.IndexOf(System.String)">
+      <summary>
+            Searches for the specified name and returns the zero-based
+            index of name in the <see cref="T:ILCalc.ArgumentCollection" />.
+            </summary>
+      <param name="item">The name to locate in the <see cref="T:ILCalc.ArgumentCollection" />.</param>
+      <returns>
+            The zero-based index of the first occurrence of name within
+            the entire <see cref="T:ILCalc.ArgumentCollection" />, if found; otherwise, –1.
+            </returns>
+    </member>
+    <member name="M:ILCalc.ArgumentCollection.Insert(System.Int32,System.String)">
+      <summary>
+            Inserts an element into the <see cref="T:ILCalc.ArgumentCollection" />
+            at the specified index.
+            </summary>
+      <param name="index">
+            The zero-based index at which name should be inserted.
+            </param>
+      <param name="item">The name to insert</param>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="item" /> is not valid identifier name.<br />-or-<br />
+            Argument with <paramref name="item" /> name is already exist.
+            </exception>
+    </member>
+    <member name="P:ILCalc.ArgumentCollection.IsReadOnly">
+      <summary>
+            Gets a value indicating whether the 
+            <see cref="T:System.Collections.Generic.ICollection`1" /> is read-only.
+            </summary>
+    </member>
+    <member name="P:ILCalc.ArgumentCollection.Item(System.Int32)">
+      <summary>
+            Gets or sets the argument name at the specified index. 
+            </summary>
+      <param name="index">
+            The zero-based index of the name to get or set.
+            </param>
+      <returns>The name at the specified index.</returns>
+      <exception cref="T:System.ArgumentOutOfRangeException">
+        <paramref name="index" /> is less than 0, equal to
+            or greater than <see cref="P:ILCalc.ArgumentCollection.Count" /> value.
+            </exception>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="value" /> is not valid identifier name<br />-or-<br /><paramref name="value" /> name is already exist in the list.
+            </exception>
+    </member>
+    <member name="M:ILCalc.ArgumentCollection.Remove(System.String)">
+      <summary>
+            Removes the specific name from the <see cref="T:ILCalc.ArgumentCollection" />.
+            </summary>
+      <param name="item">The name to be removed.</param>
+      <returns>
+        <b>true</b> if name is successfully removed; otherwise, <b>false</b>.
+            </returns>
+    </member>
+    <member name="M:ILCalc.ArgumentCollection.RemoveAt(System.Int32)">
+      <summary>
+            Removes the name at the specified index of the <see cref="T:ILCalc.ArgumentCollection" />.
+            </summary>
+      <param name="index">The zero-based index of the name to remove.</param>
+      <exception cref="T:System.ArgumentOutOfRangeException">
+        <paramref name="index" /> is less than 0, equal to or greater than Count.
+            </exception>
+    </member>
+    <member name="T:ILCalc.CalcContext">
+      <summary>
+            Represents the expression context (arguments, constants and functions
+            available to use in expression, parsing settings) and provides methods
+            to compile, evaluate and validate expressions in runtime.<br />
+            This class cannot be inherited.</summary>
+    </member>
+    <member name="M:ILCalc.CalcContext.#ctor">
+      <summary>Initializes a new instance of the ILCalc class
+            that is contains empty expression context.</summary>
+    </member>
+    <member name="M:ILCalc.CalcContext.#ctor(System.String[])">
+      <summary>Initializes a new instance of the ILCalc class
+            that is contains specified arguments.</summary>
+      <param name="arguments">Arguments names.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="arguments" /> is null.</exception>
+      <exception cref="T:System.ArgumentException">
+            Some name of <paramref name="arguments" /> is not valid identifier name.<br />-or-<br />
+            Some name of <paramref name="arguments" /> is already exist in the list.</exception>
+    </member>
+    <member name="P:ILCalc.CalcContext.Arguments">
+      <summary>Gets or sets <see cref="T:ILCalc.ArgumentCollection" /> available
+            for use in the expression.</summary>
+    </member>
+    <member name="P:ILCalc.CalcContext.Constants">
+      <summary>Gets or sets <see cref="T:ILCalc.ConstantCollection" /> available
+            for use in the expression.</summary>
+    </member>
+    <member name="M:ILCalc.CalcContext.CreateEvaluator(System.String)">
+      <summary>
+            Compiles the <see cref="T:ILCalc.Evaluator" /> object
+            for evaluating the specified <paramref name="expression" />.
+            </summary>
+      <param name="expression">Expression to compile.</param>
+      <returns>
+        <see cref="T:ILCalc.Evaluator" /> object for evaluating expression.</returns>
+      <exception cref="T:ILCalc.SyntaxException">
+        <paramref name="expression" /> contains syntax error(s) and can't be compiled.</exception>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="expression" /> is null.
+            </exception>
+    </member>
+    <member name="M:ILCalc.CalcContext.CreateInterpret(System.String)">
+      <summary>Generates the <see cref="T:ILCalc.Interpret" /> object
+            for evaluating the specified <paramref name="expression" />.</summary>
+      <param name="expression">
+            Expression to create <see cref="T:ILCalc.Interpret" /> from.</param>
+      <returns>
+        <see cref="T:ILCalc.Interpret" /> object for evaluating expression.</returns>
+      <exception cref="T:ILCalc.SyntaxException">
+        <paramref name="expression" /> contains syntax error(s)
+            and can't be used for <see cref="T:ILCalc.Interpret" /> creation.</exception>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="expression" /> is null.</exception>
+    </member>
+    <member name="M:ILCalc.CalcContext.CreateTabulator(System.String)">
+      <summary>
+            Compiles the <see cref="T:ILCalc.Tabulator" /> object for evaluating
+            the specified <paramref name="expression" /> in some ranges of arguments.
+            </summary>
+      <param name="expression">Expression to compile.</param>
+      <returns>
+        <see cref="T:ILCalc.Tabulator" /> object for evaluating expression.</returns>
+      <exception cref="T:ILCalc.SyntaxException">
+        <paramref name="expression" /> contains syntax error(s) and can't be compiled.</exception>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="expression" /> is null.<br />-or-<br /><exception cref="T:System.ArgumentException">
+            The espression's <see cref="P:ILCalc.CalcContext.Arguments" /> count is not supported (only one or two arguments allowed).</exception></exception>
+    </member>
+    <member name="P:ILCalc.CalcContext.Culture">
+      <summary>Gets or sets <see cref="T:System.Globalization.CultureInfo" /> instance
+            used for expression parsing. Can be <c>null</c> for ignoring
+            culture-sensitive characters and using ordinal compare for strings.
+            </summary>
+      <exception cref="T:System.NotSupportedException">
+        <paramref name="value" /> is neutral culture,
+            that can't be used as parse culture.</exception>
+    </member>
+    <member name="M:ILCalc.CalcContext.Evaluate(System.String,System.Double[])">
+      <summary>Evaluates the given <paramref name="expression" />
+            using quick interpretation mode.</summary>
+      <param name="expression">Expression to evaluate.</param>
+      <param name="arguments">Expression arguments values.</param>
+      <returns>Evaluated value.</returns>
+      <exception cref="T:ILCalc.SyntaxException">
+        <paramref name="expression" /> contains syntax error(s) and can't be evaluated.
+            </exception>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="expression" /> is null.<br />-or-<br /><paramref name="arguments" /> is null.</exception>
+      <exception cref="T:System.ArgumentException">Wrong arguments count was
+            specified by <paramref name="arguments" /> parameter.</exception>
+      <exception cref="T:System.ArithmeticException">Expression evaluation
+            thrown the <see cref="T:System.ArithmeticException" />.</exception>
+    </member>
+    <member name="P:ILCalc.CalcContext.Functions">
+      <summary>Gets or sets <see cref="T:ILCalc.FunctionCollection" /> available
+            for use in the expression.</summary>
+    </member>
+    <member name="P:ILCalc.CalcContext.IgnoreCase">
+      <summary>Gets or sets ignore case mode
+            for identifiers names in the expresion.</summary>
+    </member>
+    <member name="P:ILCalc.CalcContext.Optimization">
+      <summary>Gets or sets a bitwise OR combination of <see cref="T:ILCalc.OptimizeModes" />
+            enumeration values that specify optimization modes for expression.</summary>
+    </member>
+    <member name="P:ILCalc.CalcContext.OverflowCheck">
+      <summary>Gets or sets checking mode for the expression evaluation.</summary>
+    </member>
+    <member name="M:ILCalc.CalcContext.Validate(System.String)">
+      <summary>Validates the specified <paramref name="expression" />.</summary>
+      <param name="expression">Expression to validate.</param>
+      <exception cref="T:ILCalc.SyntaxException">
+        <paramref name="expression" /> contains
+            syntax error(s) and can't be compiled.</exception>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="expression" /> is null.</exception>
+    </member>
+    <member name="T:ILCalc.ConstantCollection">
+      <summary>
+            Manages the pairs list of unique names and values of constants
+            available to an expression.<br />
+            This class cannot be inherited.</summary>
+    </member>
+    <member name="M:ILCalc.ConstantCollection.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:ILCalc.ConstantCollection" /> class
+            that is empty and has the default initial capacity.
+            </summary>
+    </member>
+    <member name="M:ILCalc.ConstantCollection.#ctor(ILCalc.ConstantCollection)">
+      <summary>
+            Initializes a new instance of the <see cref="T:ILCalc.ConstantCollection" />
+            class from the other <see cref="T:ILCalc.ConstantCollection" /> instance.
+            </summary>
+      <param name="list">
+        <see cref="T:ILCalc.ConstantCollection" /> instance.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="list" /> is null.</exception>
+    </member>
+    <member name="M:ILCalc.ConstantCollection.#ctor(System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{System.String,System.Double}})">
+      <summary>
+            Initializes a new instance of the <see cref="T:ILCalc.ConstantCollection" />
+            class from the instance of <see cref="T:System.Collections.Generic.ICollection`1" /> containing
+            pairs of constant names and values.
+            </summary>
+      <param name="list">
+        <see cref="T:System.Collections.ICollection" /> of the name/value pairs.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="list" /> is null.</exception>
+      <exception cref="T:System.ArgumentException">
+            Some name of <paramref name="list" /> is not valid identifier name.<br />-or-<br />
+            Some name of <paramref name="list" /> is already exist in the list.
+            </exception>
+    </member>
+    <member name="M:ILCalc.ConstantCollection.Add(System.String,System.Double)">
+      <summary>
+            Adds constant to the end of the 
+            <see cref="T:ILCalc.ConstantCollection" />.</summary>
+      <param name="key">Constant name.</param>
+      <param name="value">Constant value.</param>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="key" /> is not valid identifier name.<br />-or-<br /><paramref name="key" /> name is already exist in the list.</exception>
+    </member>
+    <member name="M:ILCalc.ConstantCollection.Clear">
+      <summary>
+            Removes all constants from the <see cref="T:ILCalc.ConstantCollection" />.
+            </summary>
+    </member>
+    <member name="M:ILCalc.ConstantCollection.ContainsKey(System.String)">
+      <summary>
+            Determines whether the <see cref="T:ILCalc.ConstantCollection" />
+            contains the specified name.</summary>
+      <param name="key">
+            Constant name to locate in the <see cref="T:ILCalc.ConstantCollection" />.</param>
+      <returns>
+        <b>true</b> if name is found in the list;
+            otherwise, <b>false</b>.</returns>
+    </member>
+    <member name="P:ILCalc.ConstantCollection.Count">
+      <summary>
+            Gets the number of constants actually contained
+            in the <see cref="T:ILCalc.ConstantCollection" />.
+            </summary>
+    </member>
+    <member name="M:ILCalc.ConstantCollection.Import(System.Type)">
+      <summary>
+            Imports all public static fields of the specified type
+            into this <see cref="T:ILCalc.ConstantCollection" />.</summary>
+      <param name="type">Type object.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="type" /> is null.</exception>
+      <exception cref="T:System.ArgumentException">
+            Some of names is already exist in the list.</exception>
+    </member>
+    <member name="M:ILCalc.ConstantCollection.Import(System.Type,System.Boolean)">
+      <summary>
+            Imports all public static fields of the specified type
+            into this <see cref="T:ILCalc.ConstantCollection" />.</summary>
+      <param name="type">Type object.</param>
+      <param name="nonPublic">
+            Include non public member methods in search.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="type" /> is null.</exception>
+      <exception cref="T:System.ArgumentException">
+            Some of names is already exist in the list.</exception>
+    </member>
+    <member name="M:ILCalc.ConstantCollection.Import(System.Type[])">
+      <summary>
+            Imports all public static fields of the specified types
+            into this <see cref="T:ILCalc.ConstantCollection" />.</summary>
+      <param name="types">
+            Params array of <see cref="T:System.Type" /> objects.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="types" /> is null.<br>-or-</br>
+            Some Type of <paramref name="types" /> is null.</exception>
+      <exception cref="T:System.ArgumentException">
+            Some of names is already exist in the list.</exception>
+    </member>
+    <member name="M:ILCalc.ConstantCollection.ImportBuiltin">
+      <summary>
+            Imports standart builtin constants into 
+            this <see cref="T:ILCalc.ConstantCollection" />.</summary>
+      <exception cref="T:System.ArgumentException">
+            Some of names is already exist in the list.</exception>
+    </member>
+    <member name="P:ILCalc.ConstantCollection.IsReadOnly">
+      <summary>
+            Gets a value indicating whether the 
+            <see cref="T:System.Collections.Generic.ICollection`1" /> is read-only.
+            </summary>
+    </member>
+    <member name="P:ILCalc.ConstantCollection.Item(System.Int32)">
+      <summary>
+            Gets or sets the constant value at the specified index.</summary>
+      <param name="index">
+            The name of the constant, which value to get or set.</param>
+      <returns>The constant value at the specified index.</returns>
+      <exception cref="T:System.ArgumentOutOfRangeException">index is less than 0.<br />-or-<br />
+            index is equal to or greater than <see cref="P:ILCalc.ConstantCollection.Count" /></exception>
+    </member>
+    <member name="P:ILCalc.ConstantCollection.Item(System.String)">
+      <summary>Gets or sets the value associated
+            with the specified constant name.</summary>
+      <param name="key">
+            The name of the constant, which value to get or set.</param>
+      <returns>
+            The value associated with the specified name. If the specified name is not found,
+            a get operation throws a <see cref="T:System.Collections.Generic.KeyNotFoundException" />, and a set operation 
+            creates a new element with the specified name.</returns>
+      <exception cref="T:System.Collections.Generic.KeyNotFoundException">
+            The property is retrieved and name does not exist in the collection.</exception>
+      <exception cref="T:System.ArgumentException">
+            The property is setted and <paramref name="key" />
+            is not valid identifier name.</exception>
+      <exception cref="T:System.ArgumentNullException">
+            The property is setted and<paramref name="key" /> is null.</exception>
+    </member>
+    <member name="P:ILCalc.ConstantCollection.Keys">
+      <summary>
+            Gets a collection containing the names of the
+            <see cref="T:ILCalc.ConstantCollection" />.</summary>
+    </member>
+    <member name="M:ILCalc.ConstantCollection.Remove(System.String)">
+      <summary>
+            Removes the constant specified by name
+            from the <see cref="T:ILCalc.ConstantCollection" />.</summary>
+      <param name="key">The function name to be removed.</param>
+      <returns>
+        <b>true</b> if constant is successfully removed;
+            otherwise, <b>false</b>.</returns>
+    </member>
+    <member name="M:ILCalc.ConstantCollection.TryGetValue(System.String,System.Double@)">
+      <summary>
+            Gets the value of constant with the specified name.</summary>
+      <param name="key">
+            The name of the constant, which value to get.</param>
+      <param name="value">
+            When this method returns, contains the value of constant
+            with the specified name, if the name is found; otherwise,
+            the default value for the type of the value parameter.
+            This parameter is passed uninitialized.</param>
+      <returns>
+        <b>true</b> if the <see cref="T:ILCalc.ConstantCollection" /> contains an
+            element with the specified name; otherwise, <b>false</b>.</returns>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="key" /> is null.</exception>
+    </member>
+    <member name="P:ILCalc.ConstantCollection.Values">
+      <summary>
+            Gets a collection containing the values of the
+            <see cref="T:ILCalc.ConstantCollection" />.</summary>
+    </member>
+    <member name="T:ILCalc.EvalFunc0">
+      <summary>
+            Represents the compiled expression with no arguments.
+            </summary>
+      <returns>Evaluated value.</returns>
+    </member>
+    <member name="T:ILCalc.EvalFunc1">
+      <summary>
+            Represents the compiled expression with one argument.
+            </summary>
+      <param name="arg">Expression argument.</param>
+      <returns>Evaluated value.</returns>
+    </member>
+    <member name="T:ILCalc.EvalFunc2">
+      <summary>
+            Represents the compiled expression with two arguments.
+            </summary>
+      <param name="arg1">First expression argument.</param>
+      <param name="arg2">Second expression argument.</param>
+      <returns>Evaluated value.</returns>
+    </member>
+    <member name="T:ILCalc.EvalFuncN">
+      <summary>
+            Represents the compiled expression with three or more arguments.
+            </summary>
+      <param name="args">Expression arguments.</param>
+      <returns>Evaluated value.</returns>
+    </member>
+    <member name="T:ILCalc.Evaluator">
+      <summary>
+            Represents the object for the compiled expression evaluation.<br />
+            Instance of this class can be get from the <see cref="M:ILCalc.CalcContext.CreateEvaluator(System.String)" />
+            method.<br />This class cannot be inherited.
+            </summary>
+    </member>
+    <member name="P:ILCalc.Evaluator.ArgumentsCount">
+      <summary>
+            Gets the arguments count, that this Evaluator implemented for.
+            </summary>
+    </member>
+    <member name="M:ILCalc.Evaluator.Evaluate">
+      <summary>
+            Invokes the compiled expression with giving no arguments.
+            </summary>
+      <returns>Evaluated value.</returns>
+      <exception cref="T:System.InvalidOperationException">
+        <see cref="T:ILCalc.Evaluator" /> with no arguments is not compiled.
+            </exception>
+      <exception cref="T:System.ArithmeticException">
+            Expression evaluation thrown the <see cref="T:System.ArithmeticException" />.
+            </exception>
+    </member>
+    <member name="M:ILCalc.Evaluator.Evaluate(System.Double)">
+      <summary>
+            Invokes the compiled expression with giving one argument.
+            </summary>
+      <param name="arg">Expression argument.</param>
+      <returns>Evaluated value.</returns>
+      <exception cref="T:System.InvalidOperationException">
+        <see cref="T:ILCalc.Evaluator" /> with one argument is not compiled.
+            </exception>
+      <exception cref="T:System.ArithmeticException">
+            Expression evaluation thrown the <see cref="T:System.ArithmeticException" />.
+            </exception>
+    </member>
+    <member name="M:ILCalc.Evaluator.Evaluate(System.Double,System.Double)">
+      <summary>
+            Invokes the compiled expression with giving two arguments.
+            </summary>
+      <param name="arg1">First expression argument.</param>
+      <param name="arg2">Second expression argument.</param>
+      <returns>Evaluated value.</returns>
+      <exception cref="T:System.InvalidOperationException">
+        <see cref="T:ILCalc.Evaluator" /> with two arguments is not compiled.
+            </exception>
+      <exception cref="T:System.ArithmeticException">
+            Expression evaluation thrown the <see cref="T:System.ArithmeticException" />.
+            </exception>
+    </member>
+    <member name="M:ILCalc.Evaluator.Evaluate(System.Double[])">
+      <summary>
+            Invokes the compiled expression with giving three or more arguments.
+            </summary>
+      <param name="args">Expression arguments.</param>
+      <returns>Evaluated value.</returns>
+      <exception cref="T:System.InvalidOperationException">
+        <see cref="T:ILCalc.Evaluator" /> with three or more arguments is not compiled.
+            </exception>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="args" /> doesn't specify needed 
+            <see cref="P:ILCalc.Evaluator.ArgumentsCount">arguments count</see>.
+            </exception>
+      <exception cref="T:System.ArithmeticException">
+            Expression evaluation thrown the <see cref="T:System.ArithmeticException" />.
+            </exception>
+    </member>
+    <member name="F:ILCalc.Evaluator.Evaluate0">
+      <summary>
+            Directly invokes the compiled expression with giving no arguments.
+            This field is readonly.
+            </summary>
+    </member>
+    <member name="F:ILCalc.Evaluator.Evaluate1">
+      <summary>
+            Directly invokes the compiled expression with giving one argument.
+            This field is readonly.
+            </summary>
+    </member>
+    <member name="F:ILCalc.Evaluator.Evaluate2">
+      <summary>
+            Directly invokes the compiled expression with giving two arguments.
+            This field is readonly.
+            </summary>
+    </member>
+    <member name="F:ILCalc.Evaluator.EvaluateN">
+      <summary>
+            Directly invokes the compiled expression with giving three or more arguments.
+            This field is readonly.
+            </summary>
+    </member>
+    <member name="M:ILCalc.Evaluator.ToString">
+      <summary>
+            Returns the expression string, that this Evaluator represents.
+            </summary>
+      <returns>Expression string.</returns>
+    </member>
+    <member name="T:ILCalc.FunctionCollection">
+      <summary>
+            Manages the pairs list of function names and attached method reflections
+            available to an expression. Function names are unique, but they can
+            be overloaded by arguments count and contains methods with <c>params</c>
+            arguments, that can be overloaded too.<br />
+            This class cannot be inherited.
+            </summary>
+    </member>
+    <member name="M:ILCalc.FunctionCollection.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:ILCalc.FunctionCollection" /> class
+            that is empty and has the default initial capacity.
+            </summary>
+    </member>
+    <member name="M:ILCalc.FunctionCollection.#ctor(ILCalc.FunctionCollection)">
+      <summary>
+            Initializes a new instance of the <see cref="T:ILCalc.FunctionCollection" />
+            class from the other <see cref="T:ILCalc.FunctionCollection" /> instance.
+            </summary>
+      <param name="list">
+        <see cref="T:ILCalc.FunctionCollection" /> instance.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="list" /> is null.</exception>
+    </member>
+    <member name="M:ILCalc.FunctionCollection.Add(System.Reflection.MethodInfo)">
+      <summary>
+            Adds the method reflection to the end of the <see cref="T:ILCalc.FunctionCollection" />
+            with the name, taken from real method name.
+            </summary>
+      <param name="func">MethodInfo to add.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="func" /> is null.</exception>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="func" /> is not valid method to be added
+            into this <see cref="T:ILCalc.FunctionCollection" />.<br />-or-<br />
+            method with same name and same arguments count 
+            already exist in the list (overload impossible).
+            </exception>
+    </member>
+    <member name="M:ILCalc.FunctionCollection.Add(System.String,System.Reflection.MethodInfo)">
+      <summary>
+            Adds the method reflection to the end of the <see cref="T:ILCalc.FunctionCollection" />
+            with the specified name.
+            </summary>
+      <param name="name">Function name.</param>
+      <param name="func">MethodInfo to add.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="func" /> is null.</exception>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="func" /> is not valid
+            method to be added into this <see cref="T:ILCalc.FunctionCollection" />.<br />-or-<br /><paramref name="name" /> is not valid identifier name.<br />-or-<br />
+            method with same name and same arguments count already
+            exist in the list (overload impossible).
+            </exception>
+    </member>
+    <member name="M:ILCalc.FunctionCollection.Add(System.Type,System.String)">
+      <summary>
+            Adds the member method of specified type by name to the end of the
+            <see cref="T:ILCalc.FunctionCollection" /> with the name, taken from real method name.
+            </summary>
+      <param name="type">Type object.</param>
+      <param name="methodName">Member method name to add.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="type" /> is null.</exception>
+      <exception cref="T:System.ArgumentException">
+            member method with <paramref name="methodName" /> is not founded.<br />-or-<br />
+            founded method is not valid to be added into this <see cref="T:ILCalc.FunctionCollection" />.<br />-or-<br />
+            method with same name and same arguments count already exist
+            in the list (overload impossible).
+            </exception>
+      <exception cref="T:System.Reflection.AmbiguousMatchException">
+            If <paramref name="type" /> contains more than one member method matching
+            the specified <paramref name="methodName" />.
+            </exception>
+    </member>
+    <member name="M:ILCalc.FunctionCollection.Clear">
+      <summary>
+            Removes all names and methods from the <see cref="T:ILCalc.FunctionCollection" />.
+            </summary>
+    </member>
+    <member name="M:ILCalc.FunctionCollection.Contains(System.String)">
+      <summary>
+            Determines whether an name is in the <see cref="T:ILCalc.FunctionCollection" />.
+            </summary>
+      <param name="name">Function name to locate in <see cref="T:ILCalc.FunctionCollection" />.</param>
+      <returns>
+        <b>true</b> if name is found in the list; otherwise, <b>false</b>.
+            </returns>
+    </member>
+    <member name="P:ILCalc.FunctionCollection.Count">
+      <summary>
+            Gets the number of names actually contained 
+            in the <see cref="T:ILCalc.FunctionCollection" />.
+            </summary>
+    </member>
+    <member name="M:ILCalc.FunctionCollection.Import(System.Type)">
+      <summary>
+            Imports all public static methods of the specified type
+            that is able to add into this <see cref="T:ILCalc.FunctionCollection" />.
+            </summary>
+      <param name="type">Type opbject.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="type" /> is null.</exception>
+      <exception cref="T:System.ArgumentException">
+            Some of importing methods has the same name and same 
+            arguments count already exist in the list (overload impossible).
+            </exception>
+    </member>
+    <member name="M:ILCalc.FunctionCollection.Import(System.Type,System.Boolean)">
+      <summary>
+            Imports all static methods of the specified type
+            that is able to add into this <see cref="T:ILCalc.FunctionCollection" />.
+            </summary>
+      <param name="type">Type opbject.</param>
+      <param name="nonPublic">Include non public member methods in search.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="type" /> is null.</exception>
+      <exception cref="T:System.ArgumentException">
+            Some of importing methods has the same name and same 
+            arguments count already exist in the list (overload impossible).
+            </exception>
+    </member>
+    <member name="M:ILCalc.FunctionCollection.Import(System.Type[])">
+      <summary>
+            Imports all static methods of the specified types
+            thats is able to add into this <see cref="T:ILCalc.FunctionCollection" />.
+            </summary>
+      <param name="types">Array of <see cref="T:System.Type" /> opbjects.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="types" /> is null.</exception>
+      <exception cref="T:System.ArgumentException">
+            Some of importing methods has the same name and same 
+            arguments count already exist in the list (overload impossible).
+            </exception>
+    </member>
+    <member name="M:ILCalc.FunctionCollection.ImportBuiltin">
+      <summary>
+            Imports standart builtin functions from <c>System.Math</c>
+            into this <see cref="T:ILCalc.FunctionCollection" />.
+            </summary>
+      <exception cref="T:System.ArgumentException">
+            Some of names is already exist in the list.
+            </exception>
+    </member>
+    <member name="P:ILCalc.FunctionCollection.Names">
+      <summary>
+            Returns a read-only <see cref="T:System.Collections.Generic.IList`1" /> wrapper for names
+            list of the current <see cref="T:ILCalc.FunctionCollection" />.
+            </summary>
+    </member>
+    <member name="M:ILCalc.FunctionCollection.Remove(System.String)">
+      <summary>
+            Removes the function specified by name from the <see cref="T:ILCalc.FunctionCollection" />.
+            </summary>
+      <param name="name">The function name to be removed.</param>
+      <returns>
+        <b>true</b> if function is successfully removed; otherwise, <b>false</b>.
+            </returns>
+    </member>
+    <member name="M:ILCalc.FunctionCollection.Remove(System.String,System.Int32,System.Boolean)">
+      <summary>
+            Removes the function overload specified by name, arguments count
+            and params arguments usage from the <see cref="T:ILCalc.FunctionCollection" />.
+            </summary>
+      <param name="name">The function name.</param>
+      <param name="argsCount">Overload arguments count.</param>
+      <param name="isParams">Overload use params.</param>
+      <returns>
+        <b>true</b> if function overload is successfully removed; otherwise, <b>false</b>.
+            </returns>
+    </member>
+    <member name="T:ILCalc.IEvaluator">
+      <summary>
+            Represents the object for the expression evaluation.
+            </summary>
+    </member>
+    <member name="P:ILCalc.IEvaluator.ArgumentsCount">
+      <summary>
+            Gets the arguments count, that this <see cref="T:ILCalc.IEvaluator" /> implemented for.
+            </summary>
+    </member>
+    <member name="M:ILCalc.IEvaluator.Evaluate">
+      <summary>
+            Invokes the expression evaluation with giving no arguments.
+            </summary>
+      <returns>Evaluated value.</returns>
+    </member>
+    <member name="M:ILCalc.IEvaluator.Evaluate(System.Double)">
+      <summary>
+            Invokes the expression evaluation with giving one argument.
+            </summary>
+      <param name="arg">Expression argument.</param>
+      <returns>Evaluated value.</returns>
+    </member>
+    <member name="M:ILCalc.IEvaluator.Evaluate(System.Double,System.Double)">
+      <summary>
+            Invokes the expression evaluation with giving two arguments.
+            </summary>
+      <param name="arg1">First expression argument.</param>
+      <param name="arg2">Second expression argument.</param>
+      <returns>Evaluated value.</returns>
+    </member>
+    <member name="M:ILCalc.IEvaluator.Evaluate(System.Double[])">
+      <summary>
+            Invokes the expression evaluation with giving three or more arguments.
+            </summary>
+      <param name="args">Expression arguments.</param>
+      <returns>Evaluated value.</returns>
+    </member>
+    <member name="M:ILCalc.IEvaluator.ToString">
+      <summary>
+            Returns the expression string, that this <see cref="T:ILCalc.IEvaluator" /> represents.
+            </summary>
+      <returns>Expression string.</returns>
+    </member>
+    <member name="T:ILCalc.Interpret">
+      <summary>
+            Represents the object for evaluating expression by interpreter.<br />
+            Instance of this class can be get from the <see cref="M:ILCalc.CalcContext.CreateInterpret(System.String)" /> method.<br />
+            This class cannot be inherited.
+            </summary>
+    </member>
+    <member name="P:ILCalc.Interpret.ArgumentsCount">
+      <summary>
+            Gets the arguments count, that this
+            <see cref="T:ILCalc.Interpret" /> implemented for.
+            </summary>
+    </member>
+    <member name="M:ILCalc.Interpret.Evaluate">
+      <summary>
+            Invokes the expression interpreter with giving no arguments.
+            </summary>
+      <returns>Evaluated value.</returns>
+      <exception cref="T:System.InvalidOperationException">
+        <see cref="T:ILCalc.Interpret" /> can't be evaluated by 
+            <see cref="M:ILCalc.Interpret.Evaluate" /> method with no arguments.
+            </exception>
+      <exception cref="T:System.ArithmeticException">
+            Expression evaluation thrown the <see cref="T:System.ArithmeticException" />.
+            </exception>
+    </member>
+    <member name="M:ILCalc.Interpret.Evaluate(System.Double)">
+      <summary>
+            Invokes the expression interpreter with giving one argument.
+            </summary>
+      <param name="arg">Expression argument.</param>
+      <returns>Evaluated value.</returns>
+      <exception cref="T:System.InvalidOperationException">
+        <see cref="T:ILCalc.Interpret" /> can't be evaluated by 
+            <see cref="M:ILCalc.Interpret.Evaluate(System.Double)" /> method with one argument.
+            </exception>
+      <exception cref="T:System.ArithmeticException">
+            Expression evaluation thrown the <see cref="T:System.ArithmeticException" />.
+            </exception>
+    </member>
+    <member name="M:ILCalc.Interpret.Evaluate(System.Double,System.Double)">
+      <summary>
+            Invokes the expression interpreter with giving two arguments.
+            </summary>
+      <param name="arg1">First expression argument.</param>
+      <param name="arg2">Second expression argument.</param>
+      <returns>Evaluated value.</returns>
+      <exception cref="T:System.InvalidOperationException">
+        <see cref="T:ILCalc.Interpret" /> can't be evaluated by 
+            <see cref="M:ILCalc.Interpret.Evaluate(System.Double,System.Double)" /> method with two arguments.
+            </exception>
+      <exception cref="T:System.ArithmeticException">
+            Expression evaluation thrown the <see cref="T:System.ArithmeticException" />.
+            </exception>
+    </member>
+    <member name="M:ILCalc.Interpret.Evaluate(System.Double[])">
+      <summary>
+            Invokes the expression interpreter with giving three or more arguments.
+            </summary>
+      <param name="args">Expression arguments.</param>
+      <returns>Evaluated value.</returns>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="args" /> doesn't specify needed
+            <see cref="P:ILCalc.Interpret.ArgumentsCount">arguments count</see>.
+            </exception>
+      <exception cref="T:System.ArithmeticException">
+            Expression evaluation thrown the <see cref="T:System.ArithmeticException" />.
+            </exception>
+    </member>
+    <member name="P:ILCalc.Interpret.OverflowCheck">
+      <summary>Gets or sets checking mode for the expression evaluation.</summary>
+    </member>
+    <member name="M:ILCalc.Interpret.ToString">
+      <summary>
+            Returns the expression string, that this
+            <see cref="T:ILCalc.Interpret" /> represents.
+            </summary>
+      <returns>Expression string.</returns>
+    </member>
+    <member name="T:ILCalc.InvalidRangeException">
+      <summary>
+            The exception that is thrown when the <see cref="T:ILCalc.TabRange" />
+            instance validation is failed.<br />
+            This class cannot be inherited.
+            </summary>
+    </member>
+    <member name="M:ILCalc.InvalidRangeException.#ctor">
+      <summary>Initializes a new instance of the
+            <see cref="T:ILCalc.InvalidRangeException" /> class.</summary>
+    </member>
+    <member name="M:ILCalc.InvalidRangeException.#ctor(System.String)">
+      <summary>
+            Initializes a new instance of the <see cref="T:ILCalc.InvalidRangeException" />
+            class with a specified error message.
+            </summary>
+      <param name="message">The message that describes the error.</param>
+    </member>
+    <member name="M:ILCalc.InvalidRangeException.#ctor(System.String,System.Exception)">
+      <summary>
+            Initializes a new instance of the <see cref="T:ILCalc.InvalidRangeException" />
+            class with a specified error message and a reference to the
+            inner exception that is the cause of this exception.
+            </summary>
+      <param name="message">The message that describes the error.</param>
+      <param name="innerException">
+            The exception that is the cause of the current exception, or
+            a <c>null</c> reference if no inner exception is specified.
+            </param>
+    </member>
+    <member name="T:ILCalc.OptimizeModes">
+      <summary>
+            Provides enumerated values to use to set expression optimizer options.
+            Expression optimizer will be used by <see cref="T:ILCalc.CalcContext" />
+            when creating <see cref="T:ILCalc.Evaluator" />, <see cref="T:ILCalc.Tabulator" />
+            or <see cref="T:ILCalc.Interpret" /> objects.
+            </summary>
+    </member>
+    <member name="F:ILCalc.OptimizeModes.None">
+      <summary>
+            Specifies that no optimizations are should be done.
+            </summary>
+    </member>
+    <member name="F:ILCalc.OptimizeModes.ConstantFolding">
+      <summary>
+            Constant folding optimization should be done for the expression.
+            It is used to perform partical evaluation of
+            operators in parse-time when operands are known values:
+            <c>2 + 8 / 4</c> will be replaced by <c>4</c>.
+            </summary>
+    </member>
+    <member name="F:ILCalc.OptimizeModes.FunctionFolding">
+      <summary>
+            Function folding optimization should be done for the expression.
+            It is used for invoking function in parse-time when all the
+            arguments of function are known values: <c>sin(pi / 6)</c>
+            will be replaced with <c>0.5</c>.<br /><i>WARNING: Functions should not produce any side-effects
+            or you may get an unexpected result.</i></summary>
+    </member>
+    <member name="F:ILCalc.OptimizeModes.PowOptimize">
+      <summary>
+            Power operator optimization should be done for the expression.
+            It is used for replacing expressions like <c>x ^ 4</c> with 
+            <c>x * x * x * x</c> that evaluates much faster.
+            </summary>
+    </member>
+    <member name="F:ILCalc.OptimizeModes.PerformAll">
+      <summary>
+            Specifies that all of optimizations are should be done.
+            </summary>
+    </member>
+    <member name="T:ILCalc.SyntaxException">
+      <summary>
+            The exception that is thrown when syntax error
+            occurs during expression parsing by <see cref="T:ILCalc.CalcContext" />.<br />
+            This class cannot be inherited.
+            </summary>
+    </member>
+    <member name="M:ILCalc.SyntaxException.#ctor">
+      <summary>Initializes a new instance of the
+            <see cref="T:ILCalc.SyntaxException" /> class.</summary>
+    </member>
+    <member name="M:ILCalc.SyntaxException.#ctor(System.String)">
+      <summary>
+            Initializes a new instance of the <see cref="T:ILCalc.SyntaxException" />
+            class with a specified error message.
+            </summary>
+      <param name="message">The message that describes the error.</param>
+    </member>
+    <member name="M:ILCalc.SyntaxException.#ctor(System.String,System.Exception)">
+      <summary>
+            Initializes a new instance of the <see cref="T:ILCalc.SyntaxException" />
+            class with a specified error message and a reference to the
+            inner exception that is the cause of this exception.
+            </summary>
+      <param name="message">The message that describes the error.</param>
+      <param name="innerException">
+            The exception that is the cause of the current exception, or
+            a <c>null</c> reference if no inner exception is specified.
+            </param>
+    </member>
+    <member name="P:ILCalc.SyntaxException.Expression">
+      <summary>
+            Gets the full expression string that thrown an exception.
+            </summary>
+    </member>
+    <member name="P:ILCalc.SyntaxException.Length">
+      <summary>
+            Gets the length of expression substring that thrown an exception.
+            </summary>
+    </member>
+    <member name="P:ILCalc.SyntaxException.Position">
+      <summary>
+            Gets the start position of the expression
+            substring that thrown an exception.
+            </summary>
+    </member>
+    <member name="P:ILCalc.SyntaxException.Substring">
+      <summary>
+            Gets the expression substring that thrown an exception.
+            </summary>
+    </member>
+    <member name="T:ILCalc.TabRange">
+      <summary>
+            Defines a set of (begin, end, step) values,
+            that represents the range of values.
+            </summary>
+    </member>
+    <member name="M:ILCalc.TabRange.#ctor(System.Double,System.Double,System.Double)">
+      <summary>
+            Initializes a new instance of the <see cref="T:ILCalc.TabRange" />
+            structure with the specified begin, end and step values.
+            </summary>
+      <param name="begin">Range begin value.</param>
+      <param name="end">Range end value.</param>
+      <param name="step">Range step value.</param>
+    </member>
+    <member name="P:ILCalc.TabRange.Begin">
+      <summary>Gets or sets the begining value of the range.</summary>
+    </member>
+    <member name="P:ILCalc.TabRange.Count">
+      <summary>Gets or sets the count of the steps, that would
+            be taken while iteration over the range.</summary>
+    </member>
+    <member name="P:ILCalc.TabRange.End">
+      <summary>Gets or sets the ending value of the range.</summary>
+    </member>
+    <member name="M:ILCalc.TabRange.Equals(ILCalc.TabRange)">
+      <summary>Indicates whether the current <see cref="T:ILCalc.TabRange" />
+            is equal to another <see cref="T:ILCalc.TabRange" /> structure.</summary>
+      <param name="other">An another <see cref="T:ILCalc.TabRange" />
+            to compare with.</param>
+      <returns>
+        <b>true</b> if the current <see cref="T:ILCalc.TabRange" />
+            is equal to the other <see cref="T:ILCalc.TabRange" />;
+            otherwise, <b>false</b>.</returns>
+    </member>
+    <member name="M:ILCalc.TabRange.Equals(System.Object)">
+      <summary>
+            Indicates whether the current <see cref="T:ILCalc.TabRange" />
+            is equal to another object.
+            </summary>
+      <param name="obj">An another <see cref="T:System.Object" /> to compare with.</param>
+      <returns>
+        <b>true</b> if the current <see cref="T:ILCalc.TabRange" /> is equal 
+            to the other <see cref="T:ILCalc.TabRange" />;
+            otherwise, <b>false</b>.
+            </returns>
+    </member>
+    <member name="M:ILCalc.TabRange.GetHashCode">
+      <summary>Returns the hash code of this instance.</summary>
+      <returns>A 32-bit signed integer hash code.</returns>
+    </member>
+    <member name="M:ILCalc.TabRange.IsValid">
+      <summary>Returns <c>true</c> if this range instance
+            is valid for iteration over it.</summary>
+      <returns>
+        <b>true</b> if range is valid,
+            otherwise <b>false</b></returns>
+    </member>
+    <member name="P:ILCalc.TabRange.Length">
+      <summary>Calculates the lenght of the range.</summary>
+    </member>
+    <member name="M:ILCalc.TabRange.op_Equality(ILCalc.TabRange,ILCalc.TabRange)">
+      <summary>
+            Returns a value indicating whether two instances
+            of <see cref="T:ILCalc.TabRange" /> are equal.
+            </summary>
+      <param name="r1">A <see cref="T:ILCalc.TabRange" /></param>
+      <param name="r2">A <see cref="T:ILCalc.TabRange" /></param>
+      <returns>
+        <b>true</b> if <paramref name="r1" /> and <paramref name="r2" /> are equal;
+            otherwise, <b>false</b>.
+            </returns>
+    </member>
+    <member name="M:ILCalc.TabRange.op_Inequality(ILCalc.TabRange,ILCalc.TabRange)">
+      <summary>
+            Returns a value indicating whether two instances
+            of <see cref="T:ILCalc.TabRange" /> are not equal.
+            </summary>
+      <param name="r1">A <see cref="T:ILCalc.TabRange" /></param>
+      <param name="r2">A <see cref="T:ILCalc.TabRange" /></param>
+      <returns>
+        <b>true</b> if <paramref name="r1" /> and <paramref name="r2" /> are not equal;
+            otherwise, <b>false</b>.
+            </returns>
+    </member>
+    <member name="P:ILCalc.TabRange.Step">
+      <summary>Gets or sets the step value of the range.</summary>
+    </member>
+    <member name="M:ILCalc.TabRange.ToString">
+      <summary>
+            Returns the expression string, that this <see cref="T:ILCalc.Tabulator" /> represents.
+            </summary>
+      <returns>Expression string.</returns>
+    </member>
+    <member name="M:ILCalc.TabRange.Validate">
+      <summary>Throws an <see cref="T:ILCalc.InvalidRangeException" /> if this
+            range instance is not valid for iteration over it.</summary>
+      <exception cref="T:ILCalc.InvalidRangeException">
+            Range is not valid for iteration over it.
+            </exception>
+    </member>
+    <member name="T:ILCalc.Tabulator">
+      <summary>
+            Represents the object for evaluating compiled expression
+            in specfied range of arguments values.<br />
+            Instance of this class can be get from the <see cref="M:ILCalc.CalcContext.CreateTabulator(System.String)" />
+            method.<br />This class cannot be inherited.
+            </summary>
+    </member>
+    <member name="P:ILCalc.Tabulator.RangesCount">
+      <summary>
+            Gets the argument ranges count, that this Tabulator implemented for.
+            </summary>
+    </member>
+    <member name="M:ILCalc.Tabulator.Tabulate(ILCalc.TabRange)">
+      <summary>
+            Invokes the compiled expression tabulation
+            with giving one argument range.
+            </summary>
+      <param name="range">Argument range.</param>
+      <returns>Array of evaluated values.</returns>
+      <exception cref="T:System.InvalidOperationException">
+        <see cref="T:ILCalc.Tabulator" /> with one argument range is not compiled.
+            </exception>
+      <exception cref="T:System.ArithmeticException">
+            Expression evaluation thrown the <see cref="T:System.ArithmeticException" />.
+            </exception>
+    </member>
+    <member name="M:ILCalc.Tabulator.Tabulate(ILCalc.TabRange,ILCalc.TabRange)">
+      <summary>
+            Invokes the compiled expression tabulation
+            with giving two arguments ranges.
+            </summary>
+      <param name="range1">First argument range.</param>
+      <param name="range2">Second argument range.</param>
+      <returns>Array of arrays of evaluated values.</returns>
+      <exception cref="T:System.InvalidOperationException">
+        <see cref="T:ILCalc.Tabulator" /> with two arguments ranges is not compiled.
+            </exception>
+      <exception cref="T:System.ArithmeticException">
+            Expression evaluation thrown the <see cref="T:System.ArithmeticException" />.
+            </exception>
+    </member>
+    <member name="M:ILCalc.Tabulator.Tabulate(System.Double,System.Double,System.Double)">
+      <summary>
+            Invokes the compiled expression tabulation
+            with giving one argument range.
+            </summary>
+      <param name="begin">Argument range begin value.</param>
+      <param name="end">Argument range end value.</param>
+      <param name="step">Argument range step value.</param>
+      <returns>Array of evaluated values.</returns>
+      <exception cref="T:System.InvalidOperationException">
+        <see cref="T:ILCalc.Tabulator" /> with one argument range is not compiled.
+            </exception>
+      <exception cref="T:System.ArithmeticException">
+            Expression evaluation thrown the <see cref="T:System.ArithmeticException" />.
+            </exception>
+    </member>
+    <member name="M:ILCalc.Tabulator.ToString">
+      <summary>
+            Returns the expression string, that this Tabulator represents.
+            </summary>
+      <returns>Expression string.</returns>
+    </member>
+  </members>
+</doc>

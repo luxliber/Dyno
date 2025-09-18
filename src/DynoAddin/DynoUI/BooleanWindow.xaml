@@ -1,0 +1,23 @@
+﻿<local:ParameterWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:DynoUI"
+        x:Class="DynoUI.BooleanWindow" SizeToContent="WidthAndHeight">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+             <ResourceDictionary Source="Themes/MetroDark.MSControls.Core.Implicit.xaml" />
+                <ResourceDictionary Source="Themes/Generic.xaml"/>
+        </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+    </Window.Resources>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="35"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <RadioButton x:Name="FalseButton" Grid.Column="1" Content="false" GroupName="A" x:FieldModifier="public" />
+            <RadioButton x:Name="TrueButton" Grid.Column="2"  Content="true" GroupName="A" x:FieldModifier="public" />
+        </Grid>
+</local:ParameterWindow>

@@ -1,0 +1,24 @@
+<project outputDir="D:\Dyno\" baseDir="D:\Dyno\Confuser" xmlns="http://confuser.codeplex.com">
+  <rule pattern="true" preset="normal" inherit="false">
+    <protection id="anti ildasm" />
+    <protection id="anti tamper" />
+    <protection id="constants" />
+    <protection id="ctrl flow" />
+    <protection id="anti dump" action="remove" />
+    <protection id="anti debug" />
+    <protection id="invalid metadata" />
+    <protection id="ref proxy" />
+    <protection id="resources" action="remove" />
+    <protection id="rename" action="remove" />
+  </rule>
+  <module path="Dyno.dll" />
+  <module path="DynoCore.dll" />
+  <module path="DynoUI.dll" />
+  <module path="DynoNodes\bin\DynoNodes.dll" />
+  <probePath>D:\Dyno\Confuser</probePath>
+  <probePath>C:\Program Files\Autodesk\Revit 2018</probePath>
+  <probePath>D:\_bis\__dyno__\__repos__\Dynamo\bin\AnyCPU\Debug</probePath>
+  <probePath>D:\_bis\__dyno__\__repos__\Dynamo\bin\AnyCPU\Debug\Revit_2018</probePath>
+  <probePath>D:\_bis\__dyno__\__repos__\Dynamo\bin\AnyCPU\Debug\Revit_2018\nodes</probePath>
+  <probePath>D:\_bis\__dyno__\__repos__\Dynamo\bin\AnyCPU\Debug\nodes</probePath>
+</project>

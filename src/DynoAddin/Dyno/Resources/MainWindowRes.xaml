@@ -1,0 +1,68 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="Dyno.Resources.TreeViewResource">
+
+    <ContextMenu x:Key="ParameterPopup">
+        <MenuItem Header="Open Workspace Storage" Click="OnOpenStorageClick"/>
+        <MenuItem Header="Rescan Workspace Storage" Click="OnRescanStorageClick"/>
+        <MenuItem Header="Open Buttons File" Click="OnOpenButtonsFileClick"/>
+        <MenuItem Header="Settings..." Click="OnSettingsClick"/>
+        <MenuItem Header="Check Updates" Click="OnCheckUpdates" Visibility="Visible"/>
+        <MenuItem Header="About..." Click="About_Click"/>
+    </ContextMenu>
+
+    <ContextMenu x:Key="WorkspacePopup">
+        <MenuItem Header="Open in Dynamo" Click="OnOpenWorkspaceClick"/>
+        <MenuItem Header="Run in Silent Mode (Without UI)" Click="OnRunInSilentMode"/>
+        <MenuItem Header="Edit in Dyno Studio" Click="OnEditWorkspaceFormClick"/>
+        <MenuItem Header="Open Buttons File" Click="OnOpenButtonsFileClick"/>
+        <MenuItem Header="Open Presets file" Click="OnOpenWorkspaceInEditorClick"/>
+        <MenuItem Header="Open Workspace Storage" Click="OnOpenStorageClick"/>
+        <MenuItem Header="Rescan Workspace Storage" Click="OnRescanStorageClick"/>
+        <MenuItem Header="Settings..." Click="OnSettingsClick"/>
+        <MenuItem Header="Check Updates" Click="OnCheckUpdates" Visibility="Visible"/>
+        <MenuItem Header="About..." Click="About_Click"/>
+    </ContextMenu>
+
+    <ContextMenu x:Key="Popup">
+        <MenuItem Header="Open Workspace Storage" Click="OnOpenStorageClick"/>
+        <MenuItem Header="Rescan Workspace Storage" Click="OnRescanStorageClick"/>
+        <MenuItem Header="Open Buttons File" Click="OnOpenButtonsFileClick"/>
+        <MenuItem Header="Settings..." Click="OnSettingsClick"/>
+        <MenuItem Header="Check Updates" Click="OnCheckUpdates" Visibility="Visible"/>
+        <MenuItem Header="About..." Click="About_Click"/>
+    </ContextMenu>
+
+    <Style x:Key="TreeViewMenu" TargetType="{x:Type TreeView}">
+        <Setter Property="ContextMenu" Value="{StaticResource Popup}"/>
+        <EventSetter Event="Loaded" Handler="EventSetter_OnHandler"/>
+    </Style>
+
+    <Style x:Key="ItemMouseDoubleClick" TargetType="{x:Type TreeViewItem}">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <EventSetter Event="MouseDoubleClick" Handler="TreeViewItemOnItemMouseDoubleClick" />
+        <EventSetter Event="PreviewMouseRightButtonDown" Handler="TreeViewItemOnPreviewMouseRightButtonDown" />
+        <EventSetter Event="MouseLeftButtonUp" Handler="MouseLeftButtonUp"/>
+      
+        <EventSetter Event="Expanded" Handler="TreeViewItemOnExpanded"/>
+        <EventSetter Event="Collapsed" Handler="TreeViewItemOnCollapsed"/>
+
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Tag}" Value="preset">
+                <Setter Property="ContextMenu" Value="{StaticResource WorkspacePopup}"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Tag}" Value="hidden">
+                <Setter Property="Visibility" Value="Collapsed"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Tag}" Value="parameter">
+                <Setter Property="ContextMenu" Value="{StaticResource ParameterPopup}"/>
+
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style  x:Key="Download" TargetType="{x:Type Button}">
+        <EventSetter Event="Click" Handler="OnDownloadClick" />
+    </Style>
+</ResourceDictionary>

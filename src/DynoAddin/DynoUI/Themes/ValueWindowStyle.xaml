@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:DynoUI">
+
+    <StackPanel x:Key="ValueWindowContent">
+        <TextBox x:Name="ValueTextBox" Text="{Binding ValueText, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ValueWindow}}}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        
+    </StackPanel>
+</ResourceDictionary>
